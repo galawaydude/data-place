@@ -26,9 +26,19 @@
               "icon": "lucide-file",
               "title": "New tab"
             }
+          },
+          {
+            "id": "c1ddc8276f51b96d",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -172,7 +182,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,8 +199,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bb93974d89dfc7c3",
+  "active": "c1ddc8276f51b96d",
   "lastOpenFiles": [
+    "000 index",
     "data-place",
     "000 index/Untitled.md",
     "templates/daily-note.md",
