@@ -1,9 +1,8 @@
-# <%+ tp.date.now("dddd, MMMM D, YYYY") %>
+# {{date:dddd, MMMM D, YYYY}}
 
-## stuff to do 
+## Stuff to do
 - [ ] Task 1
 - [ ] Task 2
 - [ ] Task 3
 
-## random gibberish
-<%+ tp.file.cursor() %>
+## Random gibberish
