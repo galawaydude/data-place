@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/daily.md",
+                "file": "200 cp-dsa/templates.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "daily"
+              "title": "templates"
             }
           }
         ]
@@ -166,11 +166,15 @@
   },
   "active": "de9e31c8e32ae52b",
   "lastOpenFiles": [
+    "templates/daily.md",
+    "200 cp-dsa/templates.md",
+    "/200 cp-dsa/templates.md",
+    "200 cp-dsa",
+    "/200 cp-dsa",
     "000 index/2025-07-13.md",
     "/templates/daily.md",
     "/templates",
     "/000 index",
-    "templates/daily.md",
     "000 index/test.md",
     "/000 index/2025-07-13.md",
     "/000 index/test.md",
