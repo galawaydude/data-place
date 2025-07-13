@@ -1,4 +1,3 @@
-# {{date:dddd, MMMM D, YYYY}}
 
 ## Stuff to do
 - [ ] Task 1
