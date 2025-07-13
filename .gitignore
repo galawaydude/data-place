@@ -1,1 +1,5 @@
 ".obsidian/\n.trash/\n.DS_Store" 
+
+.obsidian/appearance.json
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
