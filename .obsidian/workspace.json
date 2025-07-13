@@ -179,8 +179,7 @@
       "audio-recorder:Start/stop recording": false,
       "markdown-importer:Open format converter": true,
       "publish:Publish changes...": true,
-      "obsidian-git:Open Git source control": true,
-      "templater-obsidian:Templater": false
+      "obsidian-git:Open Git source control": true
     }
   },
   "active": "0560285be16e950c",
