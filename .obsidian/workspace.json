@@ -11,10 +11,14 @@
             "id": "5f08bf9b3eb14b6a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "templates/daily.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "daily"
             }
           }
         ]
@@ -178,12 +182,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4f4fdb9b25545dda",
+  "active": "5f08bf9b3eb14b6a",
   "lastOpenFiles": [
+    "100 operating-systems/Starter pack.md",
+    "templates/daily.md",
     "assets",
     "assets/Untitled.jpeg",
-    "100 operating-systems/Starter pack.md",
-    "000 index/Untitled.md",
     "templates",
     "200 cp-dsa",
     "100 operating-systems",
