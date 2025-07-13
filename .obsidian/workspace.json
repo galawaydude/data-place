@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "000 index/templates.md",
+                "file": "200 cp-dsa/templates.md",
                 "mode": "source",
                 "source": false
               },
@@ -197,10 +197,11 @@
       "obsidian-git:Open Git source control": true
     }
   },
-  "active": "51f8364cdc65512d",
+  "active": "4f4fdb9b25545dda",
   "lastOpenFiles": [
+    "000 index/ss.md",
+    "200 cp-dsa/templates.md",
     "templates/daily.md",
-    "000 index/templates.md",
     "000 index/2025-07-13.md",
     "000 index/test.md",
     "100 operating-systems/Starter pack.md",
