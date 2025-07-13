@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "000 index/test.md",
+                "file": "templates/daily.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "test"
+              "title": "daily"
             }
           }
         ]
@@ -166,13 +166,15 @@
   },
   "active": "de9e31c8e32ae52b",
   "lastOpenFiles": [
+    "000 index/2025-07-13.md",
+    "/templates/daily.md",
+    "/templates",
+    "/000 index",
     "templates/daily.md",
     "000 index/test.md",
-    "/templates/daily.md",
+    "/000 index/2025-07-13.md",
     "/000 index/test.md",
     "templates",
-    "000 index",
-    "/templates",
-    "/000 index"
+    "000 index"
   ]
 }
