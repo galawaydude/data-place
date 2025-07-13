@@ -1,6 +1,6 @@
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 
-## 🧾 Top Tasks
+## stuff to do 
 - [ ] Task 1
 - [ ] Task 2
 - [ ] Task 3
