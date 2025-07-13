@@ -1,4 +1,4 @@
-### Introduction to the Operating System (OS)
+# Introduction to the Operating System (OS)
 
 An Operating System (OS) is a fundamental software layer that acts as a crucial intermediary between a computer's hardware and the end-user. In essence, you cannot directly communicate with the hardware (CPU, memory, storage devices); the OS provides a manageable and accessible interface to do so.
 
