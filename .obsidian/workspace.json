@@ -21,10 +21,14 @@
             "id": "bb93974d89dfc7c3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "000 index/stuff i guess.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "stuff i guess"
             }
           }
         ],
@@ -172,8 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,9 +194,9 @@
   },
   "active": "bb93974d89dfc7c3",
   "lastOpenFiles": [
+    "000 index/stuff i guess.md",
     "000 index",
     "data-place",
-    "000 index/Untitled.md",
     "templates/daily-note.md",
     "Untitled.canvas",
     "templates",
