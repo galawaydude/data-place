@@ -26,19 +26,9 @@
               "icon": "lucide-file",
               "title": "New tab"
             }
-          },
-          {
-            "id": "c1ddc8276f51b96d",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -199,7 +189,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c1ddc8276f51b96d",
+  "active": "bb93974d89dfc7c3",
   "lastOpenFiles": [
     "000 index",
     "data-place",
