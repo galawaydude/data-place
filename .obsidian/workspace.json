@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "000 index/2025-07-13.md",
+                "file": "templates/daily.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-13"
+              "title": "daily"
             }
           }
         ]
@@ -183,10 +183,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "4f4fdb9b25545dda",
+  "active": "0560285be16e950c",
   "lastOpenFiles": [
-    "templates/daily.md",
     "000 index/2025-07-13.md",
+    "templates/daily.md",
     "000 index/test.md",
     "100 operating-systems/Starter pack.md",
     "assets",
