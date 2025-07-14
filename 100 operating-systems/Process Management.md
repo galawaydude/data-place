@@ -291,8 +291,34 @@ This is a general class of algorithms where each process is assigned a priority 
 - Static Priority: The priority of a process is fixed when it is created and does not change.
 - Dynamic Priority: The priority of a process can change during its execution. A common technique is aging, where the priority of a process is gradually increased the long it waits in the ready queue. This solves the starvation problem.
 
-And this priority thing can be implemented, both preemptively and non-preem
+And this priority thing can be implemented, both preemptively and non-preemptively. (you know how i guess)
 
+
+### **Multi-Level Queue Scheduling
+
+This algorithm partitions the ready queue into several separate queues. For example, you might have:
+
+1. System Processes (Highest Priority)
+2. Interactive Processes (Medium Priority)
+3. Batch Processes (Lowest Priority)
+
+Each queue has its own scheduling algorithm (e.g., RR for interactive, FCFS for batch). Scheduling between the queues is typically a fixed-priority preemptive scheme. For instance, no process in the batch queue can run unless the queues for system and interactive processes are empty.
+
+- Advantage: Allows the use of different, appropriate algorithms for different classes of processes.
+- Disadvantage: Starvation is a major problem. Processes in low-priority queues might never execute if there is a continuous supply of higher-priority processes.
+
+
+
+### **Multi-Level Feedback Queue Scheduling
+
+This is an enhancement of the multi-level queue that addresses the starvation problem by allowing processes to move between queues. This is the most complex, but also one of the most flexible and widely used, scheduling algorithms.
+
+How it works:
+
+- If a process uses too much CPU time in a high-priority queue, it can be moved to a lower-priority queue. This reserves the high-priority queues for short, interactive jobs.
+- If a process waits for too long in a low-priority queue, it can be moved to a higher-priority queue. This process, known as aging, ensures that no process starves.
+
+By allowing processes to "feedback" to different queues, the system can dynamically adjust to the behavior of processes, providing a good balance of responsiveness, throughput, and fairness.
 
 
 
