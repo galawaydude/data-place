@@ -77,7 +77,8 @@ To manage memory effectively, especially when main memory (RAM) is full, the OS 
 - Suspend Ready: A process that was in the Ready state (in main memory) is moved to secondary memory (disk) to make room for other processes. It is still ready to run but must be brought back into main memory first.
 - Suspend Block (or Suspend Wait): A process that was in the Blocked state is moved to secondary memory. This is often more efficient, as the process was already waiting for an I/O event and not eligible to use the CPU anyway. When the I/O event it was waiting for completes, it transitions to the Suspend Ready state, as it is now ready to run but still resides on disk.
 
-#### Process State Transition Diagram & Schedulers
+### Process State Transition Diagram
+
 
 The movement of a process between these states is governed by the OS schedulers.
 ## Long-Term Scheduler (LTS) – Job Scheduler
@@ -103,7 +104,7 @@ The **Long-Term Scheduler** is responsible for **controlling the admission of ne
 
 The **Short-Term Scheduler** is responsible for **selecting one process** from the **Ready queue** (i.e., processes already in main memory and ready to execute) and **assigning the CPU to it**.
 
-### **Key Characteristics:**
+### Key Characteristics:
 
 - **Primary Role**: Allocates the CPU to one of the ready processes.
     
@@ -140,7 +141,7 @@ The **dispatcher** is the component that **executes the decision made by the Sho
 
 ---
 
-## **3. Medium-Term Scheduler (MTS)**
+## 3. Medium-Term Scheduler (MTS)
 
 The **Medium-Term Scheduler** is responsible for **swapping processes in and out of main memory**, primarily to manage memory usage and maintain an optimal level of multiprogramming.
 
