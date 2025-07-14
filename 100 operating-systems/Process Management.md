@@ -213,14 +213,23 @@ Basically at a particular instant, we check which process has the lowest CPU Bur
 
 So obv, as said above, we cannot know the burst time of a process before hand, so, we try to predict it.
 
-Static Prediction: Prediction is based on fixed attributes of the process.
-	Process Size: Larges processes would have larger execution time
-	Process Type: Differentiate Between OS process, interactive foreground processes,  and background process.
+- Static Prediction: Prediction is based on fixed attributes of the process.
+	- Process Size: Larges processes would have larger execution time
+	- Process Type: Differentiate Between OS process, interactive foreground processes,  and background process.
 
-Dynamic Prediction (Exponential Average/ Aging): This is a more common method. It calculates a weighted average of previous burst times, giving a weight to a recent behavior
+- Dynamic Prediction (Exponential Average/ Aging): This is a more common method. It calculates a weighted average of previous burst times, giving a weight to a recent behavior
 $$
-\tau_{n+1} = \alpha \cdot t_n + (1 - \alpha) \cdot \tau_n
-$$
+- \tau_{n+1} = \alpha \cdot t_n + (1 - \alpha) \cdot \tau_n
+- $$
+
+
+- $\tau_{n+1}$ is the predicted burst time for the next burst.  
+- $t_n$ is the duration of the actual most recent CPU burst.  
+- $\tau_n$ was the predicted value for the most recent burst.  
+- $\alpha$ (alpha) is the smoothing factor ($0 \leq \alpha \leq 1$).  
+  - A value of $\alpha$ close to 1 gives high weight to the most recent burst,  
+  - while a value close to 0 gives more weight to the past history.
+
 
 
 
