@@ -288,7 +288,11 @@ HRRN not only favors shorter jobs, but also limits waiting time of longer jobs.
 
 This is a general class of algorithms where each process is assigned a priority number, and the CPU is allocated to the one with the highest priority.
 
-Static Priority: The priority of a process is fixed when it is created and does not change.
-Dynamic Priority: The priority of a process can change during its execution. A common technique is aging, where the priority of a process is gradually 
+- Static Priority: The priority of a process is fixed when it is created and does not change.
+- Dynamic Priority: The priority of a process can change during its execution. A common technique is aging, where the priority of a process is gradually increased the long it waits in the ready queue. This solves the starvation problem.
+
+And this priority thing can be implemented, both preemptively and non-preem
+
+
 
 
