@@ -155,7 +155,6 @@ The **Medium-Term Scheduler** is responsible for **swapping processes in and out
     - Moves processes from **Ready** to **Suspend Ready**.
         
     - Moves processes from **Blocked** to **Suspend Wait**, and back.
-        
 
 > It manages **which processes stay in memory** and which are moved out to keep the system efficient and responsive.
 
