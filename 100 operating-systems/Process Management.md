@@ -180,5 +180,9 @@ A scheduling decision must be made by the OS whenever a process transitions betw
 3. Moves from Running to Ready (it is preempted by an interrupt or timer).
 4. Moves from Waiting to Ready (its I/O operation completes).
 
+## **Scheduling Algorithms
 
-## Scheduling Algorithms
+**First Come First Serve**
+
+
+
