@@ -46,7 +46,7 @@ The OS creates a specific data structure in memory for each process. This struct
 
 #### The Process Control Block (PCB)
 
-To manage all the running processes, the OS maintains a data structure for each one called the Process Control Block (PCB). The PCB is like a passport or an ID card for the process; it contains all the essential information that the OS needs to know about it. Whenever the OS needs to switch from running one process to another (an action called a context switch), it saves the state of the current process in its PCB and loads the state of the new process from its PCB.
+To manage all the running processes, the OS maintains a data structure for **each one** called the Process Control Block (PCB). The PCB is like a passport or an ID card for the process; it contains all the essential information that the OS needs to know about it. Whenever the OS needs to switch from running one process to another (an action called a context switch), it saves the state of the current process in its PCB and loads the state of the new process from its PCB.
 
 The PCB, also known as the context of the process, stores the following key attributes:
 

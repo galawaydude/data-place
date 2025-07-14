@@ -19,4 +19,4 @@ text segment holds the comp
 
 each process, has the above ds
 
-to manages all the processes, there is another ds, which is pcb
+to manages all the processes, there is another ds, which is pcb(pcb is per process, or all the processesd)
