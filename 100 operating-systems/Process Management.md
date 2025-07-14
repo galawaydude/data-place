@@ -321,4 +321,4 @@ How it works:
 By allowing processes to "feedback" to different queues, the system can dynamically adjust to the behavior of processes, providing a good balance of responsiveness, throughput, and fairness.
 
 
-
+![[Pasted image 20250714191203.png]]
