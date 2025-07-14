@@ -151,4 +151,5 @@ The entire system of state transitions, driven by preemption and scheduling, is 
 
 # **CPU Scheduling and Queues
 
-In a multi programming operating system, miltiople
+In a multi programming operating system, multiple processes are kept in the memory at the same time, to manage them, the OS has multiple queues. 
+The process lifecycle involves moving between these queues, until they are execute
