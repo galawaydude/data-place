@@ -193,6 +193,14 @@ This is the simplest one there is, basically which ever one comes first, execute
 - Note: In a non-preemptive algorithm like FCFS, the Waiting Time is equal to the Response Time, because a process must wait its entire turn before it ever gets to run for the first time.
 #### **The Convoy Effect
 
+The FCFS algorithm suffers from a significant problem known as the Convoy Effect. This occurs when a process with a very long burst time arrives before other processes that have very short burst times. The short processes get stuck waiting behind the long one, much like a convoy of fast cars stuck behind a slow truck on a single-lane road. This leads to a drastic increase in the average waiting time for the system.
+
+### **Shortest Job First
+
+Basically at a particular instant, we check 
+
+
+
 
 
 
