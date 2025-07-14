@@ -189,24 +189,14 @@ Consider a system with 'N' CPU processors and 'M' total processes. The number of
 To compare the performance of different CPU scheduling algorithms, we use several key metrics. These parameters help us analyze how efficiently and fairly an algorithm manages processes.
 
 - Arrival Time (AT): This is the specific point in time when a process enters the Ready Queue for the first time.
-    
 - Burst Time (BT) or Service Time (S): This is the total amount of CPU time a process requires to complete its execution. It represents the duration the process needs to be in the "Running" state.
-    
 - Completion Time (CT): This is the specific point in time when a process finishes its execution and exits the system.
-    
 - Turnaround Time (TAT): This is the total time a process spends in the system, from its arrival to its completion. It is a measure of total duration.
-    
     > Formula: Turnaround Time (TAT) = Completion Time (CT) - Arrival Time (AT)​
-    
 - Waiting Time (WT): This is the total amount of time a process spends waiting in the Ready Queue for its turn on the CPU. It is a measure of the time spent being ready but not running.
-    
     > Formula: Waiting Time (WT) = Turnaround Time (TAT) - Burst Time (BT)​
-    
 - Response Time (RT): This is the time elapsed from when a process arrives in the ready queue until it gets scheduled on the CPU for the very first time. This metric is particularly important for interactive systems, as it measures how quickly the system responds to a user request.
-    
     > Formula: Response Time (RT) = Time of First Execution - Arrival Time (AT)​
-    
-
 #### 3. CPU Scheduling: The Core Concept
 
 CPU Scheduling is the fundamental task of selecting a process from the Ready Queue and allocating the CPU to it. This decision is made by the Short-Term Scheduler (also known as the CPU scheduler) and carried out by the Dispatcher.
