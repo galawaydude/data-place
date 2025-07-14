@@ -250,8 +250,7 @@ How it works:
 
 The performance of RR is highly dependent on the size of the time quantum.
 if the time quantum is very large (larger then any other processes, burst time), it would behave just like FCFS, cause we using a queue in this also.
-
-
+If the time quantum is very small, it results in a large number of context switches, while this improves the response time, the overhead of the frequent context switching can degrade the overall performance and throughput of the system.
 
 
 
