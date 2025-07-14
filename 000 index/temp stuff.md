@@ -240,3 +240,54 @@ How it works:
 - If a process waits for too long in a low-priority queue, it can be moved to a higher-priority queue. This process, known as aging, ensures that no process starves.
 
 By allowing processes to "feedback" to different queues, the system can dynamically adjust to the behavior of processes, providing a good balance of responsiveness, throughput, and fairness.
+
+
+
+## 📊 CPU Scheduling Key Formulas
+
+---
+
+### ✅ **Throughput**
+The number of processes completed per unit time.
+
+```
+Throughput = Total Processes Completed / Total Time
+```
+
+---
+
+### ⚙️ **CPU Utilization**
+The percentage of time the CPU is doing useful work (i.e., busy).
+
+```
+CPU Utilization (%) = (CPU Busy Time / Total Time) × 100
+```
+
+---
+
+### 💤 **CPU Idle Time**
+The total time the CPU was not executing any process.
+
+```
+CPU Idle Time = Total Time - CPU Busy Time
+```
+
+---
+
+### 📉 **CPU Idle Percentage**
+
+```
+CPU Idle (%) = (CPU Idle Time / Total Time) × 100
+```
+
+---
+
+### 🧠 Tip:
+To find **CPU Busy Time**, just sum up all the burst times of the processes.
+
+```
+CPU Busy Time = Σ (Burst Time of all processes)
+```
+
+---
+
