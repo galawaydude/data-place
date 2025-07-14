@@ -170,4 +170,5 @@ Blocked state: either no process is in the blocked state, or all the processes a
 > in such questions, only the above information is given, along with the process ids, the below stuff, we have to find.
 3) Completion Time: This is the specific point in time when a process completes its execution.
 4) Turn Around Time (TAT): This is the total time a process spends in the system, from its arrival to its execution. ==TAT = CT - AT==
-5) Waiting Time: This is the total amoutn of time a process spendds in the ready queue
+5) Waiting Time: This is the total amount of time a process spends in the ready queue, for its turn on the CPU. its ready, but not running ==WT = TAT - BT==
+6) Response Time: This is the time elapsed from when a process arrives in the ready queue
