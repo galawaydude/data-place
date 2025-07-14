@@ -209,8 +209,6 @@ Where:
 CPU Utlization is basically, the complement of inefficiency, subtract the above value from 100
 ```
 
-
-
 ### **Shortest Job First
 
 Basically at a particular instant, we check which process has the lowest CPU Burst time, and put this in the CPU (this version is non preemptive).
