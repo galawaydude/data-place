@@ -282,5 +282,6 @@ response ratio = (waiting time + burst time) / burst time
 ```
 
 The one with a higher response ratio, is selected for the CPU.
+HRRN not only favors shorter jobs, but als
 
 
