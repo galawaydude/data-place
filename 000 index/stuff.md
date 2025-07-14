@@ -13,3 +13,10 @@ the ds has 4 main sections
 stack, heap, data segments, text segments
 
 local variabls, functionds calls, and return 
+
+data segments holds the global variables, and static variabls, 
+text segment holds the comp
+
+each process, has the above ds
+
+to manages all the processes, there is another ds, which is pcb
