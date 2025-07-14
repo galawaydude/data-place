@@ -199,6 +199,17 @@ The FCFS algorithm suffers from a significant problem known as the Convoy Effect
 Basically in the above question, we are adding something called switch overhead, whenever a context switch happens, this overhead is added (and btw, its called a context switch, even if the switch is happening because the process is done executing)
 **For the above question this formula is important**
 
+```
+Inefficiency (%) = (Context Switch Time / Total Time) × 100
+
+Where:
+- Context Switch Time = δ × Number of Context Switches
+- δ = Time taken per context switch
+
+CPU Utlization is basically, the complement of i
+```
+
+
 
 ### **Shortest Job First
 
