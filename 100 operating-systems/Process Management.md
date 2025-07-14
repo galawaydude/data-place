@@ -307,7 +307,7 @@ Each queue has its own scheduling algorithm (e.g., RR for interactive, FCFS for 
 - Advantage: Allows the use of different, appropriate algorithms for different classes of processes.
 - Disadvantage: Starvation is a major problem. Processes in low-priority queues might never execute if there is a continuous supply of higher-priority processes.
 
-
+![[Pasted image 20250714191046.png]]
 
 ### **Multi-Level Feedback Queue Scheduling
 
