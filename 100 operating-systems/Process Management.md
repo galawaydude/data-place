@@ -208,8 +208,10 @@ Basically at a particular instant, we check which process has the lowest CPU Bur
     - Provides the maximum throughput because it processes more jobs in a given time period.
     - Achieves the minimum average waiting time and turnaround time.
 - Disadvantages:
-    - Starvation: Longer jobs may never get to run if a steady stream of shorter jobs keeps arriving.
-    - Impracticality: The biggest issue is that the exact CPU burst time of a process cannot be known in advance. This makes the true SJF algorithm impossible to implement in a real-world general-purpose OS.
+    - Longer jobs may never get to run if a steady stream of shorter jobs keeps arriving.
+    - ==The biggest issue is that the exact CPU burst time of a process cannot be known in advance. This makes the true SJF algorithm impossible to implement in a real-world general-purpose OS.==
+
+
 
 
 
