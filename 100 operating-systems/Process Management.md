@@ -161,5 +161,6 @@ The process lifecycle involves moving between these queues, until they are execu
 - Device Queues (I/O Queues): When a process requires an I/O operation (e.g., reading from a disk), it is placed in an I/O queue associated with that specific device. It remains there until the I/O operation is complete, after which it moves back to the Ready Queue.
 
 ![[Pasted image 20250714154326.png]]
-Ready state: either there is no process in the ready state, or all the processes which are there would be in the ru
-Running state;
+Ready state: either there is no process in the ready state, or all the processes which are there would be in the running state
+Running state: either no process is in the running state, or each cpu has one process using it, so the max number of processes in running state, would be equal to the total number of cpus
+Blocked state: either no process is in the blocked state, or all the processes are in the blocked state
