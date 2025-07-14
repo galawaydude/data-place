@@ -128,14 +128,11 @@ The **dispatcher** is the component that **executes the decision made by the Sho
 2. **Switching to User Mode**: Ensures safe execution by transitioning the CPU from kernel mode to user mode.
     
 3. **Starting Execution**: Transfers control to the selected process’s program counter.
-    
-
 #### **Key Characteristics:**
 
 - **Does not make decisions**: It simply carries out the scheduling decision.
     
 - **Performance-Critical**: Must be fast to reduce **dispatch latency**, ensuring smooth and responsive task switching.
-    
 
 > The dispatcher is the mechanism that **physically performs the switch** between processes after the scheduler chooses the next one.
 

@@ -28,3 +28,6 @@ process id
 process state (there are some states defined for all the processes, learn about these also)
 program counter
 cpu registers
+
+
+write about kernal mode and user mode
