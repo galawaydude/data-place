@@ -258,7 +258,7 @@ If the time quantum is very small, it results in a large number of context switc
 
 ### **Highest Response Ratio Next (HRRN)
 
-its a 
+it is a non-preemptive algorithm, that tries to correct the starvation problem of SJF, while still favoring shorter jobs.
 
 
 
