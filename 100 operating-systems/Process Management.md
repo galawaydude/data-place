@@ -329,8 +329,13 @@ By allowing processes to "feedback" to different queues, the system can dynamica
 ```
 Throughput = Total Processes Completed / Total Time
 ```
-
 ```
 CPU Utilization (%) = (CPU Busy Time / Total Time) × 100
 ```
+```
+CPU Idle Time = Total Time - CPU Busy Time
 
+```
+```
+CPU Busy Time = Σ (Burst Time of all processes)
+```
