@@ -231,9 +231,7 @@ $$
 ![[Pasted image 20250714161150.png]]
 
 
-
-
-
+### **Shortest remaining Time First
 
 
 
