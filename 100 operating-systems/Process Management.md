@@ -35,7 +35,7 @@ A Real-time Operating System is designed for environments where tasks must be co
 
 ### Process Management
 
-A process is one of the most fundamental concepts in a modern OS. While a program is a passive set of instructions stored on a disk (like a recipe in a book), a process is an active instance of a program in execution (like a chef actively following the recipe). When you run a program, the OS creates a process, which is a dynamic entity that requires system resources like CPU time and memory to complete its task.
+A process is one of the most fundamental concepts in a modern OS. While a program is a passive set of instructions stored on a disk a process is an active instance of a program in execution When you run a program, the OS creates a process, which is a dynamic entity that requires system resources like CPU time and memory to complete its task.
 
 The OS creates a specific data structure in memory for each process. This structure has a defined boundary and is typically divided into four main sections:
 
