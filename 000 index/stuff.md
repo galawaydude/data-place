@@ -22,3 +22,9 @@ each process, has the above ds
 to manages all the processes, there is another ds, which is pcb(pcb is per process, or all the processesd)
 
 switching between processes is called context switching, the states of a process are also stored in the pcb of the process
+
+the shit that is stored by the pcb
+process id
+process state (there are some states defined for all the processes, learn about these also)
+program counter
+cpu registe
