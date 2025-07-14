@@ -228,6 +228,7 @@ $$
 - A value of $\alpha$ close to 1 gives high weight to the most recent burst,  
 - while a value close to 0 gives more weight to the past history.
 
+![[Pasted image 20250714161150.png]]
 
 
 
