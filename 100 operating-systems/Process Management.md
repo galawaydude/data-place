@@ -239,6 +239,14 @@ The scheduler always allocates the CPU to the process that has the shortest rema
 
 ### **Round Robin Algorithm
 
+This is designed for time sharing systems, It is a preemptive algorithm that provides a fair share of CPU time to all processes.
+
+How it works:
+
+1. Processes are kept in a FIFO ready queue.
+2. The scheduler picks the first process and lets it run for a fixed duration called a time quantum (or time slice).
+3. If the process finishes within its time quantum, it terminates and leaves the system.
+4. If the process does not finish, it is preempted, and the OS moves it to the tail of the ready queue. The scheduler then picks the next process at the head of the queue.
 
 
 
