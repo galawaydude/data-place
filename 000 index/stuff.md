@@ -27,4 +27,4 @@ the shit that is stored by the pcb
 process id
 process state (there are some states defined for all the processes, learn about these also)
 program counter
-cpu registe
+cpu registers
