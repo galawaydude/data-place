@@ -197,7 +197,13 @@ The FCFS algorithm suffers from a significant problem known as the Convoy Effect
 
 ### **Shortest Job First
 
-Basically at a particular instant, we check 
+Basically at a particular instant, we check which process has the lowest CPU Burst time, and put this in the CPU (this version is non preemptive).
+- Mode: Non-Preemptive (in this version)
+- Criteria: Burst Time (BT)
+- Tie-Breaker: If two processes have the same burst time, FCFS is used (the one that arrived earlier is chosen).
+- Implementation: Can be implemented with a min-heap data structure, leading to a time complexity of O(n log n).
+> This apparentl
+
 
 
 
