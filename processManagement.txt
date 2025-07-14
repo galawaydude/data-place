@@ -1,0 +1,59 @@
+What are the two primary, often competing, goals of an Operating System?;Convenience for the user and efficiency in resource management.
+What is the fundamental role of an OS regarding computer hardware?;It acts as an intermediary, providing an interface for users to interact with the hardware, hiding its complexity.
+What are the two main functions of the OS in resource management?;Resource Allocator (decides who gets what) and Comprehensive Manager (controls execution).
+What is a "batch" in a Batch Operating System?;A group of jobs with similar requirements that are processed together sequentially without user interaction.
+What major problem did multiprogramming solve compared to batch systems?;It solved CPU inefficiency by keeping multiple jobs in memory and switching to another job during I/O waits, maximizing CPU utilization.
+What is the key difference between multiprogramming and multitasking?;Multiprogramming focuses on maximizing CPU utilization. Multitasking (time-sharing) is a logical extension that focuses on providing a responsive user experience through rapid process switching.
+What is the defining characteristic of a Multiprocessing OS?;It has two or more CPUs (or cores) working in parallel, achieving true simultaneous execution of multiple processes.
+What is the most critical requirement for a Real-time Operating System (RTOS)?;Tasks must be completed within strict, non-negotiable deadlines. The system's correctness depends on both the logical result and the time it is produced.
+What is the difference between a program and a process?;A program is a passive entity (a set of instructions on disk). A process is an active instance of a program in execution, with its own resources (memory, CPU time).
+What are the four main sections of a process in memory?;Stack (local variables, function calls), Heap (dynamic memory), Data Segment (global/static variables), and Text Segment (program code).
+What is the Process Control Block (PCB)?;A data structure maintained by the OS for each process, containing all essential information about that process. It's the "passport" or "context" for the process.
+What 8 key pieces of information are stored in a PCB?;1. Process ID (PID) 2. Process State 3. Program Counter 4. CPU Registers 5. Priority 6. Memory Management Info 7. List of Open Files & Devices 8. Protection Information.
+What happens during a context switch?;The OS saves the state of the current process into its PCB and loads the state of the new process from its PCB.
+What are the five primary states of a process?;New, Ready, Running, Blocked (or Wait), and Terminated.
+What does it mean for a process to be in the "Ready" state?;The process is loaded into main memory and has everything it needs to run, but is waiting in a queue for its turn on the CPU.
+In a system with 'N' CPU cores, what is the maximum number of processes in the "Running" state?;'N'. For a single CPU system, the maximum is 1.
+What causes a process to move from the Running state to the Blocked (Wait) state?;It requests an event that requires waiting, most commonly an I/O operation (e.g., reading from a file).
+What is swapping in the context of process states?;Moving a process from main memory to secondary memory (disk) to free up RAM. This introduces the "Suspend Ready" and "Suspend Blocked" states.
+What is the "Suspend Ready" state?;A process that was ready (in main memory) is swapped out to secondary memory. It is still ready to run but must be brought back into main memory first.
+What is the main role of the Long-Term Scheduler (LTS) or Job Scheduler?;To control the degree of multiprogramming by selecting jobs from the job pool (on disk) and loading them into main memory (placing them in the Ready queue).
+What is meant by the "degree of multiprogramming"?;The number of processes kept in main memory (in the Ready queue). This is controlled by the Long-Term Scheduler.
+What is the main role of the Short-Term Scheduler (STS) or CPU Scheduler?;To select one process from the Ready queue and allocate the CPU to it.
+What is the main role of the Medium-Term Scheduler (MTS)?;To manage the degree of multiprogramming by swapping processes in and out of main memory (suspending and resuming them), often to alleviate memory pressure.
+How frequently does the Short-Term Scheduler run versus the Long-Term Scheduler?;The STS runs very frequently (milliseconds), while the LTS runs very infrequently (seconds or minutes).
+What is the specific job of the Dispatcher?;It is the component that executes the Short-Term Scheduler's decision. It performs the context switch, switches the CPU to user mode, and jumps to the correct location in the program to resume it.
+What is Dispatch Latency?;The time it takes for the dispatcher to stop one process and start another running. This is pure overhead and must be minimized.
+What is the key difference between the Short-Term Scheduler and the Dispatcher?;The scheduler *selects* the next process to run. The dispatcher *performs the action* of switching the CPU to that process.
+When must the OS make a CPU scheduling decision? (List the 4 conditions);1. Process goes from Running to Terminated. 2. Running to Waiting. 3. Running to Ready (preemption). 4. Waiting to Ready (I/O completion).
+What are the three main scheduling queues?;1. Job Queue (all processes in the system, on disk). 2. Ready Queue (processes in main memory, ready to run). 3. Device Queues (processes waiting for a specific I/O device).
+What is Arrival Time (AT)?;The time at which a process enters the Ready Queue for the first time.
+What is Burst Time (BT)?;The total CPU time a process requires for execution.
+What is Completion Time (CT)?;The time at which a process finishes its execution.
+What is the formula for Turn Around Time (TAT)?;TAT = Completion Time (CT) - Arrival Time (AT)
+What is the formula for Waiting Time (WT)?;WT = Turn Around Time (TAT) - Burst Time (BT)
+What is the formula for Response Time (RT)?;RT = (Time of First Execution) - Arrival Time (AT)
+What is the formula for Throughput?;Throughput = Total Number of Processes Completed / Total Time
+What is the formula for CPU Utilization?;CPU Utilization (%) = (CPU Busy Time / Total Time) × 100
+What is CPU Busy Time?;The total time the CPU was spent executing processes. It is the sum of the burst times of all completed processes.
+What is the formula for Inefficiency caused by context switching?;Inefficiency (%) = (Total Context Switch Time / Total Time) × 100, where Total Context Switch Time = (Time per switch) × (Number of switches).
+What is the scheduling criteria and mode for the First Come First Serve (FCFS) algorithm?;Criteria: Arrival Time. Mode: Non-Preemptive.
+What is the Convoy Effect in FCFS?;When a process with a long burst time arrives before processes with short burst times, causing the short processes to have a very long waiting time.
+For non-preemptive algorithms like FCFS, what is the relationship between Waiting Time and Response Time?;They are equal (WT = RT). A process must wait for its entire turn before it ever gets to run.
+What is the tie-breaker rule for FCFS?;If two processes have the same arrival time, the one with the lower Process ID (PID) is typically chosen first.
+What is the main challenge of implementing the true Shortest Job First (SJF) algorithm?;The exact CPU burst time of a process cannot be known in advance. It must be predicted.
+How is the predicted burst time for SJF calculated using exponential averaging?;Formula: τ_n+1 = α * t_n + (1 - α) * τ_n, where t_n is the actual last burst and τ_n was the last prediction.
+What does an alpha (α) value of 1 mean in exponential averaging for burst time prediction?;The next prediction will be equal to the actual length of the last CPU burst. It gives all weight to the most recent behavior.
+What is Shortest Remaining Time First (SRTF)?;It is the preemptive version of SJF. If a new process arrives with a burst time shorter than the *remaining* time of the current process, the current process is preempted.
+How does the Round Robin (RR) algorithm work?;It uses a FIFO queue and gives each process a small, fixed amount of CPU time called a time quantum. If the process doesn't finish, it's preempted and moved to the back of the queue.
+What happens if the time quantum in Round Robin is very large?;The algorithm's performance approaches that of FCFS.
+What happens if the time quantum in Round Robin is very small?;Response time improves, but the overhead from frequent context switching can significantly degrade overall system throughput.
+How does Highest Response Ratio Next (HRRN) select a process?;It calculates a Response Ratio for each ready process and chooses the one with the highest ratio.
+What is the formula for the Response Ratio in HRRN?;Response Ratio = (Waiting Time + Burst Time) / Burst Time
+What problem does HRRN solve?;It is a non-preemptive algorithm that mitigates the starvation of long jobs (a problem in SJF) by considering how long a process has been waiting.
+What is the main problem with Priority Scheduling?;Starvation (or indefinite blocking), where low-priority processes may never get to run.
+What is "aging" in Priority Scheduling?;A solution to starvation where the priority of a process is gradually increased the longer it waits in the ready queue.
+What is the core idea of Multi-Level Queue Scheduling?;The ready queue is partitioned into several separate queues (e.g., for system, interactive, and batch processes), each with its own scheduling algorithm.
+What is the main disadvantage of Multi-Level Queue Scheduling?;Starvation is a major risk, as processes in low-priority queues might never execute if there's a continuous supply of higher-priority processes.
+How does Multi-Level Feedback Queue Scheduling solve the starvation problem?;It allows processes to move between queues. A process can be demoted for using too much CPU time or promoted (aged) for waiting too long.
+What is a CPU-bound process versus an I/O-bound process?;A CPU-bound process spends more time doing computations (long CPU bursts). An I/O-bound process spends more time waiting for I/O (short CPU bursts). A good scheduler balances both.
