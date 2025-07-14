@@ -248,6 +248,11 @@ How it works:
 3. If the process finishes within its time quantum, it terminates and leaves the system.
 4. If the process does not finish, it is preempted, and the OS moves it to the tail of the ready queue. The scheduler then picks the next process at the head of the queue.
 
+The performance of RR is highly dependent on the size of the time quantum.
+if the time quantum is very large (larger then any other processes, burst time), it would behave just like FCFS, cause we using a queue in this also.
+
+
+
 
 
 
