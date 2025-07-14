@@ -148,7 +148,7 @@ The **Medium-Term Scheduler** is responsible for **swapping processes in and out
 
 The entire system of state transitions, driven by preemption and scheduling, is what enables modern operating systems to be both interactive (multitasking) and efficient (multiprogramming). The dispatcher is the specific component that performs the context switching work, saving the state of the old process and loading the state of the new one.
 
-#### 1. Introduction to CPU Scheduling and Queues
+# **Introduction to CPU Scheduling and Queues
 
 In a multiprogramming operating system, multiple processes are kept in memory simultaneously. To manage their execution, the OS maintains several scheduling queues. These are queues where processes wait for their turn for various system resources.
 
