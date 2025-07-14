@@ -148,7 +148,6 @@ The **Medium-Term Scheduler** is responsible for **swapping processes in and out
 
 The entire system of state transitions, driven by preemption and scheduling, is what enables modern operating systems to be both interactive (multitasking) and efficient (multiprogramming). The dispatcher is the specific component that performs the context switching work, saving the state of the old process and loading the state of the new one.
 
-
 #### 1. Introduction to CPU Scheduling and Queues
 
 In a multiprogramming operating system, multiple processes are kept in memory simultaneously. To manage their execution, the OS maintains several scheduling queues. These are queues where processes wait for their turn for various system resources.
@@ -159,6 +158,7 @@ The process lifecycle involves moving between these queues:
 - Job Queue: This queue resides in secondary memory and contains all the processes in the system, waiting to be brought into main memory. The Long-Term Scheduler (LTS) selects processes from this queue.
 - Ready Queue: This queue holds all processes that are in main memory and are ready and waiting to execute. A new process arrives in this queue from the Job Queue. The Short-Term Scheduler (STS), or CPU scheduler, selects a process from this queue to run.
 - Device Queues (I/O Queues): When a process requires an I/O operation (e.g., reading from a disk), it is placed in an I/O queue associated with that specific device. It remains there until the I/O operation is complete, after which it moves back to the Ready Queue.
+
 ##### Maximum and Minimum Processes in Queues
 
 Consider a system with 'N' CPU processors and 'M' total processes. The number of processes in each state is bounded:
@@ -189,6 +189,7 @@ To compare the performance of different CPU scheduling algorithms, we use severa
     > Formula: Waiting Time (WT) = Turnaround Time (TAT) - Burst Time (BT)​
 - Response Time (RT): This is the time elapsed from when a process arrives in the ready queue until it gets scheduled on the CPU for the very first time. This metric is particularly important for interactive systems, as it measures how quickly the system responds to a user request.
     > Formula: Response Time (RT) = Time of First Execution - Arrival Time (AT)​
+
 #### 3. CPU Scheduling: The Core Concept
 
 CPU Scheduling is the fundamental task of selecting a process from the Ready Queue and allocating the CPU to it. This decision is made by the Short-Term Scheduler (also known as the CPU scheduler) and carried out by the Dispatcher.
@@ -201,7 +202,9 @@ A scheduling decision must be made by the OS whenever a process transitions betw
 4. Moves from Waiting to Ready (its I/O operation completes).
 
 Scheduling that occurs only under conditions 1 and 2 is called non-preemptive (the process runs until it's done or blocks itself). Scheduling that can also occur under conditions 3 and 4 is called preemptive (the OS can force a process off the CPU).
+
 ## Scheduling Algorithms
+
 ### First-Come, First-Served (FCFS)
 
 FCFS is the simplest scheduling algorithm. As the name implies, the process that arrives in the ready queue first is the first one to get the CPU.
@@ -280,7 +283,6 @@ To overcome the impracticality of SJF, we can try to predict the next CPU burst 
     > - ​t_n​ is the duration of the actual most recent CPU burst.
     > - ​τ_n​ was the predicted value for the most recent burst.
     > - ​α​ (alpha) is the smoothing factor (0 ≤ α ≤ 1). A value of α​ close to 1 gives high weight to the most recent burst, while a value close to 0 gives more weight to the past history.
-    
 
 ---
 
@@ -389,5 +391,3 @@ How it works:
 - If a process waits for too long in a low-priority queue, it can be moved to a higher-priority queue. This process, known as aging, ensures that no process starves.
 
 By allowing processes to "feedback" to different queues, the system can dynamically adjust to the behavior of processes, providing a good balance of responsiveness, throughput, and fairness.
-
-[^1]: 
