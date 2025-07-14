@@ -197,8 +197,8 @@ The FCFS algorithm suffers from a significant problem known as the Convoy Effect
 
 ![[e32cec1d-5b28-4a1e-8e82-3bd877473cb8.png]]
 Basically in the above question, we are adding something called switch overhead, whenever a context switch happens, this overhead is added (and btw, its called a context switch, even if the switch is happening because the process is done executing)
+**For the above question this formula is important**
 
-Some fornu
 
 ### **Shortest Job First
 
