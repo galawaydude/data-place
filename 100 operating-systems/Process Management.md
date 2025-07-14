@@ -165,4 +165,4 @@ Ready state: either there is no process in the ready state, or all the processes
 Running state: either no process is in the running state, or each CPU has one process using it, so the max number of processes in running state, would be equal to the total number of CPUs
 Blocked state: either no process is in the blocked state, or all the processes are in the blocked state.
 ### **Metrics for Scheduling algorithms
-1) Arrival Time: This is the specefic 
+1) Arrival Time: This is the specific point in time when a process enters the ready queue for the first time.
