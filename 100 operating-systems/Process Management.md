@@ -215,7 +215,10 @@ So obv, as said above, we cannot know the burst time of a process before hand, s
 
 Static Prediction: Prediction is based on fixed attributes of the process.
 	Process Size: Larges processes would have larger execution time
-	Process Type: Differentiate Between OS process, interactive foreground processes, 
+	Process Type: Differentiate Between OS process, interactive foreground processes,  and background process.
+
+Dynamic Prediction (Exponential Average/ Aging): This is a more common method. It calculates a weighted average of previous burst times, giving a weight to a recent behav  
+
 
 
 
