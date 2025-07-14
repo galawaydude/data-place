@@ -284,6 +284,8 @@ response ratio = (waiting time of a process so far+ burst time) / burst time
 The one with a higher response ratio, is selected for the CPU.
 HRRN not only favors shorter jobs, but also limits waiting time of longer jobs.
 
-### 
+### **Priority Scheduling
+
+This is a general class of algorithms where each process is assigned a priority number, and the CPU is allocated to the one with the highest priority 
 
 
