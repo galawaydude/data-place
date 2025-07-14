@@ -85,7 +85,9 @@ The movement of a process between these states is governed by the OS schedulers.
 - Short-Term Scheduler (ST): This scheduler, also known as the CPU scheduler or dispatcher, selects one process from the ready queue and allocates the CPU to it. It runs very frequently, as it makes a decision every time a context switch needs to happen.
 - Medium-Term Scheduler (MT): This scheduler is responsible for swapping—moving processes between main memory and secondary memory (i.e., handling the suspended states) to manage the degree of multiprogramming and free up memory.
 
-Degree of multiprogramming refers to the maximum number of process that can be present in ready state 
+>Degree of multiprogramming refers to the maximum number of process that can be present in ready state. this is determined by the long-term scheduler
+>swapping is basically suspending a process and then resuming it
+>dispatcher is something that does the context switching,
 
 The entire system of state transitions, driven by preemption and scheduling, is what enables modern operating systems to be both interactive (multitasking) and efficient (multiprogramming). The dispatcher is the specific component that performs the context switching work, saving the state of the old process and loading the state of the new one.
 
