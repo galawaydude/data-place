@@ -196,6 +196,9 @@ This is the simplest one there is, basically which ever one comes first, execute
 The FCFS algorithm suffers from a significant problem known as the Convoy Effect. This occurs when a process with a very long burst time arrives before other processes that have very short burst times. The short processes get stuck waiting behind the long one, much like a convoy of fast cars stuck behind a slow truck on a single-lane road. This leads to a drastic increase in the average waiting time for the system.
 
 ![[e32cec1d-5b28-4a1e-8e82-3bd877473cb8.png]]
+Basically in the above question, we are adding something called switch overhead, whenever a context switch happens, this overhead is added (and btw, its called a context switch, even if the switch is happening because the process is done executing)
+
+Some fornu
 
 ### **Shortest Job First
 
