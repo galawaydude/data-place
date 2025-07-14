@@ -80,10 +80,86 @@ To manage memory effectively, especially when main memory (RAM) is full, the OS 
 #### Process State Transition Diagram & Schedulers
 
 The movement of a process between these states is governed by the OS schedulers.
+## Long-Term Scheduler (LTS) – Job Scheduler
 
-- Long-Term Scheduler (LT): This scheduler, also known as the job scheduler, selects processes from secondary memory and loads them into the ready queue in main memory. It determines the degree of multiprogramming (how many processes are in memory at once) and runs infrequently.
-- Short-Term Scheduler (ST): This scheduler, also known as the CPU scheduler or dispatcher, selects one process from the ready queue and allocates the CPU to it. It runs very frequently, as it makes a decision every time a context switch needs to happen.
-- Medium-Term Scheduler (MT): This scheduler is responsible for swapping—moving processes between main memory and secondary memory (i.e., handling the suspended states) to manage the degree of multiprogramming and free up memory.
+The **Long-Term Scheduler** is responsible for **controlling the admission of new processes into the system**. It selects jobs from the **job pool** in **secondary storage** (e.g., disk) and loads them into **main memory**, placing them into the **Ready** state.
+
+### Key Characteristics:
+
+- **Primary Role**: Controls the **degree of multiprogramming** (i.e., how many processes are in memory at once).
+    
+- **Runs**: **Infrequently**, typically when a process finishes or system load is low.
+    
+- **Selection Criteria**: Can be based on priority, expected execution time, I/O requirements, or user type.
+    
+- **Impact**: Helps balance CPU-bound and I/O-bound processes to optimize system performance.
+    
+
+> It decides **which jobs are allowed to enter the system** and begin competing for CPU time.
+
+---
+
+## Short-Term Scheduler (STS) – CPU Scheduler
+
+The **Short-Term Scheduler** is responsible for **selecting one process** from the **Ready queue** (i.e., processes already in main memory and ready to execute) and **assigning the CPU to it**.
+
+### **Key Characteristics:**
+
+- **Primary Role**: Allocates the CPU to one of the ready processes.
+    
+- **Runs**: **Very frequently**, on every **context switch**, **I/O completion**, or **interrupt**.
+    
+- **Selection Criteria**: Based on a scheduling algorithm (e.g., First-Come-First-Served, Round Robin, Priority Scheduling).
+    
+
+> It decides **which process will run next** on the CPU.
+
+---
+
+### **Dispatcher** (Component of the Short-Term Scheduler)
+
+The **dispatcher** is the component that **executes the decision made by the Short-Term Scheduler**. It performs the **context switch** and begins execution of the selected process.
+
+#### **Functions of the Dispatcher:**
+
+1. **Context Switching**: Saves the state of the currently running process and restores the state of the selected one.
+    
+2. **Switching to User Mode**: Ensures safe execution by transitioning the CPU from kernel mode to user mode.
+    
+3. **Starting Execution**: Transfers control to the selected process’s program counter.
+    
+
+#### **Key Characteristics:**
+
+- **Does not make decisions**: It simply carries out the scheduling decision.
+    
+- **Performance-Critical**: Must be fast to reduce **dispatch latency**, ensuring smooth and responsive task switching.
+    
+
+> The dispatcher is the mechanism that **physically performs the switch** between processes after the scheduler chooses the next one.
+
+---
+
+## **3. Medium-Term Scheduler (MTS)**
+
+The **Medium-Term Scheduler** is responsible for **swapping processes in and out of main memory**, primarily to manage memory usage and maintain an optimal level of multiprogramming.
+
+### **Key Characteristics:**
+
+- **Primary Role**: Temporarily removes (suspends) processes from memory and stores them in secondary storage when memory is limited.
+    
+- **Runs**: **Occasionally**, depending on system load and memory pressure.
+    
+- **Target Processes**: Often selects blocked or low-priority processes for suspension.
+    
+- **Transitions Managed**:
+    
+    - Moves processes from **Ready** to **Suspend Ready**.
+        
+    - Moves processes from **Blocked** to **Suspend Wait**, and back.
+        
+
+> It manages **which processes stay in memory** and which are moved out to keep the system efficient and responsive.
 
 >Degree of multiprogramming refers to the maximum number of process that can be present in ready state. this is determined by the long-term scheduler
 >swapping is basically suspending a process and then resuming it
