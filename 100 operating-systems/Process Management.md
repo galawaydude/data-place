@@ -152,4 +152,13 @@ The entire system of state transitions, driven by preemption and scheduling, is 
 # **CPU Scheduling and Queues
 
 In a multi programming operating system, multiple processes are kept in the memory at the same time, to manage them, the OS has multiple queues. 
-The process lifecycle involves moving between these queues, until they are execute
+The process lifecycle involves moving between these queues, until they are executed
+
+![[Untitled.jpeg]]
+
+- Job Queue: This queue resides in secondary memory and contains all the processes in the system, waiting to be brought into main memory. The Long-Term Scheduler (LTS) selects processes from this queue.
+- Ready Queue: This queue holds all processes that are in main memory and are ready and waiting to execute. A new process arrives in this queue from the Job Queue. The Short-Term Scheduler (STS), or CPU scheduler, selects a process from this queue to run.
+- Device Queues (I/O Queues): When a process requires an I/O operation (e.g., reading from a disk), it is placed in an I/O queue associated with that specific device. It remains there until the I/O operation is complete, after which it moves back to the Ready Queue.
+
+![[Pasted image 20250714154326.png]]
+Ready state
