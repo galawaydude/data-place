@@ -80,6 +80,7 @@ To manage memory effectively, especially when main memory (RAM) is full, the OS 
 ### Process State Transition Diagram
 
 
+
 The movement of a process between these states is governed by the OS schedulers.
 ### Long-Term Scheduler (LTS) – Job Scheduler
 
@@ -97,9 +98,6 @@ The **Long-Term Scheduler** is responsible for **controlling the admission of ne
     
 
 > It decides **which jobs are allowed to enter the system** and begin competing for CPU time.
-
----
-
 ### Short-Term Scheduler (STS) – CPU Scheduler
 
 The **Short-Term Scheduler** is responsible for **selecting one process** from the **Ready queue** (i.e., processes already in main memory and ready to execute) and **assigning the CPU to it**.
@@ -114,9 +112,6 @@ The **Short-Term Scheduler** is responsible for **selecting one process** from t
     
 
 > It decides **which process will run next** on the CPU.
-
----
-
 ### **Dispatcher** (Component of the Short-Term Scheduler)
 
 The **dispatcher** is the component that **executes the decision made by the Short-Term Scheduler**. It performs the **context switch** and begins execution of the selected process.
@@ -135,9 +130,6 @@ The **dispatcher** is the component that **executes the decision made by the Sho
 - **Performance-Critical**: Must be fast to reduce **dispatch latency**, ensuring smooth and responsive task switching.
 
 > The dispatcher is the mechanism that **physically performs the switch** between processes after the scheduler chooses the next one.
-
----
-
 ### Medium-Term Scheduler (MTS)
 
 The **Medium-Term Scheduler** is responsible for **swapping processes in and out of main memory**, primarily to manage memory usage and maintain an optimal level of multiprogramming.
