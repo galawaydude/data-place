@@ -125,7 +125,7 @@ To overcome the impracticality of SJF, we can try to predict the next CPU burst 
     - Process Type: Differentiate between OS processes (often short bursts), interactive foreground processes (short bursts), and background batch processes (long bursts).
 2. Dynamic Prediction (Exponential Averaging / Aging): This is a more common and effective technique. It calculates a weighted average of previous burst times, giving more weight to recent behavior.
     
-    > Formula: τ_n+1 = α * t_n + (1 - α) * τ_n​  
+     Formula: τ_n+1 = α * t_n + (1 - α) * τ_n​  
     > Where:
     > 
     > - ​τ_n+1​ is the predicted burst time for the next burst.

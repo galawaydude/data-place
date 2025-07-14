@@ -211,6 +211,8 @@ Basically at a particular instant, we check which process has the lowest CPU Bur
     - Longer jobs may never get to run if a steady stream of shorter jobs keeps arriving.
     - ==The biggest issue is that the exact CPU burst time of a process cannot be known in advance. This makes the true SJF algorithm impossible to implement in a real-world general-purpose OS.==
 
+So obv, as said above, we cannot know the burst time of a process before hand, so, we try to calculate it mathematically.
+
 
 
 
