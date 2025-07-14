@@ -59,7 +59,7 @@ The PCB, also known as the context of the process, stores the following key attr
 7. List of Open Files & Devices: A record of all files and I/O devices currently being used by the process.
 8. Protection Information: Security attributes and access permissions.
 
-Basically because
+Basically because, each process can be segregated into states, there are (assume process can be in three states) 3 linked lists, for each state, storing a process which is in that particular state, and each node is the pcb 
 ### States of a Process
 
 Throughout its lifecycle, a process transitions through several states. These states define the current status of the process in relation to the CPU and other resources.
