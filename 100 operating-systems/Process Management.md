@@ -69,7 +69,6 @@ Throughout its lifecycle, a process transitions through several states. These st
 3. Running: The process has been selected by the OS scheduler and its instructions are actively being executed by the CPU. In a system with a single CPU, only one process can be in the running state at any given moment.
 4. Blocked (or Wait): A process transitions to the Blocked state if it must wait for an event to occur. This is typically an I/O operation, such as waiting for user input or for data to be read from a disk. While blocked, the process cannot run, even if the CPU is free.
 5. Terminated (or Completed): The process has finished its execution or has been explicitly killed. In this state, the OS reclaims all the resources that were allocated to the process and removes its PCB from the system.
-6. Suspend Ready: The process is ready to be run, but has been swapped out of main memory and placed in the secondary memory. This is typically done to free up physical memory when the system is under high memory load
 
 #### Suspended States and Swapping
 
