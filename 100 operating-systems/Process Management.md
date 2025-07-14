@@ -173,4 +173,12 @@ Blocked state: either no process is in the blocked state, or all the processes a
 5) Waiting Time: This is the total amount of time a process spends in the ready queue, for its turn on the CPU. its ready, but not running ==WT = TAT - BT==
 6) Response Time: This is the time elapsed from when a process arrives in the ready queue, until it gets scheduled on the CPU, for the very first time. ==RT = Time of First Execution - AT==
 
-The main concept behind CPU Scheduling is that, obv RAM is limited, 
+The main concept behind CPU Scheduling is that, obv RAM is limited, and also the CPU can handle only one process at a time, so we need to implement one logic, that is properly and efficiently able to give enough time to all the process, and such that, all the processes get executed in the least amount of time possible.
+A scheduling decision must be made by the OS whenever a process transitions between states, specifically when a process:
+1. Moves from Running to Terminated (it has finished).
+2. Moves from Running to Waiting (it requests I/O).
+3. Moves from Running to Ready (it is preempted by an interrupt or timer).
+4. Moves from Waiting to Ready (its I/O operation completes).
+
+
+## Scheduling Algorithms
