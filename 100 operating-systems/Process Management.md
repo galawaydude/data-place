@@ -185,11 +185,15 @@ A scheduling decision must be made by the OS whenever a process transitions betw
 ### **First Come First Serve**
 
 This is the simplest one there is, basically which ever one comes first, execute that first, no matter, how its other attributes are like.
- Criteria: Arrival Time (AT)
+
 - Mode: Non-Preemptive
+- Criteria: Arrival Time (AT)
 - Implementation: Easily managed with a simple FIFO (First-In, First-Out) queue data structure. The time complexity to implement is O(n).
 - Tie-Breaker: If two processes arrive at the same time, the one with the lower Process ID (PID) is usually executed first.
 - Note: In a non-preemptive algorithm like FCFS, the Waiting Time is equal to the Response Time, because a process must wait its entire turn before it ever gets to run for the first time.
+#### **The Convoy Effect
+
+
 
 
 
