@@ -210,10 +210,7 @@ A scheduling decision must be made by the OS whenever a process transitions betw
 
 Scheduling that occurs only under conditions 1 and 2 is called non-preemptive (the process runs until it's done or blocks itself). Scheduling that can also occur under conditions 3 and 4 is called preemptive (the OS can force a process off the CPU).
 
----
-
-## 4. Scheduling Algorithms
-
+## Scheduling Algorithms
 ### First-Come, First-Served (FCFS)
 
 FCFS is the simplest scheduling algorithm. As the name implies, the process that arrives in the ready queue first is the first one to get the CPU.
