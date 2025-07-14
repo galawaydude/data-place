@@ -233,7 +233,13 @@ $$
 ### **Shortest remaining Time First
 
 SRTF is the preemptive version of SJF. basically at every instance when you have multiple process, pick the one that has the lowest burst time.
-The scheduler always allocates the CPU to the process that has the shortest remaining time to completion. If a new process arrives in the ready queue with a burst time shorter than the remaining time of the currently executing process
+The scheduler always allocates the CPU to the process that has the shortest remaining time to completion. If a new process arrives in the ready queue with a burst time shorter than the remaining time of the currently executing process, it will get preempted.
+> suffers from the same issue as the SJF thing, you cannot know the burst time of processes beforehand.
+
+
+### **Round Robin Algorithm
+
+
 
 
 
