@@ -176,7 +176,7 @@ Consider a system with 'N' CPU processors and 'M' total processes. The number of
     - Minimum: 0 (if no process is waiting for an I/O event).
     - Maximum: M (if all M processes are simultaneously waiting for I/O).
 
-#### 2. Performance Metrics for Scheduling Algorithms
+#### Performance Metrics for Scheduling Algorithms
 
 To compare the performance of different CPU scheduling algorithms, we use several key metrics. These parameters help us analyze how efficiently and fairly an algorithm manages processes.
 
