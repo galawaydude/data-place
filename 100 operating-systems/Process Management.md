@@ -214,7 +214,8 @@ Basically at a particular instant, we check which process has the lowest CPU Bur
 So obv, as said above, we cannot know the burst time of a process before hand, so, we try to predict it.
 
 Static Prediction: Prediction is based on fixed attributes of the process.
-	
+	Process Size: Larges processes would have larger execution time
+	Process Type: Differentiate Between OS process, interactive foreground processes, 
 
 
 
