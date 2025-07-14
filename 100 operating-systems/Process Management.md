@@ -278,10 +278,10 @@ it is a non-preemptive algorithm, that tries to correct the starvation problem o
 
 Basically, at every instance, when there is a new process, a thing called response ratio is calculated
 ```
-response ratio = (waiting time + burst time) / burst time
+response ratio = (waiting time of a process so far+ burst time) / burst time
 ```
 
 The one with a higher response ratio, is selected for the CPU.
-HRRN not only favors shorter jobs, but als
+HRRN not only favors shorter jobs, but also limits waiting time of longer jobs.
 
 
