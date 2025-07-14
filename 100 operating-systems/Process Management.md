@@ -162,5 +162,7 @@ The process lifecycle involves moving between these queues, until they are execu
 
 ![[Pasted image 20250714154326.png]]
 Ready state: either there is no process in the ready state, or all the processes which are there would be in the running state
-Running state: either no process is in the running state, or each cpu has one process using it, so the max number of processes in running state, would be equal to the total number of cpus
-Blocked state: either no process is in the blocked state, or all the processes are in the blocked state
+Running state: either no process is in the running state, or each CPU has one process using it, so the max number of processes in running state, would be equal to the total number of CPUs
+Blocked state: either no process is in the blocked state, or all the processes are in the blocked state.
+### **Metrics for Scheduling algorithms
+1) Arrival Time: This is the specefic 
