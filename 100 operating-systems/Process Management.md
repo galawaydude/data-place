@@ -9,31 +9,31 @@ The OS has two primary goals that often exist in a delicate balance: convenience
 
 To achieve these goals, the OS functions as both a Resource Allocator and a comprehensive Manager. It decides which processes get to use the CPU, how memory is allocated, and how files are stored and retrieved, ensuring fair and orderly access to all system resources.
 
-#### Types of Operating Systems
+## Types of Operating Systems
 
 Operating systems have evolved over time to meet different computational demands. Here are some of the key types:
 
-##### Batch Operating System
+### Batch Operating System
 
 In the early days of computing, Batch OS was used to maximize the use of the machine without constant human supervision. Jobs with similar requirements were grouped together into a "batch" and fed to the computer for processing. The system would then execute these jobs one after another without any user interaction. The major drawbacks of this approach were its complete lack of interactivity and its low efficiency, as the CPU would often sit idle if a job had to wait for a slow I/O operation. This system could also lead to starvation, where a low-priority job in a batch might wait for an extremely long time to execute.
 
-##### Multiprogramming Operating System
+### Multiprogramming Operating System
 
 Multiprogramming was developed to solve the problem of CPU inefficiency. The core idea is to keep multiple jobs in main memory simultaneously. When one process has to wait for an I/O operation to complete (a task that doesn't require the CPU), the OS intelligently switches the CPU to another job that is ready to run. This ensures that the CPU is kept busy as much as possible, dramatically increasing system throughput and efficiency compared to a batch system.
 
-##### Multitasking (Time-Sharing) Operating System
+### Multitasking (Time-Sharing) Operating System
 
 Multitasking is a logical extension of multiprogramming that introduces user interactivity. The OS switches the CPU between different processes so frequently (often multiple times per second) that it creates the illusion that all processes are running at the same time. This is also known as time-sharing. This rapid switching allows users to interact with multiple applications simultaneously (e.g., browsing the web while listening to music). While multiprogramming focuses on keeping the CPU busy, multitasking focuses on providing a responsive experience for the user.
 
-##### Multiprocessing Operating System
+### Multiprocessing Operating System
 
 Multiprocessing refers to systems that have two or more CPUs (or cores) working in parallel. Unlike multitasking, which creates an illusion of simultaneous execution on a single CPU, multiprocessing achieves true parallelism. Multiple processes can be executing at the exact same time, each on a different CPU. This leads to a significant increase in performance and computational power, allowing the system to handle more complex tasks and a heavier workload.
 
-##### Real-time Operating System (RTOS)
+### Real-time Operating System (RTOS)
 
 A Real-time Operating System is designed for environments where tasks must be completed within strict, non-negotiable deadlines. The correctness of the system depends not only on the logical result of the computation but also on the time at which the results are produced. These systems are critical in applications like military defense systems, industrial control robots, and automotive safety features (e.g., airbag deployment), where a delayed response could lead to catastrophic failure.
 
-### Process Management
+## Process Management
 
 A process is one of the most fundamental concepts in a modern OS. While a program is a passive set of instructions stored on a disk a process is an active instance of a program in execution When you run a program, the OS creates a process, which is a dynamic entity that requires system resources like CPU time and memory to complete its task.
 
@@ -44,7 +44,7 @@ The OS creates a specific data structure in memory for each process. This struct
 - Data Segment: Contains global and static variables.
 - Text Segment: Holds the compiled, executable program code.
 
-#### The Process Control Block (PCB)
+### The Process Control Block (PCB)
 
 To manage all the running processes, the OS maintains a data structure for ==**each one**== called the Process Control Block (PCB). The PCB is like a passport or an ID card for the process; it contains all the essential information that the OS needs to know about it. Whenever the OS needs to switch from running one process to another (an action called a context switch), ==it saves the state of the current process in its PCB and loads the state of the new process from its PCB.==
 
@@ -60,7 +60,8 @@ The PCB, also known as the context of the process, stores the following key attr
 8. Protection Information: Security attributes and access permissions.
 
 Basically because, each process can be segregated into states, there are (assume process can be in three states) 3 linked lists, for each state, storing a process which is in that particular state, and each node is the PCB of that process.
-### States of a Process
+
+## States of a Process
 
 Throughout its lifecycle, a process transitions through several states. These states define the current status of the process in relation to the CPU and other resources.
 
@@ -70,92 +71,83 @@ Throughout its lifecycle, a process transitions through several states. These st
 4. Blocked (or Wait): A process transitions to the Blocked state if it must wait for an event to occur. This is typically an I/O operation, such as waiting for user input or for data to be read from a disk. While blocked, the process cannot run, even if the CPU is free.
 5. Terminated (or Completed): The process has finished its execution or has been explicitly killed. In this state, the OS reclaims all the resources that were allocated to the process and removes its PCB from the system.
 
-#### Suspended States and Swapping
+### Suspended States and Swapping
 
 To manage memory effectively, especially when main memory (RAM) is full, the OS can introduce two additional "suspended" states. This process is known as swapping.
 
 - Suspend Ready: A process that was in the Ready state (in main memory) is moved to secondary memory (disk) to make room for other processes. It is still ready to run but must be brought back into main memory first.
 - Suspend Block (or Suspend Wait): A process that was in the Blocked state is moved to secondary memory. This is often more efficient, as the process was already waiting for an I/O event and not eligible to use the CPU anyway. When the I/O event it was waiting for completes, it transitions to the Suspend Ready state, as it is now ready to run but still resides on disk.
 
-### Process State Transition Diagram
+## Process State Transition Diagram
 
 ![[Process-State-Diagram.webp]]
 
 The movement of a process between these states is governed by the OS schedulers.
-### Long-Term Scheduler (LTS) – Job Scheduler
+
+## Long-Term Scheduler (LTS) – Job Scheduler
 
 The **Long-Term Scheduler** is responsible for **controlling the admission of new processes into the system**. It selects jobs from the **job pool** in **secondary storage** (e.g., disk) and loads them into **main memory**, placing them into the **Ready** state.
 
 ### Key Characteristics:
 
 - **Primary Role**: Controls the **degree of multiprogramming** (i.e., how many processes are in memory at once).
-    
 - **Runs**: **Infrequently**, typically when a process finishes or system load is low.
-    
 - **Selection Criteria**: Can be based on priority, expected execution time, I/O requirements, or user type.
-    
 - **Impact**: Helps balance CPU-bound and I/O-bound processes to optimize system performance.
-    
 
 > It decides **which jobs are allowed to enter the system** and begin competing for CPU time.
-### Short-Term Scheduler (STS) – CPU Scheduler
+
+## Short-Term Scheduler (STS) – CPU Scheduler
 
 The **Short-Term Scheduler** is responsible for **selecting one process** from the **Ready queue** (i.e., processes already in main memory and ready to execute) and **assigning the CPU to it**.
 
 ### Key Characteristics:
 
 - **Primary Role**: Allocates the CPU to one of the ready processes.
-    
 - **Runs**: **Very frequently**, on every **context switch**, **I/O completion**, or **interrupt**.
-    
 - **Selection Criteria**: Based on a scheduling algorithm (e.g., First-Come-First-Served, Round Robin, Priority Scheduling).
-    
 
 > It decides **which process will run next** on the CPU.
-### **Dispatcher** (Component of the Short-Term Scheduler)
+
+## **Dispatcher** (Component of the Short-Term Scheduler)
 
 The **dispatcher** is the component that **executes the decision made by the Short-Term Scheduler**. It performs the **context switch** and begins execution of the selected process.
 
-#### **Functions of the Dispatcher:**
+### **Functions of the Dispatcher:**
 
 1. **Context Switching**: Saves the state of the currently running process and restores the state of the selected one.
-    
 2. **Switching to User Mode**: Ensures safe execution by transitioning the CPU from kernel mode to user mode.
-    
 3. **Starting Execution**: Transfers control to the selected process’s program counter.
-#### **Key Characteristics:**
+
+### **Key Characteristics:**
 
 - **Does not make decisions**: It simply carries out the scheduling decision.
-    
 - **Performance-Critical**: Must be fast to reduce **dispatch latency**, ensuring smooth and responsive task switching.
 
 > The dispatcher is the mechanism that **physically performs the switch** between processes after the scheduler chooses the next one.
-### Medium-Term Scheduler (MTS)
+
+## Medium-Term Scheduler (MTS)
 
 The **Medium-Term Scheduler** is responsible for **swapping processes in and out of main memory**, primarily to manage memory usage and maintain an optimal level of multiprogramming.
 
 ### **Key Characteristics:**
 
 - **Primary Role**: Temporarily removes (suspends) processes from memory and stores them in secondary storage when memory is limited.
-    
 - **Runs**: **Occasionally**, depending on system load and memory pressure.
-    
 - **Target Processes**: Often selects blocked or low-priority processes for suspension.
-    
 - **Transitions Managed**:
-    
-    - Moves processes from **Ready** to **Suspend Ready**.
-        
-    - Moves processes from **Blocked** to **Suspend Wait**, and back.
+  - Moves processes from **Ready** to **Suspend Ready**.
+  - Moves processes from **Blocked** to **Suspend Wait**, and back.
 
 > It manages **which processes stay in memory** and which are moved out to keep the system efficient and responsive.
 
->Degree of multiprogramming refers to the maximum number of process that can be present in ready state. this is determined by the long-term scheduler
->swapping is basically suspending a process and then resuming it
->dispatcher is something that does the context switching,
->short term scheduler just chooses one process to run from all the ready ones, and the rets is done by dispatcher
+> Degree of multiprogramming refers to the maximum number of process that can be present in ready state. this is determined by the long-term scheduler  
+> swapping is basically suspending a process and then resuming it  
+> dispatcher is something that does the context switching,  
+> short term scheduler just chooses one process to run from all the ready ones, and the rets is done by dispatcher
 
 The entire system of state transitions, driven by preemption and scheduling, is what enables modern operating systems to be both interactive (multitasking) and efficient (multiprogramming). The dispatcher is the specific component that performs the context switching work, saving the state of the old process and loading the state of the new one.
+
 
 #### 1. Introduction to CPU Scheduling and Queues
 
