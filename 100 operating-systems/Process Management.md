@@ -88,6 +88,7 @@ The movement of a process between these states is governed by the OS schedulers.
 >Degree of multiprogramming refers to the maximum number of process that can be present in ready state. this is determined by the long-term scheduler
 >swapping is basically suspending a process and then resuming it
 >dispatcher is something that does the context switching,
+>short term scheduler just chooses one process to run from all the ready ones, and the rets is done by dispatcher
 
 The entire system of state transitions, driven by preemption and scheduling, is what enables modern operating systems to be both interactive (multitasking) and efficient (multiprogramming). The dispatcher is the specific component that performs the context switching work, saving the state of the old process and loading the state of the new one.
 
