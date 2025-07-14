@@ -322,3 +322,15 @@ By allowing processes to "feedback" to different queues, the system can dynamica
 
 
 ![[Pasted image 20250714191203.png]]
+
+
+### **Some important formulae
+
+```
+Throughput = Total Processes Completed / Total Time
+```
+
+```
+CPU Utilization (%) = (CPU Busy Time / Total Time) × 100
+```
+
