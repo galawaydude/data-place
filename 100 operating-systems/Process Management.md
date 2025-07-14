@@ -206,7 +206,7 @@ Where:
 - Context Switch Time = δ × Number of Context Switches
 - δ = Time taken per context switch
 
-CPU Utlization is basically, the complement of i
+CPU Utlization is basically, the complement of inefficiency, subtract the above value from 100
 ```
 
 
