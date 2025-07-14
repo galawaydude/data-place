@@ -202,8 +202,14 @@ Basically at a particular instant, we check which process has the lowest CPU Bur
 - Criteria: Burst Time (BT)
 - Tie-Breaker: If two processes have the same burst time, FCFS is used (the one that arrived earlier is chosen).
 - Implementation: Can be implemented with a min-heap data structure, leading to a time complexity of O(n log n).
-> This apparentl
+> This apparently improves average waiting time and average turn around time, compared to FCFS
 
+- Advantages:
+    - Provides the maximum throughput because it processes more jobs in a given time period.
+    - Achieves the minimum average waiting time and turnaround time.
+- Disadvantages:
+    - Starvation: Longer jobs may never get to run if a steady stream of shorter jobs keeps arriving.
+    - Impracticality: The biggest issue is that the exact CPU burst time of a process cannot be known in advance. This makes the true SJF algorithm impossible to implement in a real-world general-purpose OS.
 
 
 

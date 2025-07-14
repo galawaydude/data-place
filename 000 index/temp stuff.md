@@ -108,7 +108,6 @@ SJF is provably optimal in terms of minimizing the average waiting time and aver
 #### Advantages and Disadvantages of SJF
 
 - Advantages:
-    
     - Provides the maximum throughput because it processes more jobs in a given time period.
     - Achieves the minimum average waiting time and turnaround time.
 - Disadvantages:
