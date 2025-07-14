@@ -232,7 +232,8 @@ $$
 
 ### **Shortest remaining Time First
 
-SRTF is the preemptive version of SJF. It is one of the most
+SRTF is the preemptive version of SJF. basically at every instance when you have multiple process, pick the one that has the lowest burst time.
+The scheduler always allocates the CPU to the process that has the shortest remaining time to completion. If a new process arrives in the ready queue with a burst time shorter than the remaining time of the currently executing process
 
 
 
