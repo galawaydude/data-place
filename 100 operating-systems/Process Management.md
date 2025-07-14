@@ -265,6 +265,6 @@ Basically, at every instance, when there is a new process, a thing called respon
 response ratio = (waiting time + burst time) / burst time
 ```
 
-The one with a higher response ratio, is selected for the CPU
+The one with a higher response ratio, is selected for the CPU.
 
 
