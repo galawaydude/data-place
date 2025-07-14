@@ -79,7 +79,7 @@ To manage memory effectively, especially when main memory (RAM) is full, the OS 
 
 ### Process State Transition Diagram
 
-
+![[Process-State-Diagram.webp]]
 
 The movement of a process between these states is governed by the OS schedulers.
 ### Long-Term Scheduler (LTS) – Job Scheduler
