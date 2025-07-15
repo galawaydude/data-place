@@ -119,7 +119,7 @@ Alright, so now that we know what to keep in mind to design a solution, basicall
 
 ### **Busy Waiting and Non-Busy Waiting
 
-Basically, like assume P1, nee
+Basically, like assume P1, needs to use its cs, but someone else is using it, so either this thing can still have the cpu, and keep on checking (Busy Waiting), or it can free the cpu, and just wait (Non-Busy Waiting)
 
 | Feature            | With Busy Waiting (Spinlocks)                                                                    | Without Busy Waiting (Blocking/Sleeping)                                                         |
 | :----------------- | :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
@@ -128,6 +128,5 @@ Basically, like assume P1, nee
 | **Context Switch** | No context switch required to wait.                                                              | Requires context switch to move process to waiting queue and back.                               |
 | **When used**      | For very short critical sections, or on multi-core systems where other cores can do useful work. | For longer critical sections, or on single-core systems where busy waiting would stall progress. |
 | **Example**        | Spinlocks, simple software solutions (like some of the ones we'll discuss).                      | Semaphores, Mutexes (with blocking queues).                                                      |
-
-
+Busy waiting is also known as "spinning," and the locks that use it are called **spinlocks**. While it avoids context switch overhead, it's generally inefficient on a single CPU system because the waiting process prevents any other process from running.
 
