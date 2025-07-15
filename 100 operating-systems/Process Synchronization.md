@@ -472,5 +472,73 @@ Busy methods are easy to implement, cause you do not have to worry about, blocki
 
 The sleep and wake primitives, allow processes to block themselves, when a condition is not met and can be awakened by another process when the condition changes. This is used in Producer Consumer problem.
 
-### Prod
+### Producer/Consumer Problem
+
+*   **Producer:** Produces data items and puts them into a shared buffer.
+*   **Consumer:** Consumes data items from the shared buffer.
+*   **Shared Buffer:** Has a finite size (e.g., `N` slots).
+*   **Synchronization Challenge:**
+    *   Producer must not try to add to a full buffer.
+    *   Consumer must not try to remove from an empty buffer.
+
+**Pseudo-code using Sleep/Wake primitives:**
+
+```c
+// Shared variables
+#define N 100        // Total slots in buffer
+int count = 0;       // Current number of items in buffer (initially 0)
+
+void producer(void) {
+    int item;
+    while (TRUE) {
+        item = produce_item(); // Generate an item
+
+        if (count == N) {      // If buffer is full
+            sleep();           // Producer sleeps
+        }
+        insert_item(item);     // Add item to buffer
+        count++;
+
+        if (count == 1) {      // If buffer was empty and now has 1 item
+            wakeup(consumer);  // Wake up consumer (if it was sleeping)
+        }
+    }
+}
+
+void consumer(void) {
+    int item;
+    while (TRUE) {
+        if (count == 0) {      // If buffer is empty
+            sleep();           // Consumer sleeps
+        }
+        item = remove_item();  // Remove item from buffer
+        count--;
+
+        if (count == N - 1) {  // If buffer was full and now has one space
+            wakeup(producer);  // Wake up producer (if it was sleeping)
+        }
+        consume_item(item);    // Process the item
+    }
+}
+```
+
+**Problems with sleep and wake
+
+This direct implementation of `sleep` and `wakeup` suffers from a classic **race condition** that can lead to **deadlock**.
+
+**Deadlock Scenario Example (Consumer and `count == 0`):**
+
+1.  **Buffer is Empty (`count = 0`).**
+2.  **Consumer** executes `if (count == 0)`. The condition `(0 == 0)` is `TRUE`.
+3.  **Consumer is preempted** *just before* it executes `sleep()`.
+4.  **Producer** runs. It produces an item, `insert_item()`, and increments `count` to `1`.
+5.  **Producer** then executes `if (count == 1)`. This is `TRUE`.
+6.  **Producer** calls `wakeup(consumer)`. However, the consumer is *not yet sleeping* (it was preempted before calling `sleep()`). So, this `wakeup` call is lost. The signal is sent, but no one is listening.
+7.  **Producer** continues its work, eventually fills the buffer, and then calls `sleep()` itself (because `count == N`).
+8.  **Consumer** resumes. It executes `sleep()`. Now the consumer is actually sleeping.
+9.  **Result:** Both Producer and Consumer are now sleeping, believing they are waiting for each other, but the `wakeup` signal was missed. The system is in a **deadlock**.
+
+Btw, as i said before, the main cause for most of these sou
+
+
 
