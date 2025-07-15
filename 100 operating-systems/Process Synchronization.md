@@ -303,3 +303,20 @@ Assume `L` starts at `0`. `P1`, `P2`, `P3`, `Pn` try to acquire the lock.
 This trace shows that processes `P2`, `P3`, ..., `Pn` will be busy-waiting because `Fetch_And_Add` returned a non-zero value. When P1 releases the lock (setting `L` to `0`), *all* the waiting processes will see `L` as `0` and race again. The one that wins the `Fetch_And_Add` will get `0` and enter the CS, while others increment `L` further. This structure doesn't inherently give priority to the longest waiting process.
 
 ### Disabling Interrupts
+
+This is a simple, yet powerful, synchronization mechanism, often used in operating system kernels, but rarely in user-level applications.
+ When a process wants to enter its critical section, it **disables interrupts**. This prevents the CPU from being interrupted by the scheduler, I/O devices, or other processes. Once the critical section is finished, the process **enables interrupts** again.
+ ```
+// Entry Section
+disable_interrupts();
+
+// Critical Section (CS)
+// ... code to access shared resources ...
+
+// Exit Section
+enable_interrupts();
+
+// Remainder Section (NCS)
+```
+
+**Some stuff about this
