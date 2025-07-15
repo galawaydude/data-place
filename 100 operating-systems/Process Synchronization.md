@@ -334,4 +334,40 @@ The major problem is that you **cannot trust user processes** to properly re-ena
 
 Same shit, its a software based approach, implemented at the user level, and its meant to work only for two processes.
 
-A shared turn variable indicates which process is should execu 
+A shared turn variable indicates which process is should execute its cs
+     `turn = 0`: P0 is allowed to enter CS.
+     `turn = 1`: P1 is allowed to enter CS.
+
+
+ ```c
+// Shared variable, initially turn = 0
+int turn = 0;
+
+// For Process P0:
+// Entry Section
+while (turn != 0) {
+    // Busy wait: P0 waits if it's not its turn
+}
+// Critical Section (CS)
+// ...
+
+// Exit Section
+turn = 1; // Give turn to P1
+
+// Remainder Section (NCS)
+
+
+// For Process P1:
+// Entry Section
+while (turn != 1) {
+    // Busy wait: P1 waits if it's not its turn
+}
+// Critical Section (CS)
+// ...
+
+// Exit Section
+turn = 0; // Give turn to P0
+
+// Remainder Section (NCS)
+```
+
