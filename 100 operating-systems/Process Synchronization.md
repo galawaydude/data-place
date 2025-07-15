@@ -237,9 +237,10 @@ LOCK = 0; // Release the lock
 Even though TSL guarantees mutual exclusion, it can lead to another problem called **Priority Inversion**, especially in multi-priority scheduling environments.
 
 **Scenario:**
- Process `P1` (low priority) enters its critical section and acquires the lock using TSL.
- Process `P2` (high priority) becomes ready and wants to enter its critical section (which uses the same lock as P1).
- The scheduler preempts `P1` and schedules `P2` due to `P2`'s higher priority.
- `P2` tries to acquire the lock using TSL. Since `P1` holds the lock, `TSL` returns `1`, and `P2` goes into a busy-waiting loop (a **spinlock**).
- Because `P2` is busy-waiting at a higher priority than `P1`, `P2` will effectively prevent `P1` from running again to release the lock.
- `P1` can never release the lock, and `P2` can never stop busy-waiting. This creates a state similar to a **deadlock**, where `P2` (high priority) is effectively blocked by `P1` (low priority) because of the synchronization primitive. This is what's called **Priority Inversion**.
+ - Process `P1` (low priority) enters its critical section and acquires the lock using TSL.
+ - Process `P2` (high priority) becomes ready and wants to enter its critical section (which uses the same lock as P1).
+ - The scheduler preempts `P1` and schedules `P2` due to `P2`'s higher priority.
+ - `P2` tries to acquire the lock using TSL. Since `P1` holds the lock, `TSL` returns `1`, and `P2` goes into a busy-waiting loop (a **spinlock**).
+ - Because `P2` is busy-waiting at a higher priority than `P1`, `P2` will effectively prevent `P1` from running again to release the lock.
+ - `P1` can never release the lock, and `P2` can never stop busy-waiting. This creates a state similar to a **deadlock**, where `P2` (high priority) is effectively blocked by `P1` (low priority) because of the synchronization primitive. This is what's called **Priority Inversion**.
+In this situation, the high-priority process `P2` is "spinning" in its entry section, consuming CPU cycles, while the low-priority process `P1` that holds the lock is stuck in the ready queue, unable to run and release the lock.
