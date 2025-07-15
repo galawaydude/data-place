@@ -386,4 +386,46 @@ turn = 0; // Give turn to P0
 ### Peterson's Solution
 
 This is the goat in this category, solves everything properly.
-its a software based methods, and builds upon the strict alternation and add a thing called interest flags on top of that
+its a software based methods, and builds upon the strict alternation and add a thing called interest flags on top of that. because of this, this too works only for 2 processes.
+this too is implemented in user mode.
+```c
+// Shared variables
+#define N 2
+#define TRUE 1
+#define FALSE 0
+bool interested[N] = {FALSE, FALSE}; // Initialize both to FALSE
+int turn; // No initial value specified, but effectively set by the first process
+
+void Entry_section(int process) { // 'process' is 0 or 1
+    int other = 1 - process;
+
+    interested[process] = TRUE; // 1. Declare interest
+    turn = other;               // 2. Give turn to the other process
+
+    // 3. Busy wait if:
+    //    a) The other process is also interested AND
+    //    b) It's currently the other process's turn
+    while (interested[other] == TRUE && turn == other) {
+        // Spin
+    }
+}
+
+void Exit_section(int process) {
+    interested[process] = FALSE; // 4. Declare no longer interested
+}
+
+/*
+// Usage for Process P0:
+Entry_section(0);
+// Critical Section (CS)
+Exit_section(0);
+// Remainder Section (NCS)
+
+// Usage for Process P1:
+Entry_section(1);
+// Critical Section (CS)
+Exit_section(1);
+// Remainder Section (NCS)
+*/
+```
+
