@@ -102,7 +102,7 @@ And any solution that, we make should be able to satisfy the below criteria:
 2.  **Progress:**
     *   **Definition:** If no process is executing in its critical section and some processes want to enter their critical section, then only those processes that are not in their remainder section can participate in deciding which process will enter the critical section next. This selection cannot be postponed indefinitely.
     *   **Importance:** Prevents deadlocks. If a critical section is free, processes waiting to enter should eventually be allowed in. Processes that have no interest in entering the critical section should not block others from entering.
-    > to explain the above thing in a simple way, what the guy means is that, like assume p1, p2, p3 are three processes, and p3 has finished all of its, cs section, and is now in its rs, and p1 and p2, need to execute its cs. so basically in this fight to decide who gets to do it first, p3 should not be playing any role, this should be pretty obvious. but this is pretty important. what this means is that, assume p3 was 
+    > to explain the above thing in a simple way, what the guy means is that, like assume p1, p2, p3 are three processes, and p3 has finished all of its, cs section, and is now in its rs, and p1 and p2, need to execute its cs. so basically in this fight to decide who gets to do it first, p3 should not be playing any role, this should be pretty obvious. but this is pretty important. what this means is that, assume p3 was using cs, so after its done, it should relinquish, its ability to use the cs, cause if it still holds the power to be in the cs, even if it does not need, it, shit would be bad right. 
 
 #### Secondary Requirements:
 
@@ -114,3 +114,5 @@ And any solution that, we make should be able to satisfy the below criteria:
     *   **Definition:** The synchronization solution should not be dependent upon specific hardware features or operating system functionalities. It should be able to run on all platforms.
     *   **Importance:** A solution that works only on a particular CPU architecture or OS is not generally useful. Ideally, solutions should be implementable in software, making them platform-independent.
 
+
+Alright, so now that we know 
