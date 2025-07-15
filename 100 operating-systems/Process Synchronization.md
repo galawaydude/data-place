@@ -541,6 +541,7 @@ This direct implementation of `sleep` and `wakeup` suffers from a classic **race
 Btw, as i said before, the main cause for most of these solutions not working, is that, they ain't atomic, and can be preempted mid execution, Now we have the goat, which is apparently the best one in the scene, and is able to solve all of the above issues
 
 ### Semaphores
+#### got this shit from gemini, pretty good analogy
 
 
 
