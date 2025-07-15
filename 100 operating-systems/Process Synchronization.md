@@ -130,3 +130,10 @@ Basically, like assume P1, needs to use its cs, but someone else is using it, so
 | **Example**        | Spinlocks, simple software solutions (like some of the ones we'll discuss).                      | Semaphores, Mutexes (with blocking queues).                                                      |
 Busy waiting is also known as "spinning," and the locks that use it are called **spinlocks**. While it avoids context switch overhead, it's generally inefficient on a single CPU system because the waiting process prevents any other process from running.
 
+Alright, so now lets see some solutions, people came up with
+
+## Busy Waiting 
+
+### Lock Variable
+
+Tgis 
