@@ -538,7 +538,7 @@ This direct implementation of `sleep` and `wakeup` suffers from a classic **race
 8.  **Consumer** resumes. It executes `sleep()`. Now the consumer is actually sleeping.
 9.  **Result:** Both Producer and Consumer are now sleeping, believing they are waiting for each other, but the `wakeup` signal was missed. The system is in a **deadlock**.
 
-Btw, as i said before, the main cause for most of these sou
+Btw, as i said before, the main cause for most of these solutions not working, is that, they ain't atomic, and can be preempted mid execution, Now we have the goat
 
 
 
