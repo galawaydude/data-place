@@ -686,4 +686,4 @@ while (TRUE) {
 This sequence forces an output of `010101...`. It effectively implements **strict alternation** using mutexes, which is more robust than the simple `turn` variable because it uses blocking instead of busy waiting, avoiding the progress issues of the simple turn variable solution.
 
 > write about how mutexes are used to solve the producer consumer problem
-> writ
+> write about some synchronization problems, like dining philosophers problem
