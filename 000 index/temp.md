@@ -227,7 +227,7 @@ Consider the following execution interleaving:
 | :---- | :------ | :------------------------------- | :----- | :-------- | :-------- | :------------------------------------------------------------------------- |
 | 1     |         | Initial state                    | 0      | -         | -         | `LOCK` is 0 (vacant).                                                      |
 | 2     | P1      | `LOAD R0, LOCK`                  | 0      | 0         | -         | P1 loads `LOCK` (0) into its R0.                                           |
-| 3     | P1      | `CMP R0, #0`                     | 0      | 0         | -         | P1 compares R0 (0) with 0. Result is True.                                 |
+| 3     | I       | `CMP R0, #0`                     | 0      | 0         | -         | P1 compares R0 (0) with 0. Result is True.                                 |
 | **4** | **P1**  | **(Preempted before JNZ fails)** | **0**  | 0         | -         | **P1 is preempted.** It *knows* LOCK is 0, but hasn't set it to 1 yet.     |
 | 5     | P2      | `LOAD R0, LOCK`                  | 0      | -         | 0         | P2 loads `LOCK` (still 0) into its R0.                                     |
 | 6     | P2      | `CMP R0, #0`                     | 0      | -         | 0         | P2 compares R0 (0) with 0. Result is True.                                 |
