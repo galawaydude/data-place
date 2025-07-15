@@ -81,4 +81,4 @@ a race condition is basically a condition, when the outcome of different process
 
 ### **The Critical Section Problem
 
-See, no 
+See, now as I said before, every process is basically a code being executed. now its not the case that, all the instructions in the code, are accessing the shared space, some instructions may be working on the resources allocated to that part
