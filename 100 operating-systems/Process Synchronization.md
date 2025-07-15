@@ -571,10 +571,33 @@ Semaphores, are operations often implemented in kernel mode using atomic hardwar
 
 Basically as I said, semaphores, is basically a variable implemented via a struct or a class, now assume you have multiple resources, you can get x, which is the primitive for the semaphore, and it tell the number of resources available, can take values >0, 0, <0.
 
+```c
+        void wait(struct semaphore *S) {
+            S->value--; // Decrement the semaphore value
 
+            if (S->value < 0) { // If value becomes negative, no resource is available
+                // Add the current process's PCB to the semaphore's waiting queue (L)
+                put_process_PCB_in_queue(S->L, current_process);
+                sleep(); // Block the current process (it gives up the CPU)
+            }
+            // else (S->value >= 0), resource is available, continue execution
+        }
+```
 
+```c
+        void signal(struct semaphore *S) {
+            S->value++; // Increment the semaphore value (releasing a resource)
 
+            if (S->value <= 0) { // If value is 0 or negative, it means there are processes waiting
+                // Select a process from the semaphore's waiting queue (L)
+                ProcessControlBlock *p = select_process_from_queue(S->L);
+                wakeup(p); // Wake up the selected process (move it to the ready queue)
+            }
+            // else (S->value > 0), no processes are waiting, resource simply becomes available.
+        }
+```
 
+So, basically as we discussed before, they have two main operations, wait and signal, the
 
 
 
