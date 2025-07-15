@@ -371,3 +371,13 @@ turn = 0; // Give turn to P0
 // Remainder Section (NCS)
 ```
 
+**Some stuff about this
+
+- **Mutual Exclusion:** **YES**. Guaranteed. If `turn` is `0`, only P0 can enter. If `turn` is `1`, only P1 can enter. Since `turn` can only be `0` or `1`, only one process can enter at a time.
+-   **Progress:** **NO**. Not guaranteed. This is a significant drawback.
+    -   **Scenario:** Suppose `turn = 0` and P0 completes its CS and sets `turn = 1`. Now P1 is allowed.
+    -   What if P1 is much slower, or simply doesn't need to enter its critical section right now? P1 stays in its remainder section.
+    -   P0 now wants to enter its critical section again. It checks `turn != 0`, but `turn` is currently `1` (because P1 hasn't taken its turn yet). So, P0 must busy-wait, even though the critical section is empty!
+    -   This violates the "Progress" requirement, which states that if the CS is empty, a process that wants to enter should not be indefinitely prevented.
+-   **Bounded Waiting:** **YES**. Guaranteed. Each process only has to wait at most one turn for the other process to complete its critical section. After the other process completes its CS, it passes the turn.
+-   **Architectural Neutrality:** **YES**. It's a purely software-based solution, so it works on any architecture.
