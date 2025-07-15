@@ -332,4 +332,6 @@ The major problem is that you **cannot trust user processes** to properly re-ena
 
 ### **Strict Alternation Approach (Turn Variable)
 
-Same shit, its a software based approach, implemented at the us
+Same shit, its a software based approach, implemented at the user level, and its meant to work only for two processes.
+
+A shared turn variable indicates which process is should execu 
