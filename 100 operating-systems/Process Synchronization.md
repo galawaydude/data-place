@@ -466,5 +466,9 @@ It satisfies all the criteria we discussed above, pretty great as i said.
 
 ## Non-Busy Methods
 
-Busy methods are easy to implement, cause you do not have to worry about, blocking the process. but this is highly inefficient especially on single processor systems, (You know why), so now we will be looking 
+Busy methods are easy to implement, cause you do not have to worry about, blocking the process. but this is highly inefficient especially on single processor systems, (You know why), so now we will be looking non-busy methods
+
+### **Sleep and Wake
+
+
 
