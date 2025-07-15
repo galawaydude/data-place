@@ -604,7 +604,8 @@ wait is called whenever you need to assign a resource, and signal is called when
 now, the process is basically this, assume you have, total 5 resources, and all five have been all assigned, so value is 0 right now.
 now assume p() has been called. value becomes -1, now, and because its less then this, you put the process in a queue, and put it to sleep, basically blocking it.
 
-now assume some other process which was using the resource, has relieved it, so v() is called, and according to the function, we do value++, and value becomes 0, and because value is equal to 0, 
+now assume some other process which was using the resource, has relieved it, so v() is called, and according to the function, we do value++, and value becomes 0, and because value is equal to 0, that means that some process is in the queue, we wake that process up, and assign it the resource, just look at the librarian example, it explain everything pretty well.
+and both of these wa
 
 
 
