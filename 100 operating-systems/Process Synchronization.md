@@ -277,14 +277,14 @@ void Release_Lock(int process_id) {
 
 **Stuff about Fetch and Add
 
- **Does L overflow?**
-    Yes, `L` can overflow. If many processes try to acquire the lock concurrently, `L` will keep incrementing. If it's an `unsigned int`, it will eventually wrap around to `0` after reaching its maximum value. If it wraps to `0`, it will incorrectly signal that the lock is available, even if processes are waiting.
+ - **Does L overflow?**
+    - Yes, `L` can overflow. If many processes try to acquire the lock concurrently, `L` will keep incrementing. If it's an `unsigned int`, it will eventually wrap around to `0` after reaching its maximum value. If it wraps to `0`, it will incorrectly signal that the lock is available, even if processes are waiting.
 
-2.  **Does L take on non-zero values when the lock is actually available?**
-    No. `L` is initialized to `0`. When a process successfully acquires the lock, `Fetch_And_Add(L, 1)` will return `0` (the old value) and set `L` to `1`. When `Release_Lock` is called, `L` is explicitly set back to `0`. The only way `L` would be non-zero when released is if `Release_Lock` itself was flawed or if `L` were somehow externally modified. In this specific implementation, it correctly returns to `0`.
+-  **Does L take on non-zero values when the lock is actually available?**
+    - No. `L` is initialized to `0`. When a process successfully acquires the lock, `Fetch_And_Add(L, 1)` will return `0` (the old value) and set `L` to `1`. When `Release_Lock` is called, `L` is explicitly set back to `0`. The only way `L` would be non-zero when released is if `Release_Lock` itself was flawed or if `L` were somehow externally modified. In this specific implementation, it correctly returns to `0`.
 
-3.  **Does it work correctly without starvation?**
-    No, it does not guarantee freedom from starvation. Like TSL, it's a busy-waiting mechanism. If multiple processes are spinning, the scheduler might repeatedly favor one process over others, leading to some processes never getting the `Fetch_And_Add` operation to return `0`.
+-  **Does it work correctly without starvation?**
+    - No, it does not guarantee freedom from starvation. Like TSL, it's a busy-waiting mechanism. If multiple processes are spinning, the scheduler might repeatedly favor one process over others, leading to some processes never getting the `Fetch_And_Add` operation to return `0`.
 
 **Trace Example of Fetch-and-Add:**
 
@@ -301,3 +301,5 @@ Assume `L` starts at `0`. `P1`, `P2`, `P3`, `Pn` try to acquire the lock.
 |      | P1      | (P1 finishes CS, `Release_Lock`) | -                             | 0     | P1 sets L back to 0. Now all waiting processes will see 0. |
 
 This trace shows that processes `P2`, `P3`, ..., `Pn` will be busy-waiting because `Fetch_And_Add` returned a non-zero value. When P1 releases the lock (setting `L` to `0`), *all* the waiting processes will see `L` as `0` and race again. The one that wins the `Fetch_And_Add` will get `0` and enter the CS, while others increment `L` further. This structure doesn't inherently give priority to the longest waiting process.
+
+### Disabling Interrupts
