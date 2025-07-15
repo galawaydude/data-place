@@ -30,7 +30,7 @@ Ideally, if `count` starts at `5`, after P1 increments it and P2 decrements it, 
 
 Now, let's trace different execution orders (interleaving) of these instructions, assuming `count` starts at `5`:
 
-#### Scenario 1: No Preemption (Ideal Order)
+##### Scenario 1: No Preemption (Ideal Order)
 
 **Order 1: P1 executes completely, then P2 executes completely.**
 
@@ -75,3 +75,6 @@ Now, let's trace different execution orders (interleaving) of these instructions
 | 7    | P2      | `MOV count, R1`         | 4       | 6         | 4         | P2 stores 4 to `count`. (Overwrites P1's update) |
 
 **Result:** `count` ends at **4**. This is also an **inconsistent** result.
+
+Now, basically what you saw there is a race condition, 
+a race condition is basically a condition, when the outcome of different processes accessing shared date, depends on the relative order of their execution (i.e.e)
