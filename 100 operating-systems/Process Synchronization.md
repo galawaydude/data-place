@@ -246,3 +246,8 @@ Even though TSL guarantees mutual exclusion, it can lead to another problem call
 In this situation, the high-priority process `P2` is "spinning" in its entry section, consuming CPU cycles, while the low-priority process `P1` that holds the lock is stuck in the ready queue, unable to run and release the lock.
 
 So normally when the above thing happens, one solution for this thing is the OS temporarily boosts the priority of the low-priority process, this way the low priority process quickly finishes its critical section, and releases the lock.
+
+So to conclude This implementation guarantees **Mutual Exclusion** and **Progress**, but not **Bounded Waiting** (due to starvation possibility) and not **Architectural Neutrality** (due to reliance on `test_and_set` hardware instruction). It is subject to **Priority Inversion**.
+
+
+### **Fetch and Add instruction
