@@ -559,5 +559,7 @@ The key innovation here is that if no rooms are available, the librarian doesn't
 
 Semaphores, are operations often implemented in kernel mode using atomic hardware instructions like TSL, or Fetch Add
 
+### Counting Semaphores
+
 
 
