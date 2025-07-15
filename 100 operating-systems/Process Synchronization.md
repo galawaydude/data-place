@@ -644,3 +644,5 @@ They basically the same thing, as the normal semaphores, its just they they a sp
         ```
 
 Operations are similar to the normal semaphore, you can understand it pretty well actually
+
+**Mutexes for Processes Ordering
