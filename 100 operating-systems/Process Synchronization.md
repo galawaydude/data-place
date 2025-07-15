@@ -92,7 +92,6 @@ So, basically to solve this entire problem of race condition, and sync, our main
 *   **Remainder Section (NCS):** The rest of the code in the process, not involving shared resources.
 
 And any solution that, we make should be able to satisfy the below criteria:
-
 #### Primary Requirements:
 
 1.  **Mutual Exclusion:**
