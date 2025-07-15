@@ -561,6 +561,9 @@ Semaphores, are operations often implemented in kernel mode using atomic hardwar
 
 ### Counting Semaphores (General Semaphores)
 
+Basically as I said, semaphores, is basically a variable implemented via a struct or a class
+
+
 
 
 
