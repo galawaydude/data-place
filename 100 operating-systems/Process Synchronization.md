@@ -470,5 +470,7 @@ Busy methods are easy to implement, cause you do not have to worry about, blocki
 
 ### **Sleep and Wake
 
+The sleep and wake primitives, allow processes to block themselves, when a condition is not met and can be awakened by another process when the condition changes. This is used in Producer Consumer problem.
 
+### Prod
 
