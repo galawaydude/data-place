@@ -381,3 +381,9 @@ turn = 0; // Give turn to P0
     -   This violates the "Progress" requirement, which states that if the CS is empty, a process that wants to enter should not be indefinitely prevented.
 -   **Bounded Waiting:** **YES**. Guaranteed. Each process only has to wait at most one turn for the other process to complete its critical section. After the other process completes its CS, it passes the turn.
 -   **Architectural Neutrality:** **YES**. It's a purely software-based solution, so it works on any architecture.
+
+
+### Peterson's Solution
+
+This is the goat in this category, solves everything properly.
+its a software based methods, and builds upon the strict alternation and add a thing called interest flags on top of that
