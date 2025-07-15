@@ -91,5 +91,6 @@ So, basically to solve this entire problem of race condition, and sync, our main
 *   **Exit Section:** The code executed after a process finishes its critical section, releasing its hold on the shared resources.
 *   **Remainder Section (NCS):** The rest of the code in the process, not involving shared resources.
 
-And any solution that, we make should be able to satisfy the below criteria
+And any solution that, we make should be able to satisfy the below criteria:
+Primary 
 
