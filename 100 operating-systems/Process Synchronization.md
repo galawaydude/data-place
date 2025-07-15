@@ -189,3 +189,19 @@ This this shit isn't satisfying the mutual exclusion thing.
 
 This happens because, there exists preemption, and i already discussed this thing before with you guys (refer up, somewhere its written).
 
+The problem is that the sequence of operations (load `LOCK`, check `LOCK`, set `LOCK`) is **not atomic**.
+A process can load the value of `LOCK` (which is `0`), get preempted **before** it can set `LOCK` to `1`. During this preemption, another process can also load `LOCK` (which is still `0`), proceed, and enter its critical section. When the first process resumes, it still believes `LOCK` is `0` (based on its loaded register value) and proceeds to set it to `1` and enter its critical section.
+
+**To stop this from happening:** We need to ensure that no one can "come in the middle" of the "check-then-set" operation. This requires making the operation **atomic**.
+
+
+### **Test and Set Lock (TSL)
+
+Since software solutions like the simple Lock Variable fail to guarantee mutual exclusion due to potential preemption during critical read-modify-write sequences, hardware support becomes necessary. One such hardware instruction is `Test-and-Set Lock`.
+
+> The **Test-and-Set Lock (TSL)** instruction is an atomic hardware instruction. It performs two actions in a single, indivisible CPU cycle:
+1.  **Reads** the current value of a memory location (e.g., `LOCK`).
+2.  **Sets** that memory location to a new value (e.g., `1`).
+3.  **Returns** the original value read.
+
+Because it's atomic, no other process can interrupt between the read and the write.
