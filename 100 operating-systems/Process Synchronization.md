@@ -557,7 +557,7 @@ wait() (or P()): "I want to Proceed or wait." This is like asking the librarian 
 
 The key innovation here is that if no rooms are available, the librarian doesn't let you stand there asking "Are we there yet?" every second (this is busy-waiting). Instead, they take your name, put you on a waiting list, and tell you to go relax (your process is blocked). You don't waste any energy. When a key is returned, the librarian calls the first person on the list (wakeup). This is a huge improvement over simpler mechanisms.
 
-
+Semaphores, are operations often implemented in kernel mode using atomic hardware instructions like TSL, or Fetch Add
 
 
 
