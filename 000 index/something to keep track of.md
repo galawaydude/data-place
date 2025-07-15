@@ -4,6 +4,7 @@ DBMS can compplete in july only
 computer networks
 Digital Logic can complete in july only
 Some shit from discrete i guess
+also try to complete probability, may be useful
 
 
 
