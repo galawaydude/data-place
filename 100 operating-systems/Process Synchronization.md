@@ -463,3 +463,8 @@ Exit_section(1);
 
 It satisfies all the criteria we discussed above, pretty great as i said.
 
+
+## Non-Busy Methods
+
+Busy methods are easy to implement, cause
+
