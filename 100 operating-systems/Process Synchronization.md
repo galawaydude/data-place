@@ -138,4 +138,25 @@ Alright, so now lets see some solutions, people came up with
 
 This is a simple software solution, its implemented at the user mode, and does not rely on OS support.
 
-There is a shared variable called lock, which has a Boolean value, and when some pr 
+There is a shared variable called lock, which has a Boolean value, and when some process is executing the critical section, its set to 1, 0 otherwise.
+```
+// Shared variable, initially LOCK = 0
+int LOCK = 0;
+
+// Entry Section
+while (LOCK == 1) {
+    // Busy wait: Loop here until LOCK becomes 0
+    // CPU is busy but doing nothing useful (spinning)
+}
+LOCK = 1; // Acquire the lock
+
+// Critical Section (CS)
+// ... code to access shared resources ...
+
+// Exit Section
+LOCK = 0; // Release the lock
+
+// Remainder Section (NCS)
+```
+
+Problems w
