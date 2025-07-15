@@ -320,3 +320,12 @@ enable_interrupts();
 ```
 
 **Some stuff about this
+
+- **Mutual Exclusion:** **YES**. If interrupts are disabled, no other process can be scheduled on the same CPU, thus guaranteeing that only one process executes its critical section at a time. (Note: This only works for single-processor systems or for protecting data on the *specific* processor that disables interrupts; on multi-processor systems, other CPUs can still access the shared data unless a more sophisticated mechanism is used in conjunction).
+-  **Progress:** **YES**. If a process wants to enter, it can (assuming no one else is currently in CS with interrupts disabled).
+-  **Bounded Waiting:** **NO**. Not guaranteed. If a process disables interrupts and then crashes or gets stuck in an infinite loop *within its critical section*, interrupts will never be re-enabled, and the entire system will halt. Also, it doesn't ensure fairness; a process could repeatedly enter its CS.
+-  **Architectural Neutrality:** **NO**. This method is highly dependent on hardware (CPU's ability to disable/enable interrupts) and operating system kernel privileges (user-level programs typically cannot disable interrupts directly).
+
+**Problem with Disabling Interrupts (for user processes):
+
+The major problem is that you **cannot trust user processes** to properly re-enable interrupts. If a user process disables interrupts and then crashes, or enters an infinite loop, or maliciously refuses to re-enable them, the entire system will freeze. Due to this severe risk, it is **rarely used** as a general synchronization method for user-level processes. It is primarily reserved for critical sections within the OS kernel itself, where the code is tightly controlled and highly trusted.
