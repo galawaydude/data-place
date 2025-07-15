@@ -205,3 +205,25 @@ Since software solutions like the simple Lock Variable fail to guarantee mutual 
 3.  **Returns** the original value read.
 
 Because it's atomic, no other process can interrupt between the read and the write.
+```
+// Shared variable, initially LOCK = 0
+int LOCK = 0;
+
+// Entry Section
+while (TSL(R0, LOCK)) { // TSL reads LOCK into R0, sets LOCK to 1. Returns original value.
+    // If original value of LOCK was 1, loop (busy wait)
+    // If original value of LOCK was 0, it means we acquired the lock. R0 will be 0, loop terminates.
+}
+// Now LOCK is 1, and we are in CS.
+
+// Critical Section (CS)
+// ... code to access shared resources ...
+
+// Exit Section
+LOCK = 0; // Release the lock
+
+// Remainder Section (NCS)
+```
+
+**Some Stuff about TSL Solution**
+
