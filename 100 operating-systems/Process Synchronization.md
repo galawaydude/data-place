@@ -227,3 +227,13 @@ LOCK = 0; // Release the lock
 
 **Some Stuff about TSL Solution**
 
+*   **Mutual Exclusion:** **YES**. Guaranteed. If `TSL` returns `0`, it means `LOCK` was `0` and has now been atomically set to `1` by *this* process. Any other process trying to `TSL` will now get `1` and busy wait.
+*   **Progress:** **YES**. If the critical section is free, a process can acquire the lock and enter.
+*   **Bounded Waiting:** **NO**. Not guaranteed. A process can repeatedly lose the "race" to acquire the lock and might busy-wait indefinitely if the scheduler continuously favors other processes. This leads to **starvation**.
+*   **Architectural Neutrality:** **NO**. This solution relies on a specific hardware instruction (`TSL`). It's not purely a software solution and requires hardware support.
+
+**Problems with TSL
+
+
+
+
