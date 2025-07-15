@@ -126,7 +126,7 @@ Basically, like assume P1, needs to use its cs, but someone else is using it, so
 | **CPU Usage**      | Wastes CPU cycles while waiting, as the CPU is "busy" doing nothing useful.                      | Does not waste CPU cycles while waiting, as the process is suspended.                            |
 | **Context Switch** | No context switch required to wait.                                                              | Requires context switch to move process to waiting queue and back.                               |
 | **When used**      | For very short critical sections, or on multi-core systems where other cores can do useful work. | For longer critical sections, or on single-core systems where busy waiting would stall progress. |
-| **Example**        | Spinlocks, simple software solutions (like some of the ones we'll discuss).                      | Semaphores, Mutexes (with blocking queues).                                                      |
+| **Example**        | Spinlocks, simple software solutions                                                             | Semaphores, Mutexes (with blocking queues).                                                      |
 Busy waiting is also known as "spinning," and the locks that use it are called **spinlocks**. While it avoids context switch overhead, it's generally inefficient on a single CPU system because the waiting process prevents any other process from running.
 
 Alright, so now lets see some solutions, people came up with
