@@ -159,4 +159,30 @@ LOCK = 0; // Release the lock
 // Remainder Section (NCS)
 ```
 
-Problems w
+**Problems with the above thing**:
+
+**Process P1 (entering CS):**
+1.  `LOAD R0, LOCK` (Load `LOCK` value into R0)
+2.  `CMP R0, #0` (Compare R0 with 0)
+3.  `JNZ Step1` (Jump back to Step 1 if not zero, i.e., LOCK is 1)
+4.  `STORE #1, LOCK` (Set `LOCK` to 1)
+
+**Process P2 (also entering CS):**
+(Similar logic)
+
+Consider the following execution interleaving:
+
+| Step  | Process | Instruction                      | `LOCK` | `R0` (P1) | `R0` (P2) | Explanation                                                                |
+| :---- | :------ | :------------------------------- | :----- | :-------- | :-------- | :------------------------------------------------------------------------- |
+| 1     |         | Initial state                    | 0      | -         | -         | `LOCK` is 0 (vacant).                                                      |
+| 2     | P1      | `LOAD R0, LOCK`                  | 0      | 0         | -         | P1 loads `LOCK` (0) into its R0.                                           |
+| 3     | I       | `CMP R0, #0`                     | 0      | 0         | -         | P1 compares R0 (0) with 0. Result is True.                                 |
+| **4** | **P1**  | **(Preempted before JNZ fails)** | **0**  | 0         | -         | **P1 is preempted.** It *knows* LOCK is 0, but hasn't set it to 1 yet.     |
+| 5     | P2      | `LOAD R0, LOCK`                  | 0      | -         | 0         | P2 loads `LOCK` (still 0) into its R0.                                     |
+| 6     | P2      | `CMP R0, #0`                     | 0      | -         | 0         | P2 compares R0 (0) with 0. Result is True.                                 |
+| 7     | P2      | `STORE #1, LOCK`                 | 1      | -         | 0         | P2 sets `LOCK` to 1, enters CS.                                            |
+| **8** | **P1**  | **`STORE #1, LOCK`**             | **1**  | 0         | 0         | **P2 is preempted.** P1 resumes and also sets `LOCK` to 1, then enters CS. |
+
+**Result:** Both P1 and P2 are simultaneously in their critical sections!
+
+This this shit isn't satisfying the mutual exclusion thing
