@@ -84,4 +84,12 @@ a race condition is basically a condition, when the outcome of different process
 See, now as I said before, every process is basically a code being executed. now its not the case that, all the instructions in the code, are accessing the shared space, some instructions may be working on the resources allocated to that particular process only right. The main issue of syncing comes, when the critical section part is being executed.
 > A **Critical Section** is a segment of code where processes access shared resources (data, files, devices). Only one process or thread should be allowed to execute its critical section at any given time to ensure data consistency.
 
-So, basically to solve this entire problem of race condition, and sync, 
+So, basically to solve this entire problem of race condition, and sync, our main goal is to create a protocol, that keeps track of these important sections of a code
+
+*   **Entry Section:** The code requesting permission to enter the critical section.
+*   **Critical Section (CS):** The code that accesses the shared resources.
+*   **Exit Section:** The code executed after a process finishes its critical section, releasing its hold on the shared resources.
+*   **Remainder Section (NCS):** The rest of the code in the process, not involving shared resources.
+
+And any solution that, we make should be able to satisfy the below criteria
+
