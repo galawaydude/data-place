@@ -252,4 +252,52 @@ So to conclude This implementation guarantees **Mutual Exclusion** and **Progres
 
 ### **Fetch and Add instruction
 
-This is similar to TSL, and is also hardware based implementation. Its the same
+This is similar to TSL, and is also hardware based implementation. Its the same as the above thing, but even more useless, does not bring any thing new.
+```c
+// Shared unsigned integer 'L', initialized to 0.
+// L = 0 corresponds to lock being available.
+// Any non-zero value corresponds to lock being not available (or held).
+unsigned int L = 0;
+
+void Acquire_Lock(int process_id) {
+    // In Fetch-and-Add(L, 1), 'L' is incremented, and its OLD value is returned.
+    // If the old value was 0, this process successfully acquired the lock.
+    // If the old value was non-zero, another process already holds/is waiting for the lock.
+    while (Fetch_And_Add(L, 1) != 0) {
+        // Busy wait (spin) until Fetch_And_Add returns 0.
+        // This means the lock was available (L=0) and we just made it L=1.
+        // Subsequent calls will return 1, 2, 3... and busy-wait.
+    }
+}
+
+void Release_Lock(int process_id) {
+    L = 0; // Set L back to 0 to make the lock available.
+}
+```
+
+**Stuff about Fetch and Add
+
+ **Does L overflow?**
+    Yes, `L` can overflow. If many processes try to acquire the lock concurrently, `L` will keep incrementing. If it's an `unsigned int`, it will eventually wrap around to `0` after reaching its maximum value. If it wraps to `0`, it will incorrectly signal that the lock is available, even if processes are waiting.
+
+2.  **Does L take on non-zero values when the lock is actually available?**
+    No. `L` is initialized to `0`. When a process successfully acquires the lock, `Fetch_And_Add(L, 1)` will return `0` (the old value) and set `L` to `1`. When `Release_Lock` is called, `L` is explicitly set back to `0`. The only way `L` would be non-zero when released is if `Release_Lock` itself was flawed or if `L` were somehow externally modified. In this specific implementation, it correctly returns to `0`.
+
+3.  **Does it work correctly without starvation?**
+    No, it does not guarantee freedom from starvation. Like TSL, it's a busy-waiting mechanism. If multiple processes are spinning, the scheduler might repeatedly favor one process over others, leading to some processes never getting the `Fetch_And_Add` operation to return `0`.
+
+**Trace Example of Fetch-and-Add:**
+
+Assume `L` starts at `0`. `P1`, `P2`, `P3`, `Pn` try to acquire the lock.
+
+| Step | Process | Action (Acquire_Lock)         | `Fetch_And_Add(L, 1)` Returns | `L`   | Current State                                             |
+| :--- | :------ | :---------------------------- | :---------------------------- | :---- | :-------------------------------------------------------- |
+| 1    |         | Initial state                 | -                             | 0     | Lock available.                                           |
+| 2    | P1      | `Fetch_And_Add(L, 1)`         | 0                             | 1     | P1 gets 0, so it proceeds to CS. Other processes will get non-zero. |
+| 3    | P2      | `Fetch_And_Add(L, 1)`         | 1                             | 2     | P2 gets 1, busy-waits.                                    |
+| 4    | P3      | `Fetch_And_Add(L, 1)`         | 2                             | 3     | P3 gets 2, busy-waits.                                    |
+| ...  | ...     | ...                           | ...                           | ...   | ...                                                       |
+| N    | Pn      | `Fetch_And_Add(L, 1)`         | N-1                           | N     | Pn gets N-1, busy-waits.                                  |
+|      | P1      | (P1 finishes CS, `Release_Lock`) | -                             | 0     | P1 sets L back to 0. Now all waiting processes will see 0. |
+
+This trace shows that processes `P2`, `P3`, ..., `Pn` will be busy-waiting because `Fetch_And_Add` returned a non-zero value. When P1 releases the lock (setting `L` to `0`), *all* the waiting processes will see `L` as `0` and race again. The one that wins the `Fetch_And_Add` will get `0` and enter the CS, while others increment `L` further. This structure doesn't inherently give priority to the longest waiting process.
