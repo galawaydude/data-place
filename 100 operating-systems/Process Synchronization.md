@@ -136,4 +136,6 @@ Alright, so now lets see some solutions, people came up with
 
 ### Lock Variable
 
-This is a simple software
+This is a simple software solution, its implemented at the user mode, and does not rely on OS support.
+
+There is a shared variable called lock, which has a Boolean value, and when some pr 
