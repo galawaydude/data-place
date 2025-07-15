@@ -382,10 +382,10 @@ turn = 0; // Give turn to P0
 -   **Architectural Neutrality:** **YES**. It's a purely software-based solution, so it works on any architecture.
 
 
-### Peterson's Solution
+## **Peterson's Solution
 
 This is the goat in this category, solves everything properly.
-its a software based methods, and builds upon the strict alternation and add a thing called interest flags on top of that. because of this, this too works only for 2 processes.
+its a software based methods, and builds upon the strict alternation and adds a thing called interest flags on top of that. because of this, this too works only for 2 processes.
 this too is implemented in user mode.
 ```c
 // Shared variables
