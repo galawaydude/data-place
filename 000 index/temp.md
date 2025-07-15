@@ -223,16 +223,16 @@ Let's re-examine the `count++` and `count--` example, but this time using the `L
 
 Consider the following execution interleaving:
 
-| Step | Process | Instruction             | `LOCK` | `R0` (P1) | `R0` (P2) | Explanation                                      |
-| :--- | :------ | :---------------------- | :----- | :-------- | :-------- | :----------------------------------------------- |
-| 1    |         | Initial state           | 0      | -         | -         | `LOCK` is 0 (vacant).                            |
-| 2    | P1      | `LOAD R0, LOCK`         | 0      | 0         | -         | P1 loads `LOCK` (0) into its R0.                 |
-| 3    | P1      | `CMP R0, #0`            | 0      | 0         | -         | P1 compares R0 (0) with 0. Result is True.       |
-| **4**| **P1**  | **(Preempted before JNZ fails)** | **0**  | 0         | -         | **P1 is preempted.** It *knows* LOCK is 0, but hasn't set it to 1 yet. |
-| 5    | P2      | `LOAD R0, LOCK`         | 0      | -         | 0         | P2 loads `LOCK` (still 0) into its R0.           |
-| 6    | P2      | `CMP R0, #0`            | 0      | -         | 0         | P2 compares R0 (0) with 0. Result is True.       |
-| 7    | P2      | `STORE #1, LOCK`        | 1      | -         | 0         | P2 sets `LOCK` to 1, enters CS.                  |
-| **8**| **P1**  | **`STORE #1, LOCK`**    | **1**  | 0         | 0         | **P2 is preempted.** P1 resumes and also sets `LOCK` to 1, then enters CS. |
+| Step  | Process | Instruction                      | `LOCK` | `R0` (P1) | `R0` (P2) | Explanation                                                                |
+| :---- | :------ | :------------------------------- | :----- | :-------- | :-------- | :------------------------------------------------------------------------- |
+| 1     |         | Initial state                    | 0      | -         | -         | `LOCK` is 0 (vacant).                                                      |
+| 2     | P1      | `LOAD R0, LOCK`                  | 0      | 0         | -         | P1 loads `LOCK` (0) into its R0.                                           |
+| 3     | P1      | `CMP R0, #0`                     | 0      | 0         | -         | P1 compares R0 (0) with 0. Result is True.                                 |
+| **4** | **P1**  | **(Preempted before JNZ fails)** | **0**  | 0         | -         | **P1 is preempted.** It *knows* LOCK is 0, but hasn't set it to 1 yet.     |
+| 5     | P2      | `LOAD R0, LOCK`                  | 0      | -         | 0         | P2 loads `LOCK` (still 0) into its R0.                                     |
+| 6     | P2      | `CMP R0, #0`                     | 0      | -         | 0         | P2 compares R0 (0) with 0. Result is True.                                 |
+| 7     | P2      | `STORE #1, LOCK`                 | 1      | -         | 0         | P2 sets `LOCK` to 1, enters CS.                                            |
+| **8** | **P1**  | **`STORE #1, LOCK`**             | **1**  | 0         | 0         | **P2 is preempted.** P1 resumes and also sets `LOCK` to 1, then enters CS. |
 
 **Result:** Both P1 and P2 are simultaneously in their critical sections!
 
