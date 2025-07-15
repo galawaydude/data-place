@@ -185,4 +185,7 @@ Consider the following execution interleaving:
 
 **Result:** Both P1 and P2 are simultaneously in their critical sections!
 
-This this shit isn't satisfying the mutual exclusion thing
+This this shit isn't satisfying the mutual exclusion thing.
+
+This happens because, there exists preemption, and i already discussed this thing before with you guys (refer up, somewhere its written).
+
