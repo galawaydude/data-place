@@ -115,4 +115,19 @@ And any solution that, we make should be able to satisfy the below criteria:
     *   **Importance:** A solution that works only on a particular CPU architecture or OS is not generally useful. Ideally, solutions should be implementable in software, making them platform-independent.
 
 
-Alright, so now that we know 
+Alright, so now that we know what to keep in mind to design a solution, basically any solution that we design, can be classified into two types.
+
+### **Busy Waiting and Non-Busy Waiting
+
+Basically, like assume P1, nee
+
+| Feature            | With Busy Waiting (Spinlocks)                                                                    | Without Busy Waiting (Blocking/Sleeping)                                                         |
+| :----------------- | :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
+| **Mechanism**      | Process continuously checks a condition in a loop.                                               | Process gives up the CPU and goes into a waiting state.                                          |
+| **CPU Usage**      | Wastes CPU cycles while waiting, as the CPU is "busy" doing nothing useful.                      | Does not waste CPU cycles while waiting, as the process is suspended.                            |
+| **Context Switch** | No context switch required to wait.                                                              | Requires context switch to move process to waiting queue and back.                               |
+| **When used**      | For very short critical sections, or on multi-core systems where other cores can do useful work. | For longer critical sections, or on single-core systems where busy waiting would stall progress. |
+| **Example**        | Spinlocks, simple software solutions (like some of the ones we'll discuss).                      | Semaphores, Mutexes (with blocking queues).                                                      |
+
+
+
