@@ -559,9 +559,19 @@ The key innovation here is that if no rooms are available, the librarian doesn't
 
 Semaphores, are operations often implemented in kernel mode using atomic hardware instructions like TSL, or Fetch Add
 
+**General structure of a semaphore
+```c
+    struct semaphore {
+        int value; // Number of resources available, or negative if processes are waiting
+        QueueType L; // A queue of PCBs (Process Control Blocks) for processes waiting on this semaphore
+    };
+```
+
 ### Counting Semaphores (General Semaphores)
 
 Basically as I said, semaphores, is basically a variable implemented via a struct or a class, now assume you have multiple resources, you can get x, which is the primitive for the semaphore, and it tell the number of resources available, can take values >0, 0, <0.
+
+
 
 
 
