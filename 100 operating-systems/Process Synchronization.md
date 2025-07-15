@@ -646,3 +646,44 @@ They basically the same thing, as the normal semaphores, its just they they a sp
 Operations are similar to the normal semaphore, you can understand it pretty well actually
 
 **Mutexes for Processes Ordering
+
+Mutexes (binary semaphores) can also be cleverly used to enforce a specific order of execution between processes, or even to implement strict alternation more robustly than the simple `turn` variable.
+
+**Example 1: Strict Alternation with Mutexes**
+
+Imagine two processes, P0 and P1, and two mutexes, `a` and `b`, initialized as follows: `a = 1` (available), `b = 0` (unavailable).
+
+**Process P0:**
+```
+while (TRUE) {
+    P(a);       // Wait for mutex 'a' (acquire)
+    print("0"); // Critical section: Print '0'
+    V(b);       // Signal mutex 'b' (release)
+}
+```
+
+**Process P1:**
+```
+while (TRUE) {
+    P(b);       // Wait for mutex 'b' (acquire)
+    print("1"); // Critical section: Print '1'
+    V(a);       // Signal mutex 'a' (release)
+}
+```
+
+**Execution Flow:**
+1.  Initially, `a=1`, `b=0`.
+2.  P0 can proceed because `a` is available. It calls `P(a)`, `a` becomes `0`.
+3.  P0 prints "0".
+4.  P0 calls `V(b)`, `b` becomes `1`.
+5.  Now, P0 tries to `P(a)` again but `a` is `0`, so P0 blocks.
+6.  P1 can now proceed because `b` is `1`. It calls `P(b)`, `b` becomes `0`.
+7.  P1 prints "1".
+8.  P1 calls `V(a)`, `a` becomes `1`.
+9.  Now, P1 tries to `P(b)` again but `b` is `0`, so P1 blocks.
+10. P0 is unblocked because `a` is now `1`. It acquires `a` again and repeats the cycle.
+
+This sequence forces an output of `010101...`. It effectively implements **strict alternation** using mutexes, which is more robust than the simple `turn` variable because it uses blocking instead of busy waiting, avoiding the progress issues of the simple turn variable solution.
+
+> write about how mutexes are used to solve the producer consumer problem
+> writ
