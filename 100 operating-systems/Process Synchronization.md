@@ -245,4 +245,4 @@ Even though TSL guarantees mutual exclusion, it can lead to another problem call
  - `P1` can never release the lock, and `P2` can never stop busy-waiting. This creates a state similar to a **deadlock**, where `P2` (high priority) is effectively blocked by `P1` (low priority) because of the synchronization primitive. This is what's called **Priority Inversion**.
 In this situation, the high-priority process `P2` is "spinning" in its entry section, consuming CPU cycles, while the low-priority process `P1` that holds the lock is stuck in the ready queue, unable to run and release the lock.
 
-So normally when the above thing happens, one solution for this thing is the OS temporarily boosts the priority of th rel
+So normally when the above thing happens, one solution for this thing is the OS temporarily boosts the priority of the low-priority process, this way the low priority process quickly finishes its critical section, and releases the lock.
