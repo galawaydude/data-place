@@ -251,3 +251,5 @@ So to conclude This implementation guarantees **Mutual Exclusion** and **Progres
 
 
 ### **Fetch and Add instruction
+
+This is similar to TSL, and is also hardware based implementation. Its the same
