@@ -162,13 +162,13 @@ Any solution to the critical section problem must satisfy the following criteria
 
 Synchronization mechanisms can be categorized based on how they handle a process waiting to enter a critical section:
 
-| Feature           | With Busy Waiting (Spinlocks)                                  | Without Busy Waiting (Blocking/Sleeping)                       |
-| :---------------- | :------------------------------------------------------------- | :------------------------------------------------------------- |
-| **Mechanism**     | Process continuously checks a condition in a loop.             | Process gives up the CPU and goes into a waiting state.        |
-| **CPU Usage**     | Wastes CPU cycles while waiting, as the CPU is "busy" doing nothing useful. | Does not waste CPU cycles while waiting, as the process is suspended. |
-| **Context Switch**| No context switch required to wait.                            | Requires context switch to move process to waiting queue and back. |
-| **When used**     | For very short critical sections, or on multi-core systems where other cores can do useful work. | For longer critical sections, or on single-core systems where busy waiting would stall progress. |
-| **Example**       | Spinlocks, simple software solutions (like some of the ones we'll discuss). | Semaphores, Mutexes (with blocking queues).                    |
+| Feature            | With Busy Waiting (Spinlocks)                                                                    | Without Busy Waiting (Blocking/Sleeping)                                                         |
+| :----------------- | :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
+| **Mechanism**      | Process continuously checks a condition in a loop.                                               | Process gives up the CPU and goes into a waiting state.                                          |
+| **CPU Usage**      | Wastes CPU cycles while waiting, as the CPU is "busy" doing nothing useful.                      | Does not waste CPU cycles while waiting, as the process is suspended.                            |
+| **Context Switch** | No context switch required to wait.                                                              | Requires context switch to move process to waiting queue and back.                               |
+| **When used**      | For very short critical sections, or on multi-core systems where other cores can do useful work. | For longer critical sections, or on single-core systems where busy waiting would stall progress. |
+| **Example**        | Spinlocks, simple software solutions (like some of the ones we'll discuss).                      | Semaphores, Mutexes (with blocking queues).                                                      |
 
 Busy waiting is also known as "spinning," and the locks that use it are called **spinlocks**. While it avoids context switch overhead, it's generally inefficient on a single CPU system because the waiting process prevents any other process from running.
 
