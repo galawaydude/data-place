@@ -597,7 +597,11 @@ Basically as I said, semaphores, is basically a variable implemented via a struc
         }
 ```
 
-So, basically as we discussed before, they have two main operations, wait and signal, the
+So, basically as we discussed before, they have two main operations, wait and signal, wait is called p(), down, and signal is called v(), up.
+
+wait is called whenever you need to assign a resource, and signal is called wh
+
+now, the process is basically this, assume you have, total 5 resources, and all five have been all
 
 
 
