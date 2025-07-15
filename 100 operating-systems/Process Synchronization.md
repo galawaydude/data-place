@@ -611,7 +611,7 @@ and both of these wait and signal operations are atomic, they always were
 **Binary Semaphore
 
 They basically the same thing, as the normal semaphores, its just they they a special case of it. these are also called mutexes, cause they are used to enforce mutual exclusion for a single resource. Now I understand that, even the normal semaphores, enforce mutexes, but this is only for that purpose, so a slight difference in the struct.
-    ```c
+```c
     struct Bsemaphore {
         enum {0, 1} value; // Value can only be 0 or 1
         QueueType L; // Queue of waiting processes
@@ -619,5 +619,28 @@ They basically the same thing, as the normal semaphores, its just they they a sp
     ```
     
 
+```c
+        void down(struct Bsemaphore *S) {
+            if (S->value == 1) { // If lock is available (1)
+                S->value = 0;    // Acquire the lock (set to 0)
+            } else {             // If lock is not available (0)
+                // Put the current process's PCB in the waiting queue (S.L)
+                put_process_PCB_in_queue(S->L, current_process);
+                sleep(); // Block the process
+            }
+        }
+        ```
 
+```c
+        void up(struct Bsemaphore *S) {
+            if (is_queue_empty(S->L)) { // If no processes are waiting
+                S->value = 1;           // Release the lock (set to 1)
+            } else {                    // If processes are waiting
+                // Select a process from the waiting queue (S.L)
+                ProcessControlBlock *p = select_process_from_queue(S->L);
+                wakeup(p); // Wake up the selected process
+            }
+        }
+        ```
 
+Operations are similar to the normal semaphore, you can understand it pretty well actually
