@@ -329,3 +329,7 @@ enable_interrupts();
 **Problem with Disabling Interrupts (for user processes):
 
 The major problem is that you **cannot trust user processes** to properly re-enable interrupts. If a user process disables interrupts and then crashes, or enters an infinite loop, or maliciously refuses to re-enable them, the entire system will freeze. Due to this severe risk, it is **rarely used** as a general synchronization method for user-level processes. It is primarily reserved for critical sections within the OS kernel itself, where the code is tightly controlled and highly trusted.
+
+### **Strict Alternation Approach (Turn Variable)
+
+Same shit, its a software based approach, implemented at the us
