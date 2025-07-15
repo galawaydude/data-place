@@ -92,5 +92,25 @@ So, basically to solve this entire problem of race condition, and sync, our main
 *   **Remainder Section (NCS):** The rest of the code in the process, not involving shared resources.
 
 And any solution that, we make should be able to satisfy the below criteria:
-Primary 
+
+#### Primary Requirements:
+
+1.  **Mutual Exclusion:**
+    *   **Definition:** If one process is executing in its critical section, then no other process is allowed to be executing in its critical section.
+    *   **Importance:** This is the absolute minimum requirement to prevent race conditions and ensure data consistency.
+
+2.  **Progress:**
+    *   **Definition:** If no process is executing in its critical section and some processes want to enter their critical section, then only those processes that are not in their remainder section can participate in deciding which process will enter the critical section next. This selection cannot be postponed indefinitely.
+    *   **Importance:** Prevents deadlocks. If a critical section is free, processes waiting to enter should eventually be allowed in. Processes that have no interest in entering the critical section should not block others from entering.
+    > to explain the above thing in a simple way, what the guy means is that, like assume p1, p2, p3 are three processes, and p3 has finished all of its, 
+
+#### Secondary Requirements:
+
+3.  **Bounded Waiting:**
+    *   **Definition:** There must be a limit on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted.
+    *   **Importance:** Prevents starvation. It ensures that every process that wants to enter its critical section will eventually get a chance to do so, preventing infinite waiting.
+
+4.  **Portability / Architectural Neutrality:**
+    *   **Definition:** The synchronization solution should not be dependent upon specific hardware features or operating system functionalities. It should be able to run on all platforms.
+    *   **Importance:** A solution that works only on a particular CPU architecture or OS is not generally useful. Ideally, solutions should be implementable in software, making them platform-independent.
 
