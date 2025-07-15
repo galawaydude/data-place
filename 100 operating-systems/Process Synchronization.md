@@ -609,4 +609,8 @@ and both of these wait and signal operations are atomic, they always were
 
 
 **Binary Semaphore
-They 
+
+They basically the same thing, as the normal semaphores, its just they they a special case of it. these are also called mutexes, cause they are used to enforce mutual exclusion for a single resource. Now I understand tha
+
+
+
