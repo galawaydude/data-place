@@ -136,4 +136,4 @@ Alright, so now lets see some solutions, people came up with
 
 ### Lock Variable
 
-Tgis 
+This is a simple software
