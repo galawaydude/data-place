@@ -77,4 +77,8 @@ Now, let's trace different execution orders (interleaving) of these instructions
 **Result:** `count` ends at **4**. This is also an **inconsistent** result.
 
 Now, basically what you saw there is a race condition, 
-a race condition is basically a condition, when the outcome of different processes accessing shared date, depends on the relative order of their execution (i.e.e)
+a race condition is basically a condition, when the outcome of different processes accessing shared date, depends on the relative order of their execution.
+
+### **The Critical Section Problem
+
+See, no 
