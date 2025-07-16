@@ -842,6 +842,7 @@ When the CPU generates a logical address, the MMU (Memory Management Unit) trans
 | 2      | 7       |
 | 3      | 14      |
 
+
 **Address Translation Example (from notes):**
 *   Logical Address `0110` (binary) for P1.
     *   Assuming 4-bit logical address for 16B process. `16B = 2^4 B`, so 4 bits.
