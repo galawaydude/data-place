@@ -545,7 +545,7 @@ Let's assume jobs arrive in the order listed and are allocated using **Best Fit*
     *   Best Fit: 20K
     *   Allocate J3 to 20K partition.
     *   Remaining free: (20K-10K=10K) leftover in 20K partition.
-    *   Partitions: 2K(H), 1K(H), 2K(H), 10K(H, from 20K), 3K(J1), 6K(J2), 10K(J3)
+    *   Partitions: 2K(H), 1K(H)i ko, 2K(H), 10K(H, from 20K), 3K(J1), 6K(J2), 10K(J3)
 *   **Job J4 (20K):** No hole of 20K. This job waits.
 *   **Job J5 (2K):**
     *   Suitable holes: 2K, 2K, 10K.
