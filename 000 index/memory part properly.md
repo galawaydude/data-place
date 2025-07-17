@@ -274,7 +274,7 @@ The MMU uses two special registers for address translation and protection in sim
         *   `Physical Address = Logical Address + Relocation Register Value`
     *   **Ensures Relocation:** This allows a program to be loaded anywhere in physical memory. The logical addresses within the program remain unchanged; only the Relocation Register's value changes, making the program *relocatable* at load time or even runtime.
 
-2.  **Limit Register:**
+2.  **Limit Register:**why 
     *   **Purpose:** Stores the *size* (or limit) of the current process's logical address space.
     *   **Mechanism:** Before the MMU performs the addition for relocation, it first checks if the generated `Logical Address` is *less than* the value in the Limit Register (`Logical Address < Limit Register`).
     *   **Ensures Protection:**
