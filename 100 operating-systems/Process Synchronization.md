@@ -50,15 +50,15 @@ Now, let's trace different execution orders (interleaving) of these instructions
 
 **Order 2: P1 starts, gets preempted, P2 executes completely, P1 resumes.**
 
-| Step | Process | Instruction             | `count` | `R0` (P1) | `R1` (P2) | Explanation                                 |
-| :--- | :------ | :---------------------- | :------ | :-------- | :-------- | :------------------------------------------ |
-| 1    |         | Initial state           | 5       | -         | -         | `count` is 5.                               |
-| 2    | P1      | `MOV R0, count`         | 5       | 5         | -         | P1 loads 5 into R0.                         |
-| 3    | P1      | `INC R0`                | 5       | 6         | -         | P1 increments R0 to 6.                      |
-| **4**| **P2**  | **`MOV R1, count`**     | **5**   | 6         | **5**     | **P1 is preempted.** P2 loads current `count` (which is still 5) into R1. |
-| 5    | P2      | `DEC R1`                | 5       | 6         | 4         | P2 decrements R1 to 4.                      |
-| 6    | P2      | `MOV count, R1`         | 4       | 6         | 4         | P2 stores 4 back to `count`.                |
-| **7**| **P1**  | **`MOV count, R0`**     | **6**   | 6         | 4         | **P2 is preempted.** P1 resumes, using its *stale* R0 value (6) to update `count`. |
+| Step  | Process | Instruction         | `count` | `R0` (P1) | `R1` (P2) | Explanation                                                                        |
+| :---- | :------ | :------------------ | :------ | :-------- | :-------- | :--------------------------------------------------------------------------------- |
+| 1     |         | Initial state       | 5       | -         | -         | `count` is 5.                                                                      |
+| 2     | P1      | `MOV R0, count`     | 5       | 5         | -         | P1 loads 5 into R0.                                                                |
+| 3     | P1      | `INC R0`            | 5       | 6         | -         | P1 increments R0 to 6.                                                             |
+| **4** | **P2**  | **`MOV R1, count`** | **5**   | 6         | **5**     | **P1 is preempted.** P2 loads current `count` (which is still 5) into R1.          |
+| 5     | P2      | `DEC R1`            | 5       | 6         | 4         | P2 decrements R1 to 4.                                                             |
+| 6     | P2      | `MOV count, R1`     | 4       | 6         | 4         | P2 stores 4 back to `count`.                                                       |
+| **7** | **P1**  | **`MOV count, R0`** | **6**   | 6         | 4         | **P2 is preempted.** P1 resumes, using its *stale* R0 value (6) to update `count`. |
 
 **Result:** `count` ends at **6**. This is an **inconsistent** result.
 
