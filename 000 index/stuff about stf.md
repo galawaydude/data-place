@@ -34,4 +34,7 @@ number of words = total bytes / bytes per word. = 2^25 words, meaning there are 
 
 Basically everything, that we learnt till now, has to be connected, we basically need to able to solve all the problems related to paging, and for that, we need to actually know how the translation happens from virtual address to physical address.
 
-alright so first off, the size of one page should be equal to the size of one frame
+alright so first off, the size of one page should be equal to the size of one frame.
+and because we are dealing with the sizes of memory here, we can either say byte, or even better say word.
+
+`page size = frame size = p words`

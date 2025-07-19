@@ -375,7 +375,7 @@ So, the logical address must be 26 bits long.
 
 **Page Size and Offset Bits**
 
-*   **Relationship:** `Page Size = Frame Size = P words`.
+*   **Relationship:** `Page Size  Frame Size = P words`.
 *   The `Offset` part of an address indicates the position *within* a page.
 *   **Number of bits required for Offset:** `log2(Page Size in bytes)`.
     *   If Page Size is `P` bytes, then `log2(P)` bits are needed for the offset.
