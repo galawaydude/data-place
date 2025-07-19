@@ -395,7 +395,8 @@ lets convert this to bytes
 4 KB = $2^{12}$ bytes
 >You can convert this to words also, if you have know 1 word has how many bytes
 
-SO
+Basically, all the below formula are used to solve this shit
+
 
 #### Structure of a Page Table Entry (PTE)
 
