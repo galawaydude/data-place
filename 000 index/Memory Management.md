@@ -139,4 +139,10 @@ So, yeah, basically because each process has to get memory, and since we are dea
 
 ### Contiguous Memory Allocation
 
-The core idea of this is that, the entire process must reside in one continuous adjacent block of physical memory, this approach offers the advantage of speed and simplicity, however this simplicity  
+The core idea of this is that, the entire process must reside in one continuous adjacent block of physical memory, this approach offers the advantage of speed and simplicity, however this simplicity has some issues.
+And also there are two ways of implementing the above thing
+
+#### Fixed Size Partitioning
+
+This is also c
+
