@@ -26,3 +26,10 @@ number of words = total bytes / bytes per word. = 2^25 words, meaning there are 
         *   `256 MB = 2^8 * 2^10 * 2^10 B = 2^28 B`
         *   If `WS = 4 B = 2^2 B`, then `256 MB` contains `2^28 B / 2^2 B = 2^26` words.
         *   Therefore, `LA` (logical address) needs `log2(2^26)` = **26 bits**.
+
+
+
+
+### The Relations
+
+Basically everything, that we learnt till now, has to be connected, we basically need to able to solve all the problems related to paging, and for that, we need to actually know how the translation happens from virtual address
