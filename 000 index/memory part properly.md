@@ -822,7 +822,7 @@ When the CPU generates a logical address, the MMU (Memory Management Unit) trans
         *   This means Page 1 (logical) is in Frame 2 (physical), and within that frame, the offset is 2.
         *   Physical Address = `(Frame 2 * Frame Size) + Offset = (2 * 4) + 2 = 8 + 2 = 10`.
 
-### 8.4 Word and Address Space
+### 8.4Word and Address Space
 
 *   **Word:** The smallest addressable unit in a computer system. This is typically 1 byte, but can also be 2, 4, or 8 bytes depending on the architecture. Your notes show `address -> 4x10` grid. This might imply 4 words, each 10 units of data, or 10 words, each 4 units of data. The standard is 1 byte = 1 addressable unit.
 

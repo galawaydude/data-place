@@ -318,3 +318,31 @@ The MMU uses two special registers for address translation and protection in sim
             *   `Physical Address = 50K + 100K = 150K`.
     *   **Important:** Both the Relocation Register and Limit Register are **privileged registers**, meaning only the Operating System (in kernel mode) can modify their contents. This prevents user processes from bypassing memory protection mechanisms.
 
+#### The Performance Bottleneck and the TLB
+
+  
+
+This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
+
+To overcome this bottleneck, the MMU includes a small, extremely fast, hardware cache called the Translation Lookaside Buffer (TLB).21 The TLB is an associative cache that stores a small number of recently used
+
+VPN -> PFN mappings. It is more accurately described as an "address-translation cache".42 The interaction between the MMU and the TLB is as follows:
+
+- TLB Hit: When the MMU receives a virtual address, it first checks the TLB to see if it holds the translation for the given VPN. Because the TLB is implemented in specialized, fast hardware, this check is performed in parallel and is extremely quick (often in a single clock cycle). If the entry is found (a TLB hit), the PFN is retrieved directly from the TLB, and the page table in main memory is not accessed at all. The physical address is formed, and the memory access proceeds with almost no overhead. Due to the principle of locality (programs tend to access the same memory regions repeatedly), TLB hits are the common case, with hit rates often exceeding 99%.42
+    
+- TLB Miss: If the VPN is not found in the TLB (a TLB miss), the hardware must find the translation the slow way. The MMU (in hardware-managed systems) initiates a "page walk" by accessing the page table(s) in main memory to retrieve the correct PTE. Once the PFN is found, the VPN -> PFN mapping is installed in the TLB, often evicting an existing entry according to a replacement policy like LRU. The instruction that caused the miss is then restarted. This time, the translation will be found in the TLB, resulting in a hit.42
+    
+
+  
+
+#### Context Switching and the TLB
+
+  
+
+A critical implication of the TLB is its interaction with process context switching. Since each process has its own page table, the translations cached in the TLB are specific to the currently running process. When the operating system switches context to a different process, the contents of the TLB become invalid for the new process. The most straightforward solution is to flush the TLB—invalidate all its entries—on every context switch. The new process then starts with an empty TLB and will incur a series of TLB misses until its working set of translations is cached. This TLB flush is a significant component of the overhead associated with context switching.45 To mitigate this, some advanced architectures include an
+
+Address Space Identifier (ASID) in each TLB entry, which allows the TLB to hold entries for multiple processes simultaneously, avoiding the need for a full flush.37
+
+The intricate dance between the OS, the MMU, and the TLB highlights a deep, symbiotic relationship. The operating system, as a software entity, defines the high-level policy of memory management: it creates and manages the page tables, decides where pages are placed, and handles exceptions. The hardware, in the form of the MMU and TLB, provides the low-level mechanism to execute these policies with extreme efficiency. The software defines a powerful but potentially slow abstraction (paging), and the hardware accelerates its core operations. When this acceleration itself introduces a new bottleneck (page table lookups), even more specialized hardware (the TLB) is introduced to solve it. This iterative refinement through hardware-software co-design is a central theme in the development of modern
+
+
