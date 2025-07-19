@@ -246,12 +246,11 @@ Paging directly attacks the root cause of external fragmentation, the use of var
 
 The paging model is built on two core concepts:
 
-- **Frames**: Physical memory is divided into a series of fixed-size blocks called frames. The size of a frame is determined by the computer's hardware architecture and is always a power of two, with common sizes being 4KB, 16KB, or even 2MB or 1GB for "large pages".18
+- **Frames**: Physical memory is divided into a series of fixed-size blocks called frames. The size of a frame is determined by the computer's hardware architecture and is always a power of two, with common sizes being 4KB, 16KB, or even 2MB or 1GB for **large pages**.
 
-- Pages: A process's logical address space is also broken down into fixed-size blocks of the exact same size as frames. These logical blocks are called pages.18
+- **Pages**: A process's logical address space is also broken down into fixed-size blocks of the exact same size as frames. These logical blocks are called pages.
 
-
-The central principle of paging is that any page from a process can be loaded into any available frame in physical memory.The frames holding the pages of a single process do not need to be adjacent to one another. The operating system simply maintains a list of all free frames and, when a process requiring
+The central principle of paging is that any page from a process can be loaded into any available frame in physical memory. **The frames holding the pages of a single process do not need to be adjacent to one another**. The operating system simply maintains a list of all free frames and, when a process requiring
 
 n pages needs to be loaded, it finds any n available frames—wherever they may be located in physical memory—and loads the pages into them.19
 
