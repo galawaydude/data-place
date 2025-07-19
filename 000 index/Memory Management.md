@@ -144,5 +144,9 @@ And also there are two ways of implementing the above thing
 
 #### Fixed Size Partitioning
 
-This is also c
+Also known as static partitioning, this was one of the earliest methods for enabling multiprogramming. In this scheme, the main memory is divided into a number of partitions of a fixed size before any processes are executed. When a process arrives, it is loaded into a partition that is large enough to contain it. This approach is simple for the operating system to manage but suffers from severe drawbacks:
+
+- Limited Degree of Multiprogramming: The number of processes that can run concurrently is strictly limited by the number of partitions created in memory. If all partitions are occupied, no new processes can start, regardless of their size or the amount of free space within those partitions.
+    
+- Internal Fragmentation: A more critical issue is the waste of memory known as internal fragmentation. This occurs when the memory block allocated to a process is larger than what the process actually requires. The unused space within the allocated partition cannot be used by any other process and is therefore wasted.4 For instance, if a 5MB process is placed in a 10MB partition, 5MB of memory is lost to internal fragmentation.4 This waste is "internal" to the allocated block.8
 
