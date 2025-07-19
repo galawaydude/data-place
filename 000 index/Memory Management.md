@@ -167,5 +167,10 @@ However, this flexibility introduces the need for the operating system to manage
 While variable partitioning solves the problem of internal fragmentation, its dynamic nature gives rise to a more insidious and system-crippling issue: external fragmentation.
 
 
+#### Data Structures for Dynamic Partitioning
+
+See, obv there is a decent amount of overhe
+
+
 
 
