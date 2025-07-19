@@ -349,20 +349,14 @@ The total range of logical addresses that a process can generate. This is equal 
 Assume:  
 Logical address space = 256 MB  (this is basically the size of the process)
 Word size = 4 bytes
-Step 1: Convet MB to bytes
 
-256 MB = 2⁸ × 2¹⁰ × 2¹⁰ = 2²⁸ bytes
+**Convert MB to bytes**
+256 MB = 2⁸ × 2¹⁰ × 2¹⁰ = 2²⁸ bytes (try to write everything in powers of 2)
 
----
-
-### Step 2: Convert bytes to words
-
+**Convert bytes to words**
 Word size = 4 bytes = 2² bytes  
 Number of words = 2²⁸ / 2² = 2²⁶ words
-
----
-
-### Step 3: Address bits needed
+Address bits needed
 
 To uniquely address 2²⁶ words, we need:
 
