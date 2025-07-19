@@ -316,6 +316,8 @@ The MMU uses two special registers for address translation and protection in sim
 
 ### [[Word and Address Space]]
 
+^3b6d52
+
 - **Bit**: The smallest unit of data in computing. It can be either 0 or 1.
 - **Byte**: A group of 8 bits. It is the smallest addressable unit in most computer architectures.
 - **Word**: A unit of data that the CPU processes at once. Its size depends on the system architecture — typically 2, 4, or 8 bytes.  
@@ -386,7 +388,7 @@ and because we are dealing with the sizes of memory here, we can either say byte
 now that we have this sorted, we already discussed the structure of both addresses [[#^8889de| structure]]
 
 
-now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[^address|representation]], but we need to know how many bits to assign to each part, cause there are two parts.
+now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[#^3b6d52|representation]], but we need to know how many bits to assign to each part, cause there are two parts.
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
 this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. **the number of bits, we need would be log2 of the size of the page or the frame (in bytes)**
 
@@ -448,8 +450,8 @@ A page table is an array of Page Table Entries (PTEs). Each PTE holds not just t
 | Modified / Dirty Bit        | A single bit that is automatically set to 1 by the hardware whenever a write operation is performed on any byte within the page.                   | This bit is crucial for optimizing page replacement in a virtual memory system. If a page's dirty bit is 0 (it is "clean"), it means its contents in memory are identical to its copy on disk. It can be replaced without being written back. If the bit is 1 (it is "dirty"), the OS must write the modified page back to disk before its frame can be reused.34 |
 | Referenced / Accessed Bit   | A single bit that is automatically set to 1 by the hardware whenever the page is accessed (either for a read or a write).                          | This bit is used by page replacement algorithms to determine which pages are actively being used. The OS can periodically clear these bits to track recent usage patterns, which is essential for algorithms like Least Recently Used (LRU) approximations.34                                                                                                     |
 | Caching Disabled Bit        | A single bit that tells the hardware whether the contents of this page should be cached by the CPU's data caches.                                  | This is critical for pages that are mapped to device control registers (memory-mapped I/O), where the values can change asynchronously. Caching such pages would lead to stale data.                                                                                                                                                                              |
-**CPU to Physical Memory Access with Page Table:**
 
+**CPU to Physical Memory Access with Page Table:**
 1.  CPU generates `Logical Address (PNO, Offset)`.
 2.  MMU accesses a special register (e.g., **PT-Start Base Register**) which holds the physical base address of the current process's page table.
 3.  MMU calculates the address of the specific PTE: `PTE Address = PT-Start Base Register + (PNO * Size of PTE)`.
@@ -461,7 +463,6 @@ A page table is an array of Page Table Entries (PTEs). Each PTE holds not just t
 7.  MMU accesses the data/instruction at this `Physical Address` in Main Memory.
 
 #### The Performance Bottleneck and the TLB
-
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
 To overcome this bottleneck, the MMU includes a small, extremely fast, hardware cache called the Translation Lookaside Buffer (TLB).21 The TLB is an associative cache that stores a small number of recently used
@@ -471,13 +472,7 @@ VPN -> PFN mappings. It is more accurately described as an "address-translation 
 - TLB Hit: When the MMU receives a virtual address, it first checks the TLB to see if it holds the translation for the given VPN. Because the TLB is implemented in specialized, fast hardware, this check is performed in parallel and is extremely quick (often in a single clock cycle). If the entry is found (a TLB hit), the PFN is retrieved directly from the TLB, and the page table in main memory is not accessed at all. The physical address is formed, and the memory access proceeds with almost no overhead. Due to the principle of locality (programs tend to access the same memory regions repeatedly), TLB hits are the common case, with hit rates often exceeding 99%.42
     
 - TLB Miss: If the VPN is not found in the TLB (a TLB miss), the hardware must find the translation the slow way. The MMU (in hardware-managed systems) initiates a "page walk" by accessing the page table(s) in main memory to retrieve the correct PTE. Once the PFN is found, the VPN -> PFN mapping is installed in the TLB, often evicting an existing entry according to a replacement policy like LRU. The instruction that caused the miss is then restarted. This time, the translation will be found in the TLB, resulting in a hit.42
-    
-
-  
-
 #### Context Switching and the TLB
-
-  
 
 A critical implication of the TLB is its interaction with process context switching. Since each process has its own page table, the translations cached in the TLB are specific to the currently running process. When the operating system switches context to a different process, the contents of the TLB become invalid for the new process. The most straightforward solution is to flush the TLB—invalidate all its entries—on every context switch. The new process then starts with an empty TLB and will incur a series of TLB misses until its working set of translations is cached. This TLB flush is a significant component of the overhead associated with context switching.45 To mitigate this, some advanced architectures include an
 
