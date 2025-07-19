@@ -42,7 +42,7 @@ The journey from source code to an executable program typically involves these s
 2.  **Compiler:** Translates source code into **assembly code**. It performs lexical analysis, syntax analysis, semantic analysis, intermediate code generation, code optimization, and target code generation.
 3.  **Assembly Code:** A low-level programming language that is a symbolic representation of machine code.
 4.  **Assembler:** Translates assembly code into **object code (machine code)**. It also builds initial symbol tables and resolves symbolic addresses within the current module.
-5.  **Object Code (Object Modules):** Machine-readable code containing instructions and data, but typically with "placeholder" addresses for external references. These are often referred to as relocatable object files.
+5.  **Object Code (Object Modules):** Machine-readable code containing instructions and data, but typically with "placeholder" addresses for external references. These are often referred to as relocatable object files. *we do more on this shit, later*
 6.  **Linker:** Combines multiple object modules (and libraries) into a single **executable file**. It resolves external symbol references and performs relocation.
 7.  **Loader:** Loads the executable file into main memory, assigning actual physical addresses, so the CPU can execute it.
 
