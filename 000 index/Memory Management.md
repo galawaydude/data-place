@@ -164,6 +164,9 @@ However, this flexibility introduces the need for the operating system to manage
 
 - **Worst-Fit**: The OS allocates the largest available hole to the process. The rationale is that the leftover portion of the hole will be large enough to be useful for another process. However, this strategy can quickly eliminate large blocks needed for large processes.
 
+- Next-fit: 
+
+
 While variable partitioning solves the problem of internal fragmentation, its dynamic nature gives rise to a more insidious and system-crippling issue: external fragmentation.
 
 
