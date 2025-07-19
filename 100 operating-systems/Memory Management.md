@@ -383,9 +383,10 @@ alright so first off, the size of one page should be equal to the size of one fr
 and because we are dealing with the sizes of memory here, we can either say byte, or even better, say word. 
 `page size = frame size = P words`
 
-now that we have this sorted, we already discussed the structure of both addresses [[^]]
+now that we have this sorted, we already discussed the structure of both addresses [[#^8889de| structure]]
 
-now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[Word and Address Space|representation]], but we need to know how many bits to assign to each part, cause there are two parts.
+
+now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[^address|representation]], but we need to know how many bits to assign to each part, cause there are two parts.
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
 this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. **the number of bits, we need would be log2 of the size of the page or the frame (in bytes)**
 
@@ -408,6 +409,9 @@ lets convert this to bytes
 - Number of bits for offset = $\log_2(P)$  
   Let this be $p$ bits
 #### Address Structure
+
+^8889de
+
 **Logical Address (LA):**
 - Total = $l$ bits  
 - Structure:  
