@@ -38,4 +38,4 @@ alright so first off, the size of one page should be equal to the size of one fr
 and because we are dealing with the sizes of memory here, we can either say byte, or even better say word.
 `page size = frame size = P words`
 
-now that we have this sorted, we already discussed the structure of both the addressess 
+now that we have this sorted, we already discussed the structure of both the addresses [[add a li
