@@ -134,3 +134,4 @@ The process of fixing addresses and resolving symbols can happen at different st
 
 
 ### Memory Partitioning
+
