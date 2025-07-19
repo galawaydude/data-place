@@ -356,30 +356,24 @@ Word size = 4 bytes
 **Convert bytes to words**
 Word size = 4 bytes = 2² bytes  
 Number of words = 2²⁸ / 2² = 2²⁶ words
-Address bits needed
 
+**Address bits needed**
 To uniquely address 2²⁶ words, we need:
-
 log₂(2²⁶) = 26 bits
 
 So, the logical address must be 26 bits long.
 
----
+| Term                      | Value   | Explanation                  |
+| ------------------------- | ------- | ---------------------------- |
+| Physical memory (PAS)     | 128 MB  | Total RAM size               |
+| Word size (WS)            | 4 bytes | One word = 4 bytes           |
+| Words in PAS              | 2²⁵     | Total addressable words      |
+| Bits for physical address | 25 bits | log₂(2²⁵)                    |
+| Logical memory (LAS)      | 256 MB  | Virtual memory for a process |
+| Words in LAS              | 2²⁶     | Total virtual words          |
+| Bits for logical address  | 26 bits | log₂(2²⁶)                    |
 
-## Summary
-
-| Term                     | Value         | Explanation                             |
-|--------------------------|---------------|-----------------------------------------|
-| Physical memory (PAS)    | 128 MB        | Total RAM size                          |
-| Word size (WS)           | 4 bytes       | One word = 4 bytes                      |
-| Words in PAS             | 2²⁵           | Total addressable words                 |
-| Bits for physical address| 25 bits       | log₂(2²⁵)                                |
-| Logical memory (LAS)     | 256 MB        | Virtual memory for a process            |
-| Words in LAS             | 2²⁶           | Total virtual words                     |
-| Bits for logical address | 26 bits       | log₂(2²⁶)                                |
-
-
-Page Size and Offset Bits
+**Page Size and Offset Bits**
 
 *   **Relationship:** `Page Size = Frame Size = P words`.
 *   The `Offset` part of an address indicates the position *within* a page.
