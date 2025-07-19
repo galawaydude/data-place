@@ -11,4 +11,6 @@ The CPU interacts with various memory components in a hierarchy.
 
 ### CPU Utilization
 
+A key metric in multiprogramming is **CPU Utilization**, which measures the percentage of time the CPU is actively executing instructions, rather than waiting (e.g., for I/O operations).
+
 

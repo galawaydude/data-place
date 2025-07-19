@@ -28,13 +28,13 @@ The CPU interacts with various memory components in a hierarchy:
 A key metric in multiprogramming is **CPU Utilization**, which measures the percentage of time the CPU is actively executing instructions, rather than waiting (e.g., for I/O operations).
 
 **Let's define `p`:**
-`p` = The probability that a process is waiting for I/O (Input/Output) to complete.
-*   **Explanation:** Processes don't just compute; they also frequently perform I/O operations (reading from disk, writing to a screen, network communication, user input). During an I/O operation, the CPU sits idle for that process. If `p` is the probability of a process waiting for I/O, then `(1-p)` is the probability that the process is actively using the CPU (performing a CPU burst).
+p = The probability that a process is waiting for I/O (Input/Output) to complete.
+*   **Explanation:** Processes don't just compute; they also frequently perform I/O operations (reading from disk, writing to a screen, network communication, user input). During an I/O operation, the CPU sits idle for that process. If `p` is the probability of a process waiting for I/O, then (1-p) is the probability that the process is actively using the CPU (performing a CPU burst).
 
 **Consider a system with `n` processes in memory (degree of multiprogramming).**
-For the CPU to be idle, *all* `n` processes must *simultaneously* be waiting for I/O.
-The probability of one process waiting for I/O is `p`.
-The probability of `n` processes *all* waiting for I/O (assuming independence) is `p * p * ... (n times) = p^n`.
+For the CPU to be idle, all n processes must *simultaneously* be waiting for I/O.
+The probability of one process waiting for I/O is p.
+The probability of n processes all waiting for I/O (assuming independence) is `p * p * ... (n times) = p^n`.
 
 Therefore, the probability that at least one process is *not* waiting for I/O (i.e., at least one process is ready to use the CPU) is `1 - p^n`.
 
