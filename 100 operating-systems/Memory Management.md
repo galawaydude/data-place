@@ -396,9 +396,55 @@ lets convert this to bytes
 >You can convert this to words also, if you have know 1 word has how many bytes
 
 
-### All t
+### All The Formulae for the above thing
+#### Physical Address Space (PAS)
+- Main Memory Size = $M$ words  
+- Number of bits in Physical Address (PA) = $\log_2(M)$ bits  
+  Let this be $m$ bits
 
-Basically, all the below formula are used to solve this shit
+#### Logical Address Space (LAS)
+- Process Size = $L$ words  
+- Number of bits in Logical Address (LA) = $\log_2(L)$ bits  
+  Let this be $l$ bits
+
+#### Page Size (PS)
+- Page Size = $P$ bytes (or words)  
+- Number of bits for offset = $\log_2(P)$  
+  Let this be $p$ bits
+
+#### Address Structure
+
+**Logical Address (LA):**
+- Total = $l$ bits  
+- Structure:  
+  $LA = \text{Page Number (}l - p\text{ bits)} \; \| \; \text{Offset (}p\text{ bits)}$
+
+**Physical Address (PA):**
+- Total = $m$ bits  
+- Structure:  
+  $PA = \text{Frame Number (}m - p\text{ bits)} \; \| \; \text{Offset (}p\text{ bits)}$
+
+#### Number of Pages
+- $\text{Number of Pages} = \frac{\text{LAS}}{\text{Page Size}} = \frac{L}{P} = 2^{l - p}$
+
+#### Number of Frames
+- $\text{Number of Frames} = \frac{\text{PAS}}{\text{Page Size}} = \frac{M}{P} = 2^{m - p}$
+
+#### Page Table Entries
+
+- One entry per page  
+- $\text{Number of Entries} = 2^{l - p}$
+
+#### Size of Each Page Table Entry (PTE)
+
+- Each PTE stores the Frame Number: $(m - p)$ bits  
+- Plus control bits (Present/Absent, Modified, etc.)  
+- Let total PTE size = $e$ bits or bytes
+
+#### Total Size of Page Table
+
+- $\text{Page Table Size} = 2^{l - p} \times e$ (in bits or bytes)
+
 
 
 #### Structure of a Page Table Entry (PTE)
