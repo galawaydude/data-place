@@ -46,5 +46,18 @@ The journey from source code to an executable program typically involves these s
 6.  **Linker:** Combines multiple object modules (and libraries) into a single **executable file**. It resolves external symbol references and performs relocation.
 7.  **Loader:** Loads the executable file into main memory, assigning actual physical addresses, so the CPU can execute it.
 
+An object code file (or object module) is not just raw machine instructions. It's structured with various sections to facilitate linking and loading:
 
+*   **Header:** Contains basic information about the module, such as its size, creation date, and entry points.
+*   **Text Segment (Code Segment):** Contains the actual machine instructions (the executable code) for the module.
+*   **Data Segment:** Contains initialized global and static variables.
+*   **Relocation Info (Relocation Table):** This is crucial. It lists all the instructions and data locations within the module that depend on absolute memory addresses. These addresses need to be adjusted (relocated) when the module is loaded into memory.
+    *   **Absolute Address:** A fixed, precise memory location (e.g., `0x12345678`).
+    *   **Relocatable Address:** An address specified relative to the start of the module or another base address. This address will change when the module is loaded.
+    *   **Relocation:** The process of converting relocatable addresses into absolute addresses once the program's load-time memory location is known.
+*   **Symbol Table:** Contains information about the symbols (functions and global variables) defined *within* this object module and symbols that are *referenced externally* by this module but defined elsewhere.
+    *   Example: `min()`, `printf()`, `scanf()` functions with their addresses (which might be placeholders initially, or offsets).
+    *   **Resolution:** The process of finding the actual memory addresses for these external symbols. This is done by the **linker**.
+*   **Debugging Info:** Optional information used by debuggers, such as mappings from machine code back to source code lines, variable names, etc.
 
+####
