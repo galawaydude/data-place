@@ -391,7 +391,9 @@ this offset basically tells, the position inside a page, or a frame. now this is
 
 Lets assume the size of a page/frame is 4 KB
 lets convert this to bytes
-1 KB  $2^10 bytes$
+1 KB = $2^{10}$ bytes
+4 KB = $2^{12}$ bytes
+You can convert this to words also, if you have know 1 word has 
 
 #### Structure of a Page Table Entry (PTE)
 
