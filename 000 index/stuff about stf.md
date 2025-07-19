@@ -17,7 +17,8 @@ and assume that 1 word is 4 bytes, this basically means, that at once, the cpu c
 
 So, basically if i have 2^27 bytes, and each word is 4 bytes, then how many total words do i have
 
-number of words = total bytes / bytes per word. = 2^25 words, meaning there are these many words in the physical memory 
+number of words = total bytes / bytes per word. = 2^25 words, meaning there are these many words in the physical memory, so basically what we are trying to answer here, s how many bits are needed to uniqurly address each word in physical memory
+
 
 *   **Logical Address Space (LAS):** The total range of logical addresses that a process can generate. This is equal to the size of the process (or virtual memory space allocated to it).
     *   If Process Size = `L` words, then `Logical Address (LA)` requires `log2(L)` bits.
