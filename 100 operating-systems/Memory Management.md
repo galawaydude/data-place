@@ -19,7 +19,7 @@ Processes don't just compute; they also frequently perform I/O operations (readi
 **Consider a system with n processes in memory (degree of multiprogramming).**
 For the CPU to be idle, all n processes must *simultaneously* be waiting for I/O.
 The probability of one process waiting for I/O is p.
-The probability of n processes all waiting for I/O (assuming independence) is `p * p * ... (n times) = $1 - p^n$
+The probability of n processes all waiting for I/O (assuming independence) is p * p * ... (n times) = $1 - p^n$
 
 Therefore, the probability that at least one process is *not* waiting for I/O (i.e., at least one process is ready to use the CPU) is $1 - p^n$.
 
@@ -434,8 +434,6 @@ The Page Table is a crucial data structure for address translation in a paging s
 A page table is an array of Page Table Entries (PTEs). Each PTE holds not just the translation information but also a collection of control bits that enable advanced memory management features like protection and virtual memory.
 
 Table 2: Structure of a Page Table Entry (PTE)
-
-  
 
 |   |   |   |
 |---|---|---|
