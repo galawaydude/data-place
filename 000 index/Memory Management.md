@@ -167,10 +167,38 @@ However, this flexibility introduces the need for the operating system to manage
 While variable partitioning solves the problem of internal fragmentation, its dynamic nature gives rise to a more insidious and system-crippling issue: external fragmentation.
 
 
-#### Data Structures for Dynamic Partitioning
+### Data Structures for Dynamic Partitioning
 
-See, obv there is a decent amount of overhe
+See, obv there is a decent amount of overhead in dynamic partitioning, so to make it somewhat more efficient, we can use some data structures, there are two ways of implementing this method.
 
+#### Bit-Map
+
+*   **Concept:** The main memory is divided into fixed-size "allocation units" (e.g., 4 bytes, 1KB). A bit-map is then maintained, where each bit corresponds to an allocation unit.
+    *   If a bit is `0`, the corresponding allocation unit is free.
+    *   If a bit is `1`, the corresponding allocation unit is occupied.
+*   **Diagram:**
+    *   Imagine memory blocks (2MB, 4MB, 4MB, 4MB, 2MB) being pulled back from a process.
+    *   Below, there are "Memory allocation units" (e.g., 8 units shown).
+    *   A bit array `[000111100]` maps to these units:
+        *   `000` (first 3 units) are free (Hole).
+        *   `1111` (next 4 units) are occupied (Process).
+        *   `00` (last 2 units) are free (Hole).
+
+*   **Allocation Unit Size and Memory Waste:**
+    *   If **1 bit** in the bitmap represents **4 bytes** of memory:
+        *   This means for every 4 bytes of memory, we use 1 bit (1/8 of a byte) to track it.
+        *   The overhead for the bitmap itself is (1/8) / 4 = 1/32 or roughly 3% of memory.
+        *   **Problem:** If a process needs 5 bytes, and the allocation unit is 4 bytes, it will be allocated 8 bytes (two 4-byte units). This leads to internal fragmentation if the process size is not a multiple of the allocation unit size.
+        *   Your notes state "fraction of memory used by bit map 1/33". This calculation implies 1 bit represents 4 bytes. (1 bit / (4 bytes * 8 bits/byte)) = 1/32 of memory. If it's 1/33, it might mean the total includes the bitmap itself: (1/32) / (1 + 1/32) approx 1/33.
+
+*   **Impact of Allocation Unit Size:**
+    *   **Large Allocation Unit:** (e.g., 4 KB)
+        *   **Fewer bits required for the bitmap:** Bitmap is smaller, less memory overhead for the bitmap itself.
+        *   **Increased space wastage (internal fragmentation):** A process might need 1 KB, but gets 4 KB, wasting 3 KB.
+    *   **Small Allocation Unit:** (e.g., 4 bytes)
+        *   **More bits required for the bitmap:** Bitmap is larger, more memory overhead for the bitmap.
+        *   **Decreased space wastage (internal fragmentation):** A process needing 5 bytes gets 8 bytes, wasting 3 bytes, which is a smaller absolute waste than the previous example.
+*   **Conclusion:** The choice of allocation unit size is a trade-off between the memory consumed by the bit-map and the internal fragmentation experienced. It's not widely used for dynamic partitioning as **linked lists** are often more flexible.
 
 
 
