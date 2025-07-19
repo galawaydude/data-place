@@ -24,8 +24,6 @@ The probability of n processes all waiting for I/O (assuming independence) is `p
 Therefore, the probability that at least one process is *not* waiting for I/O (i.e., at least one process is ready to use the CPU) is `1 - p^n`.
 
 The CPU Utilization is given by $1 - p^n$.
-
-**GeneraCPU Utilization = $1 - p^n$.
 Where `n` is the number of processes that can be present in memory at the same time.
 
 **Key takeaway:** CPU utilization is directly proportional to the degree of multiprogramming (`n`).
@@ -33,6 +31,20 @@ Where `n` is the number of processes that can be present in memory at the same t
 *   **However, for CPU utilization to be 100%, `n` would theoretically need to be infinite.** This is not practical.
 *   For this, Main Memory size should be very, very costly.
 *   **The solution:** We need to **use the memory in such a way that we can achieve a high degree of multiprogramming without acquiring an infinite (or prohibitively expensive) amount of physical memory.** This is the fundamental challenge memory management addresses.
+
+### Object Code Relocation & Linkers
+
+Before a program can run, it undergoes several transformations. One critical phase involves handling addresses, particularly when combining different parts of a program or linking with external libraries.
+
+The journey from source code to an executable program typically involves these steps:
+
+1.  **Source Code:** Human-readable code (e.g., C++, Java).
+2.  **Compiler:** Translates source code into **assembly code**. It performs lexical analysis, syntax analysis, semantic analysis, intermediate code generation, code optimization, and target code generation.
+3.  **Assembly Code:** A low-level programming language that is a symbolic representation of machine code.
+4.  **Assembler:** Translates assembly code into **object code (machine code)**. It also builds initial symbol tables and resolves symbolic addresses within the current module.
+5.  **Object Code (Object Modules):** Machine-readable code containing instructions and data, but typically with "placeholder" addresses for external references. These are often referred to as relocatable object files.
+6.  **Linker:** Combines multiple object modules (and libraries) into a single **executable file**. It resolves external symbol references and performs relocation.
+7.  **Loader:** Loads the executable file into main memory, assigning actual physical addresses, so the CPU can execute it.
 
 
 
