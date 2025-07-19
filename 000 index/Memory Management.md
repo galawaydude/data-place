@@ -427,3 +427,35 @@ The Page Table is a crucial data structure for address translation in a paging s
 *   **Number of entries in Page Table:** `2^(l-p) = 2^15` entries.
 *   **Size of each Page Table Entry:** Needs to store Frame Number (8 bits) + control bits. If `e` is assumed to be 8 bits (1 byte) just for the Frame number:
 *   **Size of Page Table = `2^15 entries * 8 bits/entry = 2^15 * 1 byte = 32 KB`.**
+
+
+#### Structure of a Page Table Entry (PTE)
+
+  
+
+A page table is an array of Page Table Entries (PTEs). Each PTE holds not just the translation information but also a collection of control bits that enable advanced memory management features like protection and virtual memory.
+
+Table 2: Structure of a Page Table Entry (PTE)
+
+  
+
+|   |   |   |
+|---|---|---|
+|Field|Description|Purpose and Significance|
+|Physical Frame Number (PFN)|The base address of the physical frame in RAM where the corresponding virtual page is located.|This is the core data required for the address translation itself.20|
+|Present / Valid Bit|A single bit indicating whether the page is currently in physical memory (1 = valid/present) or resides on secondary storage (0 = invalid/absent).|This bit is fundamental to implementing virtual memory. If a process accesses a page marked as invalid, it triggers a page fault, signaling the OS to load the page from disk.20|
+|Protection Bits|A set of bits specifying the access permissions for the page (e.g., Read, Write, Execute).|These bits enable memory protection. On every memory access, the hardware checks these permissions. An attempt to perform a forbidden operation (like writing to a read-only page) causes a trap to the OS, which typically terminates the offending process.21|
+|Modified / Dirty Bit|A single bit that is automatically set to 1 by the hardware whenever a write operation is performed on any byte within the page.|This bit is crucial for optimizing page replacement in a virtual memory system. If a page's dirty bit is 0 (it is "clean"), it means its contents in memory are identical to its copy on disk. It can be replaced without being written back. If the bit is 1 (it is "dirty"), the OS must write the modified page back to disk before its frame can be reused.34|
+|Referenced / Accessed Bit|A single bit that is automatically set to 1 by the hardware whenever the page is accessed (either for a read or a write).|This bit is used by page replacement algorithms to determine which pages are actively being used. The OS can periodically clear these bits to track recent usage patterns, which is essential for algorithms like Least Recently Used (LRU) approximations.34|
+|Caching Disabled Bit|A single bit that tells the hardware whether the contents of this page should be cached by the CPU's data caches.|This is critical for pages that are mapped to device control registers (memory-mapped I/O), where the values can change asynchronously. Caching such pages would lead to stale data.|
+**CPU to Physical Memory Access with Page Table:**
+
+1.  CPU generates `Logical Address (PNO, Offset)`.
+2.  MMU accesses a special register (e.g., **PT-Start Base Register**) which holds the physical base address of the current process's page table.
+3.  MMU calculates the address of the specific PTE: `PTE Address = PT-Start Base Register + (PNO * Size of PTE)`.
+4.  MMU fetches the PTE from main memory.
+5.  MMU checks the Present/Absent bit.
+    *   If Absent: Page Fault. OS intervenes.
+    *   If Present: MMU extracts the `Frame Number` from the PTE.
+6.  MMU forms the `Physical Address = (Frame Number, Offset)`.
+7.  MMU accesses the data/instruction at this `Physical Address` in Main Memory.
