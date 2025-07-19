@@ -233,4 +233,6 @@ An overlay tree graphically represents the dependencies and structure of a progr
 *   **Nodes:** Represent overlay segments.
 *   **Branches:** Indicate that child nodes are mutually exclusive with their siblings (i.e., only one child from a set of siblings can be loaded at a time).
 *   **Finding Minimum Memory:** To calculate the minimum physical memory required to run a program structured with overlays, you need to find the "heaviest path" from the root to any leaf node. This path represents the maximum amount of code that needs to be residing in main memory concurrently.
-**
+**read more about this shit, they seem to have asked a decent amount of questions about this**
+
+
