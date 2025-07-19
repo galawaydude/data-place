@@ -104,3 +104,30 @@ The loader is the final system software component involved in preparing a progra
 
 ### Different 'Times' in Program Execution
 
+The process of fixing addresses and resolving symbols can happen at different stages, influencing flexibility and performance:
+
+1.  **Compile Time:**
+    *   **Concept:** If the program's exact physical memory location is known *before compilation*, the compiler can generate absolute addresses directly.
+    *   **Problem:** This is extremely inflexible. The program can only run at that specific address. If multiple programs need to run or if the memory layout changes, it won't work. This is rarely used in modern general-purpose OS.
+    *   **Example from notes:** "Symbol constants -> relocatable address." This is a bit misleading here. It usually implies that if fixed, it's fixed *before* linking/loading.
+
+2.  **Link Time:**
+    *   **Concept:** The linker generates a relocatable executable file, but the addresses within this file are *relative* to the start of the executable. If the program is always loaded at the *same* starting address in memory, the linker can fix all addresses to be absolute.
+    *   **Use case:** Simple embedded systems or very specific scenarios where the load address is fixed.
+    *   **Example from notes:** "Relocatable code -> relocatable addresses ext. obj." Meaning, external object references are resolved to be relocatable within the final combined executable.
+
+3.  **Load Time:**
+    *   **Concept:** The linker produces a relocatable executable. The loader, when placing the program into memory, gets to know the program's *actual starting physical address*. It then performs the final **relocation** by adding this starting address to all the program's internal (relative) addresses.
+    *   **Advantage:** Program can be loaded anywhere in memory. This is common for older systems or simpler executables.
+    *   **Example from notes:** "Relocatable address -> absolute addresses."
+
+4.  **Run Time (Dynamic Linking):**
+    *   **Concept:** Relocation and symbol resolution can be postponed until the program is already running. This is typically done for **Dynamic Link Libraries (DLLs in Windows, Shared Objects/Libraries in Linux)**.
+    *   **How it works:** When a program needs a function from a dynamic library, the linker doesn't embed the library's code. Instead, it places a stub. When the function is called for the first time, an OS component (the dynamic linker/loader) intervenes, finds the library in memory (or loads it if not present), and resolves the actual address of the function. Subsequent calls directly use the resolved address.
+    *   **Advantages:**
+        *   **Memory Saving:** Multiple programs can share a single copy of a library in memory.
+        *   **Flexibility:** Library updates don't require recompiling or relinking all applications that use them.
+        *   **Smaller Executables:** The executable file size is smaller as library code is not embedded.
+    *   **Disadvantage:** Runtime overhead for resolving addresses.
+    *   **Requirement:** Requires **OS Support** (e.g., dynamic linker).
+
