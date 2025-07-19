@@ -1,1 +1,0 @@
-1 word is usually 1 byte, which is 8 bits
