@@ -201,4 +201,22 @@ See, obv there is a decent amount of overhead in dynamic partitioning, so to mak
 *   **Conclusion:** The choice of allocation unit size is a trade-off between the memory consumed by the bit-map and the internal fragmentation experienced. It's not widely used for dynamic partitioning as **linked lists** are often more flexible.
 
 
+#### Linked List
+
+   **Concept:** Maintain a linked list of free and allocated memory blocks. Each node in the list describes a memory segment (either a process `P` or a hole `H`).
+*   **Node Structure:** Each node typically contains:
+    *   **Type:** `P` (Process) or `H` (Hole)
+    *   **Start Address:** The beginning memory address of the block.
+    *   **End Address (or Size):** The ending memory address or the size of the block.
+*   **Diagram:**
+    *   Memory: OS, then blocks P (0-99), H (100-199), P (200-299), H (300-399).
+    *   Linked List: `Head -> (P, 0, 99) -> (H, 100, 199) -> (P, 200, 299) -> (H, 300, 399)`
+*   **Advantages of Linked List:**
+    1.  **Memory Required is Less than Bit-Map:** Especially if memory is sparsely used, or if allocation units are small (making the bitmap huge). This is empirically found (as your notes state "found experimentally").
+    2.  **Maintain List in Increasing Order of Starting Address:** This simplifies management, especially for:
+        *   **Merging Adjacent Holes:** When a process frees its memory, the OS checks if the newly freed block is adjacent to an existing free hole. If so, they can be merged into a single, larger hole, reducing external fragmentation. This is much easier with a sorted list.
+        *   **Deleting and Inserting:** Efficiently managing the list of blocks.
+    3.  **Doubly Linked List is More Beneficial:** Allows for easier traversal in both directions, making merging of adjacent holes even more efficient (checking both preceding and succeeding blocks).
+
+
 
