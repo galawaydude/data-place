@@ -394,8 +394,6 @@ lets convert this to bytes
 1 KB = $2^{10}$ bytes
 4 KB = $2^{12}$ bytes
 >You can convert this to words also, if you have know 1 word has how many bytes
-
-
 ### All The Formulae for the above thing
 #### Physical Address Space (PAS)
 - Main Memory Size = $M$ words  
@@ -433,23 +431,19 @@ lets convert this to bytes
 #### Total Size of Page Table
 - $\text{Page Table Size} = 2^{l - p} \times e$ (in bits or bytes)
 
-
-
 ### Structure of a Page Table Entry (PTE)
 
 A page table is an array of Page Table Entries (PTEs). Each PTE holds not just the translation information but also a collection of control bits that enable advanced memory management features like protection and virtual memory.
 
-Table 2: Structure of a Page Table Entry (PTE)
-
-|   |   |   |
-|---|---|---|
-|Field|Description|Purpose and Significance|
-|Physical Frame Number (PFN)|The base address of the physical frame in RAM where the corresponding virtual page is located.|This is the core data required for the address translation itself.20|
-|Present / Valid Bit|A single bit indicating whether the page is currently in physical memory (1 = valid/present) or resides on secondary storage (0 = invalid/absent).|This bit is fundamental to implementing virtual memory. If a process accesses a page marked as invalid, it triggers a page fault, signaling the OS to load the page from disk.20|
-|Protection Bits|A set of bits specifying the access permissions for the page (e.g., Read, Write, Execute).|These bits enable memory protection. On every memory access, the hardware checks these permissions. An attempt to perform a forbidden operation (like writing to a read-only page) causes a trap to the OS, which typically terminates the offending process.21|
-|Modified / Dirty Bit|A single bit that is automatically set to 1 by the hardware whenever a write operation is performed on any byte within the page.|This bit is crucial for optimizing page replacement in a virtual memory system. If a page's dirty bit is 0 (it is "clean"), it means its contents in memory are identical to its copy on disk. It can be replaced without being written back. If the bit is 1 (it is "dirty"), the OS must write the modified page back to disk before its frame can be reused.34|
-|Referenced / Accessed Bit|A single bit that is automatically set to 1 by the hardware whenever the page is accessed (either for a read or a write).|This bit is used by page replacement algorithms to determine which pages are actively being used. The OS can periodically clear these bits to track recent usage patterns, which is essential for algorithms like Least Recently Used (LRU) approximations.34|
-|Caching Disabled Bit|A single bit that tells the hardware whether the contents of this page should be cached by the CPU's data caches.|This is critical for pages that are mapped to device control registers (memory-mapped I/O), where the values can change asynchronously. Caching such pages would lead to stale data.|
+|                             |                                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Field                       | Description                                                                                                                                        | Purpose and Significance                                                                                                                                                                                                                                                                                                                                          |
+| Physical Frame Number (PFN) | The base address of the physical frame in RAM where the corresponding virtual page is located.                                                     | This is the core data required for the address translation itself.20                                                                                                                                                                                                                                                                                              |
+| Present/ Valid Bit          | A single bit indicating whether the page is currently in physical memory (1 = valid/present) or resides on secondary storage (0 = invalid/absent). | This bit is fundamental to implementing virtual memory. If a process accesses a page marked as invalid, it triggers a page fault, signaling the OS to load the page from disk.20                                                                                                                                                                                  |
+| Protection Bits             | A set of bits specifying the access permissions for the page (e.g., Read, Write, Execute).                                                         | These bits enable memory protection. On every memory access, the hardware checks these permissions. An attempt to perform a forbidden operation (like writing to a read-only page) causes a trap to the OS, which typically terminates the offending process.21                                                                                                   |
+| Modified / Dirty Bit        | A single bit that is automatically set to 1 by the hardware whenever a write operation is performed on any byte within the page.                   | This bit is crucial for optimizing page replacement in a virtual memory system. If a page's dirty bit is 0 (it is "clean"), it means its contents in memory are identical to its copy on disk. It can be replaced without being written back. If the bit is 1 (it is "dirty"), the OS must write the modified page back to disk before its frame can be reused.34 |
+| Referenced / Accessed Bit   | A single bit that is automatically set to 1 by the hardware whenever the page is accessed (either for a read or a write).                          | This bit is used by page replacement algorithms to determine which pages are actively being used. The OS can periodically clear these bits to track recent usage patterns, which is essential for algorithms like Least Recently Used (LRU) approximations.34                                                                                                     |
+| Caching Disabled Bit        | A single bit that tells the hardware whether the contents of this page should be cached by the CPU's data caches.                                  | This is critical for pages that are mapped to device control registers (memory-mapped I/O), where the values can change asynchronously. Caching such pages would lead to stale data.                                                                                                                                                                              |
 **CPU to Physical Memory Access with Page Table:**
 
 1.  CPU generates `Logical Address (PNO, Offset)`.
