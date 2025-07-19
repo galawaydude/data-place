@@ -40,41 +40,7 @@ Therefore, the probability that at least one process is *not* waiting for I/O (i
 
 The CPU Utilization is given by $1 - p^n$.
 
-Let's walk through your examples:
-
-**Example 1:**
-*   **Scenario:** 4 MB Main Memory (MM), 4 MB process.
-*   **Degree of Multiprogramming (n):** Since one process needs 4 MB and we only have 4 MB, only `n=1` process can be in memory at a time.
-*   **CPU Utilization:** `(1 - p^1) = (1 - p)`
-*   **If p = 80% (0.8):**
-    *   CPU Utilization = `1 - 0.8 = 0.2` or **20%**.
-    *   **Explanation:** This is very low! It means 80% of the time, the CPU is idle because the single process in memory is waiting for I/O. This is inefficient.
-
-**Example 2:**
-*   **Scenario:** 16 MB MM, 4 MB process.
-*   **Number of processes (n):** `16 MB / 4 MB = 4 processes` can be in memory.
-*   **CPU Utilization:** `(1 - p^4)`
-*   **If p = 80% (0.8):**
-    *   CPU Utilization = `1 - (0.8)^4 = 1 - 0.4096 = 0.5904` or **~59%**.
-    *   **Explanation:** By allowing 4 processes to reside in memory, even if one is waiting for I/O, there's a good chance another is ready to run. This significantly increases CPU utilization.
-
-**Example 3:**
-*   **Scenario:** 32 MB MM, 4 MB process.
-*   **Number of processes (n):** `32 MB / 4 MB = 8 processes`
-*   **CPU Utilization:** `(1 - p^8)`
-*   **If p = 80% (0.8):**
-    *   CPU Utilization = `1 - (0.8)^8 = 1 - 0.16777 = 0.83223` or **~83%**.
-    *   **Explanation:** Further increasing `n` brings utilization closer to 100%.
-
-**Example 4:**
-*   **Scenario:** 48 MB MM, 4 MB process.
-*   **Number of processes (n):** `48 MB / 4 MB = 12 processes`
-*   **CPU Utilization:** `(1 - p^12)`
-*   **If p = 80% (0.8):**
-    *   CPU Utilization = `1 - (0.8)^12 = 1 - 0.0687 = 0.9313` or **~93%**.
-    *   **Explanation:** The trend is clear: as `n` increases, CPU utilization approaches 100%.
-
-**General Formula:** **CPU Utilization = 1 - p^n**
+**General Formula:** **CPU Utilization = $1 - p^n$.
 Where `n` is the number of processes that can be present in memory at the same time.
 
 **Key takeaway:** CPU utilization is directly proportional to the degree of multiprogramming (`n`).
