@@ -387,9 +387,11 @@ now that we have this sorted, we already discussed the structure of both address
 
 now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[Word and Address Space|representation]], but we need to know how many bits to assign to each part, cause there are two parts.
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
-this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. **the number of bits, we need would be log2 of the size of the page or the frame**
+this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. **the number of bits, we need would be log2 of the size of the page or the frame (in bytes)**
 
-
+Lets assume the size of a page/frame is 4 KB
+lets convert this to bytes
+1 
 
 #### Structure of a Page Table Entry (PTE)
 
