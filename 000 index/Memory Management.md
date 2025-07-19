@@ -236,3 +236,8 @@ An overlay tree graphically represents the dependencies and structure of a progr
 **read more about this shit, they seem to have asked a decent amount of questions about this**
 
 
+
+### Non-Contiguous Memory Allocation
+
+
+
