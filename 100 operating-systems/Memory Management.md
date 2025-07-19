@@ -380,9 +380,10 @@ So, the logical address must be 26 bits long.
 Basically everything, that we learnt till now, has to be connected, we basically need to able to solve all the problems related to paging, and for that, we need to actually know how the translation happens from virtual address to physical address.
 
 alright so first off, the size of one page should be equal to the size of one frame.
-and because we are dealing with the sizes of memory here, we can either say byte, or even better say word. `page size = frame size = P words`
+and because we are dealing with the sizes of memory here, we can either say byte, or even better, say word. 
+`page size = frame size = P words`
 
-now that we have this sorted, we already discussed the structure of both the addresses [[add a link to the thing here, the link to the structur of an address here]]
+now that we have this sorted, we already discussed the structure of both addresses [[Structure of an Address|address structure]]
 
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
 this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. the number of bits, we need would be log2 of that things size.
