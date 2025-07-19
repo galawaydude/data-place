@@ -275,12 +275,12 @@ The core task of a paged memory management system is to translate every logical 
 
 The translation mechanism is elegantly implemented by interpreting the bit pattern of a logical address in a specific way. A logical address is split into two components.
 
-- **Virtual Page Number (VPN):** The most significant bits of the logical address. This number serves as an index into a data structure called the page table.
+- **Virtual Page Number:** The most significant bits of the logical address. This number serves as an index into a data structure called the page table.
     
-- **Page Offset (d):** The least significant bits of the logical address. This value represents the displacement, or offset, of the desired byte from the beginning of the page.
+- **Page Offset** The least significant bits of the logical address. This value represents the displacement, or offset, of the desired byte from the beginning of the page.
     
 
-Similarly, a physical address is composed of a Physical Frame Number (PFN) and a Frame Offset (d).The key insight is that the offset is never translated; the location of a byte within a page is the same as its location within the frame that holds that page. Therefore, the offset bits from the logical address are carried over directly to the physical address.
+Similarly, a physical address is composed of a Physical Frame Number and a Frame Offset The key insight is that the offset is never translated; the location of a byte within a page is the same as its location within the frame that holds that page. Therefore, the offset bits from the logical address are carried over directly to the physical address.
 
 #### The MMU
 
@@ -383,7 +383,7 @@ alright so first off, the size of one page should be equal to the size of one fr
 and because we are dealing with the sizes of memory here, we can either say byte, or even better, say word. 
 `page size = frame size = P words`
 
-now that we have this sorted, we already discussed the structure of both addresses [[Structure of an Address|address structure]]
+now that we have this sorted, we already discussed the structure of both addresses [[^]]
 
 now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[Word and Address Space|representation]], but we need to know how many bits to assign to each part, cause there are two parts.
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
