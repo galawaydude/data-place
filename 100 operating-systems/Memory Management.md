@@ -385,6 +385,7 @@ and because we are dealing with the sizes of memory here, we can either say byte
 
 now that we have this sorted, we already discussed the structure of both addresses [[Structure of an Address|address structure]]
 
+now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[wor]]
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
 this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. the number of bits, we need would be log2 of that things size.
 
