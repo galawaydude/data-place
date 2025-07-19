@@ -251,12 +251,11 @@ The paging model is built on two core concepts:
 - **Pages**: A process's logical address space is also broken down into fixed-size blocks of the exact same size as frames. These logical blocks are called pages.
 
 The central principle of paging is that any page from a process can be loaded into any available frame in physical memory. **The frames holding the pages of a single process do not need to be adjacent to one another**. The operating system simply maintains a list of all free frames and, when a process requiring
+n pages needs to be loaded, it finds any n available frames wherever they may be located in physical memory and loads the pages into them.
 
-n pages needs to be loaded, it finds any n available frames—wherever they may be located in physical memory—and loads the pages into them.19
+This approach completely solves the problem of external fragmentation. Since all allocation units (frames) are of a fixed size, there are no variable-sized *holes* left behind when a process terminates. A frame is either in use or it is free; there is no unusable space between allocated blocks.
 
-This approach completely solves the problem of external fragmentation. Since all allocation units (frames) are of a fixed size, there are no variable-sized "holes" left behind when a process terminates. A frame is either in use or it is free; there is no unusable space between allocated blocks.23
-
-While paging masterfully eliminates external fragmentation, it does reintroduce internal fragmentation, albeit in a far more constrained and manageable form.21 This occurs because a process's total memory requirement is rarely an exact multiple of the page size. As a result, the final page of the process is typically only partially filled. However, this partially filled page must occupy an entire frame in physical memory. The unused space within this last frame constitutes internal fragmentation.21
+While paging masterfully eliminates external fragmentation, it does reintroduce internal fragmentation, albeit in a far more constrained and manageable form. This occurs because a process's total memory requirement is rarely an exact multiple of the page size. As a result, the final page of the process is typically only partially filled. However, this partially filled page must occupy an entire frame in physical memory. The unused space within this last frame constitutes internal fragmentation.21
 
 For example, consider a process that is 75KB in size with a system page size of 4KB. To store this process, the system will require 75/4=18.75 pages, which is rounded up to 19 pages. The first 18 pages will be full. The final, 19th page will contain only 75−(18×4)=3KB of data. When this page is loaded into a 4KB frame, 1KB of space within that frame is wasted.4
 
