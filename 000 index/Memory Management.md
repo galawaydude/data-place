@@ -227,3 +227,10 @@ This is somewhat of an extension on contiguous memory allocation. What is the si
 
 For this we use Overlays. Overlays is a program structuring technique. the program is divided into a root segment (which is always in memory) and overlays segment. Only one overlay segment from a particular level needs to be in memory at a particular time. When an overlay segment is needed, It is loaded into the memory area previously occupied by another overlay from the same level, hence overlaying it.
 Common routines data that are used by multiple overlays or the root are kept in the root segment or a shared memory area
+
+An overlay tree graphically represents the dependencies and structure of a program's overlays.
+*   **Root:** The part of the program that is always in memory.
+*   **Nodes:** Represent overlay segments.
+*   **Branches:** Indicate that child nodes are mutually exclusive with their siblings (i.e., only one child from a set of siblings can be loaded at a time).
+*   **Finding Minimum Memory:** To calculate the minimum physical memory required to run a program structured with overlays, you need to find the "heaviest path" from the root to any leaf node. This path represents the maximum amount of code that needs to be residing in main memory concurrently.
+**
