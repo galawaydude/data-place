@@ -225,4 +225,5 @@ See, obv there is a decent amount of overhead in dynamic partitioning, so to mak
 
 This is somewhat of an extension on contiguous memory allocation. What is the size of the program is greater than the size of the biggest partition (or available physical memory). The above methods would prevent such a program from running.
 
-For this we use Overlays. Overlays is a program s
+For this we use Overlays. Overlays is a program structuring technique. the program is divided into a root segment (which is always in memory) and overlays segment.
+
