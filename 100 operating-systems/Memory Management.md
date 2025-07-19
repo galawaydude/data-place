@@ -316,7 +316,7 @@ The MMU uses two special registers for address translation and protection in sim
 
 ### Word and Address Space
 
-*   **Word:** 
+*   **Word:**  A unit of data that a CPU processes as a single operation. Its size depends on the system architecture and is typically 2, 4, 8, bytes, The smallest addressable unit in most architectures is a byte.
 
 *   **Physical Address Space (PAS):** The total range of physical addresses that the CPU can generate. This is equal to the size of main memory.
     *   If Main Memory Size = `M` words, then `Physical Address (PA)` requires `log2(M)` bits.
