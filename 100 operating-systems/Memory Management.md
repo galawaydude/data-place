@@ -316,7 +316,7 @@ The MMU uses two special registers for address translation and protection in sim
 
 ### Word and Address Space
 
-*   **Word:**  A unit of data that a CPU proce. Its size depends on the system architecture and is typically 2, 4, 8, bytes, The smallest addressable unit in most architectures is a byte.
+**Word:**  A unit of data that the CPU processes at once. Its size depends on the system architecture and is typically 2, 4, 8, bytes, The smallest addressable unit in most architectures is a byte.
 
 > A **bit** is the smallest unit of data in computing, its 1 or 0
 > A **byte** is made up of 8 bits, its the smallest addressable unit in memory
