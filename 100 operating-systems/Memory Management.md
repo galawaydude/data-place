@@ -325,28 +325,20 @@ The total range of physical addresses that the hardware can use to access the ph
 Assume:  
 Memory size = 128 MB  
 Word size (WS) = 4 bytes
-*and we need to find how many bits we need to represent all the words in the physical memory*
-**Convert MB to bytes**
+*and we need to find how many bits we need to represent all the words in the physical memory*??
 
+**Convert MB to bytes**
 1 MB = 2¹⁰ × 2¹⁰ = 2²⁰ bytes  
 128 MB = 128 × 2²⁰ = 2⁷ × 2²⁰ = 2²⁷ bytes
-
 So, the total physical memory = 2²⁷ bytes
 
----
-
-### Step 2: Convert bytes to words
-
+**Convert bytes to words**
 Word size = 4 bytes = 2² bytes  
 Number of words = Total bytes / Bytes per word  
 = 2²⁷ / 2² = 2²⁵ words
-
 So, physical memory contains 2²⁵ words
 
----
-
-### Step 3: Address bits needed
-
+**Address bits needed**
 To uniquely address 2²⁵ words, we need:
 
 log₂(2²⁵) = 25 bits
