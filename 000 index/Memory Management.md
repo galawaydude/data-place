@@ -152,6 +152,21 @@ Also known as static partitioning, this was one of the earliest methods for enab
   For instance, if a 5MB process is placed in a 10MB partition, 5MB of memory is lost to internal fragmentation.4 This waste is *internal* to the allocated block.
 
 
+#### Variable Size Partitioning
+
+To address the significant waste caused by internal fragmentation, the variable-size partitioning scheme (or dynamic partitioning) was developed. In this model, the operating system does not partition memory beforehand. Instead, it maintains a list of free blocks of memory and allocates a partition of the exact size needed by a process upon its arrival.2 This dynamic approach successfully eliminates internal fragmentation because a process is given only as much memory as it requests.
+
+However, this flexibility introduces the need for the operating system to manage the free blocks and decide which one to allocate. This decision is governed by an allocation strategy. Common strategies include 2:
+
+- First-Fit: The OS scans the list of free blocks (holes) and allocates the first one that is large enough to accommodate the process. This strategy is fast but may break up large blocks, leaving smaller, less useful ones behind.2
+    
+- Best-Fit: The OS searches the entire list of holes to find the smallest one that is large enough for the process. This approach aims to preserve larger holes for future, larger processes. However, it is slower due to the exhaustive search and tends to create a large number of very small, often unusable holes.2
+    
+- Worst-Fit: The OS allocates the largest available hole to the process. The rationale is that the leftover portion of the hole will be large enough to be useful for another process. However, this strategy can quickly eliminate large blocks needed for large processes.2
+    
+
+While variable partitioning solves the problem of internal fragmentation, its dynamic nature gives rise to a more insidious and system-crippling issue: external fragmentation.
+
 
 
 
