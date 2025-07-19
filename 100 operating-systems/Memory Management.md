@@ -312,11 +312,9 @@ The MMU uses two special registers for address translation and protection in sim
             *   `Physical Address = 50K + 100K = 150K`.
     *   **Important:** Both the Relocation Register and Limit Register are **privileged registers**, meaning only the Operating System (in kernel mode) can modify their contents. This prevents user processes from bypassing memory protection mechanisms.
 
-> the above thing is how it would work in a contiguous memory management system (its just how it works in general, not in reference to paging)
+> the above thing is how it would work in a contiguous memory management system (its just how it works in general, not in reference to paging). the below thing is how it would work in paging.
 
 #### The Performance Bottleneck and the TLB
-
-  
 
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
