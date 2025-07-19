@@ -202,8 +202,6 @@ See, obv there is a decent amount of overhead in dynamic partitioning, so to mak
         *   **More bits required for the bitmap:** Bitmap is larger, more memory overhead for the bitmap.
         *   **Decreased space wastage (internal fragmentation):** A process needing 5 bytes gets 8 bytes, wasting 3 bytes, which is a smaller absolute waste than the previous example.
 *   **Conclusion:** The choice of allocation unit size is a trade-off between the memory consumed by the bit-map and the internal fragmentation experienced. It's not widely used for dynamic partitioning as **linked lists** are often more flexible.
-
-
 #### Linked List
 
    **Concept:** Maintain a linked list of free and allocated memory blocks. Each node in the list describes a memory segment (either a process `P` or a hole `H`).
