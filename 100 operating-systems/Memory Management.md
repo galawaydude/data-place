@@ -280,7 +280,7 @@ The translation mechanism is elegantly implemented by interpreting the bit patte
 - **Page Offset (d):** The least significant bits of the logical address. This value represents the displacement, or offset, of the desired byte from the beginning of the page.
     
 
-Similarly, a physical address is composed of a Physical Frame Number (PFN) and a Frame Offset (d).23 The key insight is that the offset is never translated; the location of a byte within a page is the same as its location within the frame that holds that page. Therefore, the offset bits from the logical address are carried over directly to the physical address.23
+Similarly, a physical address is composed of a Physical Frame Number (PFN) and a Frame Offset (d).The key insight is that the offset is never translated; the location of a byte within a page is the same as its location within the frame that holds that page. Therefore, the offset bits from the logical address are carried over directly to the physical address.
 
 #### The MMU
 
