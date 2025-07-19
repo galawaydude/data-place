@@ -314,7 +314,7 @@ The MMU uses two special registers for address translation and protection in sim
 
 > the above thing is how it would work in a contiguous memory management system (its just how it works in general, not in reference to paging). the below thing is how it would work in paging.
 
-### Word and Address Space
+### [[Word and Address Space]]
 
 - **Bit**: The smallest unit of data in computing. It can be either 0 or 1.
 - **Byte**: A group of 8 bits. It is the smallest addressable unit in most computer architectures.
@@ -385,7 +385,8 @@ and because we are dealing with the sizes of memory here, we can either say byte
 
 now that we have this sorted, we already discussed the structure of both addresses [[Structure of an Address|address structure]]
 
-now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[wor]]
+now let us try to find how many bits, would the address need to be, obv, we already found the number of bits, required to represent all the addresses [[Word and Address Space|representation]]
+
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
 this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. the number of bits, we need would be log2 of that things size.
 
