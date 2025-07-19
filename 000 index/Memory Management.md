@@ -131,3 +131,6 @@ The process of fixing addresses and resolving symbols can happen at different st
     *   **Disadvantage:** Runtime overhead for resolving addresses.
     *   **Requirement:** Requires **OS Support** (e.g., dynamic linker).
 
+
+
+### Memory Partitioning
