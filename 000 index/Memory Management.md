@@ -86,5 +86,17 @@ The linker is a system program that takes one or more object modules generated b
 2.  **Symbol Resolution:** Finding the definitions for all external symbols referenced by modules and linking them correctly. This includes linking with library routines.
     *   **Stub (or Glue Code):** For dynamically linked libraries (DLLs/shared libraries), the linker might insert a small piece of code called a "stub" or "glue code." Instead of directly embedding the library function's code, this stub is a placeholder that, at runtime, will resolve to the actual library function's address if it's not already loaded. For example, for a `printf()` call, a stub might point to the dynamic linker which then finds the `printf` function in a shared library.
 
-
 ### The Loader
+
+The loader is the final system software component involved in preparing a program for execution.
+
+*   **Role:** The loader takes the **linked object code (the executable file)**, which is typically "relocatable" (meaning its addresses are relative to its own start), and places it into the main memory at an available starting address.
+*   **Responsibilities:**
+    1.  **Program Loading:** Loading the program's text and data segments from the executable file on disk into main memory.
+    2.  **Relocation:** Performing the final adjustment of addresses from being relative to the executable file's start to being absolute physical addresses within RAM. This is done by adding the program's actual load address (base address) to all relative addresses.
+    3.  **Symbol Resolution (if needed):** For dynamically linked libraries, the loader (or a dynamic linker invoked by the loader) will perform symbol resolution at run time.
+
+**Relationship between Linker and Loader:**
+
+*   **Linker:** Performs symbol resolution and relocation *to create a single executable file from multiple object files*. The output is typically **relocatable code**.
+*   **Loader:** Performs program loading and *final relocation to absolute physical addresses* when placing the executable into RAM. For dynamic linking, it might also do run-time symbol resolution.
