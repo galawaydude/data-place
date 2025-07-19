@@ -299,7 +299,7 @@ The MMU uses two special registers for address translation and protection in sim
         *   `Physical Address = Logical Address + Relocation Register Value`
     *   **Ensures Relocation:** This allows a program to be loaded anywhere in physical memory. The logical addresses within the program remain unchanged; only the Relocation Register's value changes, making the program *relocatable* at load time or even runtime.
 
-2.  **Limit Register:**why 
+2.  **Limit Register:
     *   **Purpose:** Stores the *size* (or limit) of the current process's logical address space.
     *   **Mechanism:** Before the MMU performs the addition for relocation, it first checks if the generated `Logical Address` is *less than* the value in the Limit Register (`Logical Address < Limit Register`).
     *   **Ensures Protection:**
@@ -311,6 +311,8 @@ The MMU uses two special registers for address translation and protection in sim
             *   Is `50K < 100K`? Yes. (Protection Check)
             *   `Physical Address = 50K + 100K = 150K`.
     *   **Important:** Both the Relocation Register and Limit Register are **privileged registers**, meaning only the Operating System (in kernel mode) can modify their contents. This prevents user processes from bypassing memory protection mechanisms.
+
+> the above thing is how it would work in a contiguous memory management system (its just how it works in general, not in reference to paging)
 
 #### The Performance Bottleneck and the TLB
 
