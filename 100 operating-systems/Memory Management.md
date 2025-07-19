@@ -241,13 +241,12 @@ An overlay tree graphically represents the dependencies and structure of a progr
 
  The solution was to decouple a process's logical view of memory from its physical placement. Paging is the most fundamental and widely used non-contiguous memory allocation technique that achieves this, forming the bedrock of all modern virtual memory systems.
  
-Paging directly attacks the root cause of external fragmentation—the use of variable-sized memory blocks—by imposing a uniform, fixed-size structure on both logical and physical memory. This allows a process's physical address space to be non-contiguous, meaning its constituent parts can be scattered throughout physical memory.
-
+Paging directly attacks the root cause of external fragmentation, the use of variable-sized memory blocks, by imposing a uniform, fixed-size structure on both logical and physical memory. This allows a process's physical address space to be non-contiguous, meaning its constituent parts can be scattered throughout physical memory.
 #### Pages and Frames
 
 The paging model is built on two core concepts:
 
-- Frames: Physical memory is divided into a series of fixed-size blocks called frames. The size of a frame is determined by the computer's hardware architecture and is always a power of two, with common sizes being 4KB, 16KB, or even 2MB or 1GB for "large pages".18
+- **Frames**: Physical memory is divided into a series of fixed-size blocks called frames. The size of a frame is determined by the computer's hardware architecture and is always a power of two, with common sizes being 4KB, 16KB, or even 2MB or 1GB for "large pages".18
 
 - Pages: A process's logical address space is also broken down into fixed-size blocks of the exact same size as frames. These logical blocks are called pages.18
 
