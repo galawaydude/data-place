@@ -239,5 +239,10 @@ An overlay tree graphically represents the dependencies and structure of a progr
 
 ### Non-Contiguous Memory Allocation
 
+#### Paging
+
+ The solution was to decouple a process's logical view of memory from its physical placement. Paging is the most fundamental and widely used non-contiguous memory allocation technique that achieves this, forming the bedrock of all modern virtual memory systems.
+ 
+Paging directly attacks the root cause of external fragmentation—the use of variable-sized memory blocks—by imposing a uniform, fixed-size structure on both logical and physical memory.18 This allows a process's physical address space to be non-contiguous, meaning its constituent parts can be scattered throughout physical memory.
 
 
