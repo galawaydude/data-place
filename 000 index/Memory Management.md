@@ -100,3 +100,7 @@ The loader is the final system software component involved in preparing a progra
 
 *   **Linker:** Performs symbol resolution and relocation *to create a single executable file from multiple object files*. The output is typically **relocatable code**.
 *   **Loader:** Performs program loading and *final relocation to absolute physical addresses* when placing the executable into RAM. For dynamic linking, it might also do run-time symbol resolution.
+
+
+### Different 'Times' in Program Execution
+
