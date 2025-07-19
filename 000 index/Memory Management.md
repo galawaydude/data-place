@@ -135,4 +135,8 @@ The process of fixing addresses and resolving symbols can happen at different st
 
 ### Memory Partitioning
 
-So, yeah, basically because each process has to get memory, and since we are dealing with multiprogramming here, there would be multiple processes in the memory at once right, so obviously, we would have to divide the memory, 
+So, yeah, basically because each process has to get memory, and since we are dealing with multiprogramming here, there would be multiple processes in the memory at once right, so obviously, we would have to divide the memory, so that each process gets allocated some space, now there are two ways of doing that.
+
+### Contiguous Memory Allocation
+
+The core idea of this is that, the entire process must 
