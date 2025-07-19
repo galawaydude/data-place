@@ -135,3 +135,4 @@ The process of fixing addresses and resolving symbols can happen at different st
 
 ### Memory Partitioning
 
+So, yeah, basically because each process has to get memory, and since we are dealing with multiprogramming here, there would be multiple processes in the memory at once right, so obviously, we would have to divide the memory, 
