@@ -40,8 +40,7 @@ and because we are dealing with the sizes of memory here, we can either say byte
 now that we have this sorted, we already discussed the structure of both the addresses [[add a link to the thing here, the link to the structur of an address here]]
 
 So, a logical address would have the page number and the page offset, and this offset value would be same in both the logical address and the physical address.
-this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. the number of bits, we need would be 
-]
+this offset basically tells, the position inside a page, or a frame. now this is basic common sense, as we saw before. the number of bits, we need would be log2 of that things size.
 
 
 
