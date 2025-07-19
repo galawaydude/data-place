@@ -345,18 +345,11 @@ log₂(2²⁵) = 25 bits
 So, the physical address must be 25 bits long.
 #### Logical Address Space (LAS)  
 The total range of logical addresses that a process can generate. This is equal to the size of the process (i.e., the virtual memory allocated to it). Each process has its own LAS.
-
----
-
-### Example:
-
+*same question as before, how many bits, do we need to represent all the addresses in the logical address space??*
 Assume:  
-Logical address space = 256 MB  
+Logical address space = 256 MB  (this is basically the size of the process)
 Word size = 4 bytes
-
----
-
-### Step 1: Convert MB to bytes
+Step 1: Convet MB to bytes
 
 256 MB = 2⁸ × 2¹⁰ × 2¹⁰ = 2²⁸ bytes
 
