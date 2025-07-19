@@ -8,9 +8,11 @@
 **Physical Address Space (PAS):** The total range of physical addresses that the hardware can use to access the physical memory (RAM. Its basically the size of the main memory.
 
 Assume, we have a memory which is 128 MB, lets convert this to bytes first, cause that is the standard unit.
-
-1 MB = 1024 × 1024 bytes = 2^20 bytes
+**make this conversion thing please**
+1 MB = 2^10 × 2^10 = 2^20 bytes
 So, 128 MB = 128 × 2^20 bytes = 2^7 × 2^20 = 2^27 bytes
+
+So, the entire
 
 *   **Logical Address Space (LAS):** The total range of logical addresses that a process can generate. This is equal to the size of the process (or virtual memory space allocated to it).
     *   If Process Size = `L` words, then `Logical Address (LA)` requires `log2(L)` bits.
