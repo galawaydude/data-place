@@ -223,4 +223,4 @@ See, obv there is a decent amount of overhead in dynamic partitioning, so to mak
 
 ### Overlays
 
-This 
+This is somewhat of an extension on contiguous memory allocation. What is the size of the program is greater than the size of the biggest partition (or available physical memory)  
