@@ -494,7 +494,7 @@ This solves the space problem, but it further make the performance even worse. T
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access *(and more for multi-level page tables)*.This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
 To overcome this bottleneck, the MMU includes a small, extremely fast, hardware **cache** called the **Translation Lookaside Buffer (TLB)**.The TLB is an associative cache that stores a small number of recently used
-VPN -> PFN mappings. It is more accurately described as an "address-translation cache". The interaction between the MMU and the TLB is as follows:
+VPN -> PFN mappings. It is more accurately described as an **"address-translation cache"**. The interaction between the MMU and the TLB is as follows:
 
 - TLB Hit: When the MMU receives a virtual address, it first checks the TLB to see if it holds the translation for the given VPN. Because the TLB is implemented in specialized, fast hardware, this check is performed in parallel and is extremely quick (often in a single clock cycle). If the entry is found (a TLB hit), the PFN is retrieved directly from the TLB, and the page table in main memory is not accessed at all. The physical address is formed, and the memory access proceeds with almost no overhead. Due to the principle of locality (programs tend to access the same memory regions repeatedly), TLB hits are the common case, with hit rates often exceeding 99%.42
     
