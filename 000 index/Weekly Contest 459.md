@@ -49,7 +49,7 @@ Nothing much here
 Nothing much here
 
 
-**Title :**
+**Title :** [Count Number of Trapezoids I](https://leetcode.com/problems/count-number-of-trapezoids-i/) 
 **Tags** : 
 
 #### Code
