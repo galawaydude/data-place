@@ -566,11 +566,4 @@ The formula is:
 
 `EAT_final = (1 - p) * MAT + p * (PFST)`
 
-**GATE Problem Walkthrough (from your notes)**
-*   Given: `p = 1 / 10^6`, `MAT = 20 ns`, `PFST = 10 ms`.
-*   First, make units consistent. `10 ms = 10 * 1,000,000 ns = 10^7 ns`.
-*   `EAT_final = (1 - 1/10^6) * 20 ns + (1/10^6) * (10^7 ns)`
-*   The `(1 - 1/10^6)` part is so close to 1 that we can approximate it as 1. `(1 - 0.000001) * 20 ≈ 20`.
-*   `EAT_final ≈ 1 * 20 ns + (1/10^6) * (10^7 ns)`
-*   `EAT_final ≈ 20 ns + 10 ns = 30 ns`.
-*   **Insight:** Even though a page fault is millions of times slower, because it happens so rarely, it only adds 10 ns to the average access time. The key to performance is keeping the page fault rate (`p`) extremely low.
+> write about inverted page
