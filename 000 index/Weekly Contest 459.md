@@ -84,7 +84,7 @@ See, i was close, while solving this problem, just missed some very important po
 
 So, we need to horizontal lines that are parallel to each other, now this is basic common sense that, two horizontal lines are always parallel to each other, as long as they do not overlap with each other.
 
-so, now to get one horizontal line, the condition is that, the y co-ordinate of both the points, should be same, 
+so, now to get one horizontal line, the condition is that, the y co-ordinate of both the points, should be same, now this is where the math comes into play here, assume you have 3 points, with the same y co-ordinates, you can make a horizontal line between the first two, second two, and the last two, this is basically the combination formula, now for every horizontal line from thi
 
 so, you need to make a horizontal 
 #### Notes
