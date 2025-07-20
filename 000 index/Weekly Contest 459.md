@@ -79,7 +79,9 @@ public:
 };
 ```
 #### Logic
-See, i was close, while solving this problem, just missed some very important points, i was right to use combinations, and even the `c(n, 2)` thing, but what i did miss, was how to calculate this thing, we are basically
+See, i was close, while solving this problem, just missed some very important points, i was right to use combinations, and even the `c(n, 2)` thing, but what i did miss, was how to calculate this thing, we are basically doing this step by step.
+
+so, you need to make a horizontal 
 #### Notes
 
 
