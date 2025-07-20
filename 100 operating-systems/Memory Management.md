@@ -461,6 +461,8 @@ A page table is an array of Page Table Entries (PTEs). Each PTE holds not just t
 6.  MMU forms the `Physical Address = (Frame Number, Offset)`.
 7.  MMU accesses the data/instruction at this `Physical Address` in Main Memory.
 
+
+### Virtual Memor
 #### The Performance Bottleneck and the TLB
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
