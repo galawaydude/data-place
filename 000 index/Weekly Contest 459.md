@@ -69,17 +69,9 @@ public:
         for(auto& [k, v]: mp){
 
             int numLines = (v * (v - 1)) / 2;
-
-  
-
             cnt = (cnt + numLines * lines) % mod;
-
             lines = (lines + numLines) % mod;
-
         }
-
-  
-
         return (int)cnt;
 
     }
@@ -87,6 +79,7 @@ public:
 };
 ```
 #### Logic
+See, i was close, while solving this problem, just missed some very important points, i was right to use combinations, and even the `c(n, 2)` thing, but what i did miss, was how to calculate this thing, we are basically
 #### Notes
 
 
