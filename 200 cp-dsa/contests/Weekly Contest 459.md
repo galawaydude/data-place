@@ -1,6 +1,12 @@
+---
+sr-due: 2025-07-23
+sr-interval: 3
+sr-ease: 250
+---
+#review
+
 **Title :** [Check Divisibility by Digit Sum and Product](https://leetcode.com/problems/check-divisibility-by-digit-sum-and-product/)
 **Tags** : #implementation, #simulation
-
 #### Code
 ```cpp
 class Solution {
@@ -89,9 +95,6 @@ so, now to get one horizontal line, the condition is that, the y co-ordinate of 
 so, you need to make a horizontal 
 #### Notes
 Nothing much here
-
-
-
 
 
 
