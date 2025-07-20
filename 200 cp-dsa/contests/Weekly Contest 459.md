@@ -51,11 +51,6 @@ Nothing much here
 
 **Title :** [Count Number of Trapezoids I](https://leetcode.com/problems/count-number-of-trapezoids-i/) 
 **Tags** :  #geometry, #implementation, #map
-
-#review
-
-
-
 #### Code
 ```cpp
 class Solution {
