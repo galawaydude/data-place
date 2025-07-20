@@ -474,6 +474,8 @@ Virtual Memory is a memory management capability of an operating system, that cr
 ### Performance Issues with Paging
 
 The biggest drawback of the basic paging scheme is its performance, for every single memory access a program makes, the system actually has to perform two memory accesses.
+First to the main memory the access the page number and get the frame number for the actual physical address. and then again to the main memory to access the actual data or instruction at the physical address.
+
 
 #### The Performance Bottleneck and the TLB
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
