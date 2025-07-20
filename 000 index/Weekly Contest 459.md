@@ -50,9 +50,42 @@ Nothing much here
 
 
 **Title :** [Count Number of Trapezoids I](https://leetcode.com/problems/count-number-of-trapezoids-i/) 
-**Tags** : 
+**Tags** :  #geometry, #implementation, #map
 
 #### Code
+```cpp
+class Solution {
+
+public:
+
+    int const mod = 1e9 + 7;
+
+    int countTrapezoids(vector<vector<int>>& points) {
+
+        map<int, long long> mp;
+        for(auto& it: points) mp[it[1]]++;
+        long long lines = 0, cnt = 0;
+
+        for(auto& [k, v]: mp){
+
+            int numLines = (v * (v - 1)) / 2;
+
+  
+
+            cnt = (cnt + numLines * lines) % mod;
+
+            lines = (lines + numLines) % mod;
+
+        }
+
+  
+
+        return (int)cnt;
+
+    }
+
+};
+```
 #### Logic
 #### Notes
 
