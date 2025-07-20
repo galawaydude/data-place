@@ -479,7 +479,9 @@ First to the main memory the access the page number and get the frame number for
 **The Effective Access Time (EAT)** is double, `EAT = m (for page table) + m (for data) = 2m`
 
 
-Now assume we increase the physical address space, assume its a 64-bit system. this would mean the word size is 64 bits. that means there are $2^{64}$ total addresses to pick from. and now assume each page had a size of 4 KB, this would mean each frame also had a size of 4 KB, and all the pages combined should be equal to $2^{64}$ bytes, this would mean we would need $2^{52}$ frames, 
+Now assume we increase the physical address space, assume its a 64-bit system. this would mean the word size is 64 bits. that means there are $2^{64}$ total addresses to pick from. and now assume each page had a size of 4 KB, this would mean each frame also had a size of 4 KB, and all the pages combined should be equal to $2^{64}$ bytes, this would mean we would need $2^{52}$ frames, and then the page table size would also be very big.
+
+The solution for the abo
 #### The Performance Bottleneck and the TLB
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
