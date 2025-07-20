@@ -2,7 +2,7 @@
 **Tags** : #implementation, #simulation
 
 #### Code
-```
+```cpp
 class Solution {
 
 public:
@@ -80,6 +80,7 @@ public:
 ```
 #### Logic
 See, i was close, while solving this problem, just missed some very important points, i was right to use combinations, and even the `c(n, 2)` thing, but what i did miss, was how to calculate this thing, we are basically doing this step by step.
+
 > convex shape is basically the one where all the interior angles are less than 180, and any line segment between two points, inside the shape lies entirely withing the shape.
 
 So, we need to horizontal lines that are parallel to each other, now this is basic common sense that, two horizontal lines are always parallel to each other, as long as they do not overlap with each other.
@@ -88,6 +89,8 @@ so, now to get one horizontal line, the condition is that, the y co-ordinate of 
 
 so, you need to make a horizontal 
 #### Notes
+Nothing much here
+
 
 
 
