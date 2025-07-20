@@ -471,7 +471,10 @@ Virtual Memory is a memory management capability of an operating system, that cr
     2.  **Process Isolation:** Each process gets its own virtual address space, preventing it from interfering with other processes. This is a cornerstone of modern OS security and stability.
     3.  **Efficient Process Creation:** The OS can create processes faster because it only needs to load the necessary parts of the program into memory to start, a concept called **Demand Paging**.
 
-### Performance is
+### Performance Issues with Paging
+
+The biggest drawback of the basic paging scheme is its performance, for every single memory access a program makes, the system actually has to perform two memory accesses.
+
 #### The Performance Bottleneck and the TLB
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
