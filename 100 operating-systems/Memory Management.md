@@ -483,7 +483,13 @@ Now assume we increase the physical address space, assume its a 64-bit system. t
 
 The solution for the above thing is, Multi-level paging, where the page **(Basically to avoid making one very big page table, we make smaller page tables)**, you have an outer page table that points to a second-level page table, which then points to the frame.
 
-This solves the space problem, but it further make the performance even worse. To find a frame, you have to "walk the "
+This solves the space problem, but it further make the performance even worse. To find a frame, you have to:
+*   Access 1: Read from the Level 1 Page Table.
+*   Access 2: Read from the Level 2 Page Table.
+*   ...
+*   Access L: Read from the Level L Page Table.
+*   Access L+1: Finally, access the actual data.
+`EAT = (L + 1) * m`
 #### The Performance Bottleneck and the TLB
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
