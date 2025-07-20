@@ -479,7 +479,7 @@ First to the main memory the access the page number and get the frame number for
 **The Effective Access Time (EAT)** is double, `EAT = m (for page table) + m (for data) = 2m`
 
 
-Now assume we increase the physical address space, 
+Now assume we increase the physical address space, assume its a 64-bit system
 #### The Performance Bottleneck and the TLB
 This hardware-based translation introduces a major performance bottleneck. Since page tables are stored in main memory, a naive MMU implementation would need to perform at least one extra memory access for each program memory access (and more for multi-level page tables).21 This would, at a minimum, double the effective memory access time, slowing the system to an unacceptable crawl.
 
