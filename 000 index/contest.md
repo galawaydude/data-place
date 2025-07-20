@@ -1,69 +1,116 @@
-<%*
-const contestNumber = await tp.system.prompt("Contest number (e.g. 404)")
-const contestDate = tp.date.now("YYYY-MM-DD")
-const totalProblems = 4  // change if needed
-%>
+Weekly Contest {{date:YYYY}}-{{date:MM}}-{{date:DD}}
 
-# 📘 LeetCode Weekly Contest <%= contestNumber %>
-
-> _Date: <%= contestDate %>_
+_Contest Number: _______  ← fill this in manually_
 
 ---
 
-<% for (let i = 1; i <= totalProblems; i++) { 
-  const title = await tp.system.prompt(`Problem ${i} Title`)
-  const difficulty = await tp.system.prompt(`Problem ${i} Difficulty (Easy/Medium/Hard)`)
-  const lang = await tp.system.prompt(`Language for Problem ${i} Code`)
-%>
+## 📝 Problem 1: _______
 
-## 📝 Problem <%= i %>: <%= title %>
-
-**Difficulty**: <%= difficulty %>  
-**Link**: [<%= title %>](https://leetcode.com/problems/<%= title.toLowerCase().replaceAll(" ", "-").replaceAll(/[^a-z0-9\-]/g, "") %>)
-
----
+**Link**: https://leetcode.com/problems/_______
 
 ### 🔍 Logic
 
-```text
-Describe your approach here:
-- What's the brute force idea?
-- What's the optimized approach?
-- Time and space complexity?
 ```
-
----
+Explain your approach.
+Mention brute force → optimized if applicable.
+Time and space complexity?
+```
 
 ### 💡 Notes
 
-```text
-Any insights, mistakes, alternate approaches, or edge cases.
-Write down anything you learned or want to remember.
+```
+Insights, mistakes, edge cases, alternate solutions.
+```
+
+### 💻 Code (Python)
+
+```python
+# Paste your solution here
 ```
 
 ---
 
-### 💻 Code (<%= lang %>)
+## 📝 Problem 2: _______
 
-```<%= lang %>
-// your solution here
+**Link**: https://leetcode.com/problems/_______
+
+### 🔍 Logic
+
+```
+Explain your approach.
+```
+
+### 💡 Notes
+
+```
+Notes or improvements.
+```
+
+### 💻 Code (Python)
+
+```python
+# Paste your solution here
 ```
 
 ---
 
-<% } %>
+## 📝 Problem 3: _______
 
-## 🏁 Final Notes
+**Link**: https://leetcode.com/problems/_______
 
-```text
-- Rank: 
-- Score: 
+### 🔍 Logic
+
+```
+Explain your approach.
+```
+
+### 💡 Notes
+
+```
+Mistakes? Learnings?
+```
+
+### 💻 Code (Python)
+
+```python
+# Paste your solution here
+```
+
+---
+
+## 📝 Problem 4: _______
+
+**Link**: https://leetcode.com/problems/_______
+
+### 🔍 Logic
+
+```
+Explain your approach.
+```
+
+### 💡 Notes
+
+```
+Things to remember next time.
+```
+
+### 💻 Code (Python)
+
+```python
+# Paste your solution here
+```
+
+---
+
+## 🏁 Final Thoughts
+
+```
+- Rank:
+- Score:
 - What went well?
-- What to improve for next time?
+- What to improve?
 ```
 
 ---
 
-## 🏷️ Tags
-
-`#leetcode` `#contest` `#contest-<%= contestNumber %>` `#competitive-programming`
+**Tags**: #leetcode #contest #solutions
