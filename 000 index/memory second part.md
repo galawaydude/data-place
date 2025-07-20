@@ -295,58 +295,6 @@ This section covers images 7 and 8.
 
 ### In-Depth Explanation
 
-#### What is a Page Fault?
-
-A **Page Fault** is not necessarily an error. It is an exception raised by the MMU hardware when a process tries to access a page that is marked as **absent** in its page table (i.e., the present/absent bit is `0`).
-
-**Demand Paging**, as your notes mention, is the strategy of loading pages only when they are first accessed (i.e., when they cause a page fault). This saves time when a program starts and saves memory, as unused portions of the program are never loaded.
-
-#### The Page Fault Service Routine
-
-Handling a page fault is a complex and **extremely slow** process managed by the OS.
-
-1.  **Trap to OS:** The MMU triggers an exception, pausing the process and transferring control to the OS.
-2.  **Verify:** The OS checks if the access was valid (e.g., is the address within the process's legal address space?). If not, the process is terminated.
-3.  **Locate on Disk:** The OS finds the required page in secondary storage (e.g., the swap file or the program's executable file).
-4.  **Find a Free Frame:** The OS looks for an empty frame in RAM.
-5.  **(If no free frame) Evict a Victim:** If all frames are full, the OS must run a **Page Replacement Algorithm** (see Section 6) to choose a victim page to evict. If that victim page is "dirty" (modified), it must be written back to the disk first.
-6.  **Load the Page:** The OS issues a command to the disk controller to read the required page from disk and load it into the chosen frame. This is the slowest step (milliseconds).
-7.  **Update Page Table:** The OS updates the process's page table: sets the present bit to `1`, updates the frame number, and resets other control bits.
-8.  **Resume Process:** The instruction that caused the fault is restarted from the beginning.
-
-The key takeaway, highlighted by the time scales in your notes (`ms` vs `µs` vs `ns`), is that a page fault is millions of times slower than a regular memory access.
-
-#### Thrashing
-
-**Thrashing** is a pathological state where a system is perpetually page-faulting. A process needs a certain minimum number of frames to hold its "working set" (the pages it's actively using). If the OS doesn't allocate enough frames, the process will constantly fault:
-*   It needs page A, but A isn't in memory. A is loaded, evicting B.
-*   Now it needs page B. B isn't in memory. B is loaded, evicting C.
-*   Now it needs page C... and so on.
-
-The CPU utilization plummets because the system is spending all its time waiting for the slow disk I/O to service page faults, doing no actual computation. As your notes state, it's a scenario where almost every memory reference causes a page fault.
-
-#### Calculating EAT with Page Faults
-
-The presence of page faults adds another layer to our EAT calculation.
-
-Let:
-*   `p` = Page Fault Rate (e.g., 1 in 1,000,000)
-*   `MAT` = Memory Access Time (the time for a *successful* access, which itself might include TLB hits/misses. Let's assume it's the `EAT` we calculated before).
-*   `PFST` = Page Fault Service Time (the very large time to handle a fault).
-
-The formula is:
-`EAT_final = (Probability of No Fault) * (Time for No Fault) + (Probability of Fault) * (Time for Fault)`
-
-`EAT_final = (1 - p) * MAT + p * (PFST)`
-
-**GATE Problem Walkthrough (from your notes)**
-*   Given: `p = 1 / 10^6`, `MAT = 20 ns`, `PFST = 10 ms`.
-*   First, make units consistent. `10 ms = 10 * 1,000,000 ns = 10^7 ns`.
-*   `EAT_final = (1 - 1/10^6) * 20 ns + (1/10^6) * (10^7 ns)`
-*   The `(1 - 1/10^6)` part is so close to 1 that we can approximate it as 1. `(1 - 0.000001) * 20 ≈ 20`.
-*   `EAT_final ≈ 1 * 20 ns + (1/10^6) * (10^7 ns)`
-*   `EAT_final ≈ 20 ns + 10 ns = 30 ns`.
-*   **Insight:** Even though a page fault is millions of times slower, because it happens so rarely, it only adds 10 ns to the average access time. The key to performance is keeping the page fault rate (`p`) extremely low.
 
 ---
 
