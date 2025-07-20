@@ -84,7 +84,7 @@ See, i was close, while solving this problem, just missed some very important po
 
 So, we need to horizontal lines that are parallel to each other, now this is basic common sense that, two horizontal lines are always parallel to each other, as long as they do not overlap with each other.
 
-so, now to get one horizontal line, the condition is that, the y co-ordinate of both the points, should be same, now this is where the math comes into play here, assume you have 3 points, with the same y co-ordinates, you can make a horizontal line between the first two, second two, and the last two, this is basically the combination formula, now for every horizontal line from thi
+so, now to get one horizontal line, the condition is that, the y co-ordinate of both the points, should be same, now this is where the math comes into play here, assume you have 3 points, with the same y co-ordinates, you can make a horizontal line between the first two, second two, and the last two, this is basically the combination formula, now for every horizontal line from this y coordinate, you need another horizontal line from another y coordinate, to make a horizontal trapezoid, so, basically get the total number of lines from each y co-ordinate and multiply them, and you get all the possible combinations.
 
 so, you need to make a horizontal 
 #### Notes
