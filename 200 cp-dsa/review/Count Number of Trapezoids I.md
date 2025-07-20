@@ -1,5 +1,8 @@
-#review
-
+---
+sr-due: 2025-07-23
+sr-interval: 3
+sr-ease: 250
+---
 **Title :** [Count Number of Trapezoids I](https://leetcode.com/problems/count-number-of-trapezoids-i/) 
 **Tags** :  #geometry, #implementation, #map
 #### Code
