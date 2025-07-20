@@ -566,4 +566,9 @@ The formula is:
 
 `EAT_final = (1 - p) * MAT + p * (PFST)`
 
-> write about inverted page
+> write about inverted page tables, and segmentation later, not interested right now
+
+
+### Page Replacement Algorithms
+
+this shit is pretty esy
