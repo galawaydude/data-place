@@ -31,6 +31,21 @@ class DisjointSets {
 
 ### 2. sieve
 ```cpp
+    static const int lim = 1e5;
+    vector<int> sieve = vector<int>(lim, 1);
+   
+    void precompute(){
+        sieve[0] = 0;
+        sieve[1] = 0;
+        for(int i = 2; i * i < lim; i++){
+            if(sieve[i]){
+                for(int j = i * i; j < lim; j += i){
+                    sieve[j] = 0;
+                }
+            }
 
+        }
+
+    }
 ```
 
