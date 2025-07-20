@@ -505,4 +505,19 @@ A critical implication of the TLB is its interaction with process context switch
 
 The intricate dance between the OS, the MMU, and the TLB highlights a deep, symbiotic relationship. The operating system, as a software entity, defines the high-level policy of memory management: it creates and manages the page tables, decides where pages are placed, and handles exceptions. The hardware, in the form of the MMU and TLB, provides the low-level mechanism to execute these policies with extreme efficiency. The software defines a powerful but potentially slow abstraction (paging), and the hardware accelerates its core operations. When this acceleration itself introduces a new bottleneck (page table lookups), even more specialized hardware (the TLB) is introduced to solve it. 
 
+### Calculating EAT with a TLB
 
+Let:
+*   `p` = TLB Hit Rate (the probability of a TLB hit, e.g., 0.9 for 90%)
+*   `t` = TLB Access Time (e.g., 20 ns)
+*   `m` = Main Memory Access Time (e.g., 100 ns)
+
+The **Effective Access Time (EAT)** is a weighted average of the hit time and the miss time:
+
+`EAT = (Probability of Hit × Time for a Hit) + (Probability of Miss × Time for a Miss)`
+
+`EAT = p * (t + m) + (1 - p) * (t + 2m)`
+
+This is for a single-level page table. For an `L`-level page table, a TLB miss requires walking the page table tree, so the miss time is `t + (L+1)m`. The general formula becomes:
+
+`EAT = p * (t + m) + (1 - p) * (t + (L+1)m)`
