@@ -1,4 +1,4 @@
-### 1. DSU
+### 1. dsu
 ```cpp
 class DisjointSets {
   private:
@@ -29,4 +29,8 @@ class DisjointSets {
 };
 ```
 
+### 2. sieve
+```cpp
+
+```
 
