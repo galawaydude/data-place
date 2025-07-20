@@ -80,7 +80,9 @@ public:
 ```
 #### Logic
 See, i was close, while solving this problem, just missed some very important points, i was right to use combinations, and even the `c(n, 2)` thing, but what i did miss, was how to calculate this thing, we are basically doing this step by step.
-> convert
+> convex shape is basically the one where all the interior angles are less than 180, and any line segment between two points, inside the shape lies entirely withing the shape.
+
+So, we need to horizontal lines that are parallel 
 
 so, you need to make a horizontal 
 #### Notes
