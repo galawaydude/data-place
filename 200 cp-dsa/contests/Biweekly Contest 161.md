@@ -141,6 +141,19 @@ Pretty easy question, this too, just find a cell, that has a value, and apply df
 Nothing much, just try to do this question using dsu, seems a good use case for dsu.
 
 
+**Title :** [Network Recovery Pathways](https://leetcode.com/problems/network-recovery-pathways/)
+**Tags** : #array, #binary-search, #dynamic-
+
+#### Code
+#### Logic
+#### Notes
+
+
+
+
+
+
+
 
 
 
