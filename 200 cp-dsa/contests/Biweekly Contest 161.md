@@ -205,9 +205,6 @@ public:
         }
 
     }
-
-  
-
     bool isPossible(int x) {
 
         int n = adj.size();
@@ -233,15 +230,9 @@ public:
             }
 
         }
-
-  
-
         return dist[n - 1] <= k;
 
     }
-
-  
-
     int findMaxPathScore(vector<vector<int>>& edges, vector<bool>& _online, long long _k) {
 
         k = _k;
