@@ -165,7 +165,7 @@ public:
 #### Logic
 so, first and foremost thing, this question can be solved using binary search also, try to do that first. 
 so, what i did was, since we wanted to minimize the edges, its better to take the smallest edges first right, so i sorted the edges first (the lamda expression took way too much time, properly learn how to make them alright).
-once this was done, i making dsu, connecting all the edges, and finding out how many components i have so far, now i need atmost k connected components
+once this was done, i making dsu. and joining edges, 
 #### Notes
 
 
