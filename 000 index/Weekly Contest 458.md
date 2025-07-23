@@ -165,7 +165,7 @@ public:
 #### Logic
 so, first and foremost thing, this question can be solved using binary search also, try to do that first. 
 so, what i did was, since we wanted to minimize the edges, its better to take the smallest edges first right, so i sorted the edges first (the lamda expression took way too much time, properly learn how to make them alright).
-once this was done, i making dsu. and joining nodes using their edges, since i want to minimize the edges, i want to take as little edges as possible right, cause then i would have the smallest biggest edge, now once i connect two things with my edge, i want to check how many components, so i basically need a relation between number of edges, which is stored in cnt, and the total nodes to get the number of components. see we are using kruskals, because this is used to construct a complete tree, with all the nodes 
+once this was done, i making dsu. and joining nodes using their edges, since i want to minimize the edges, i want to take as little edges as possible right, cause then i would have the smallest biggest edge, now once i connect two things with my edge, i want to check how many components, so i basically need a relation between number of edges, which is stored in cnt, and the total nodes to get the number of components. see we are using kruskals, because this is u
 #### Notes
 
 
