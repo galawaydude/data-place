@@ -274,7 +274,7 @@ public:
 };
 ```
 #### Logic
-So, yeah pretty good question for me, incredibly good. so first thing, is return the maximum score, so basically we are trying to maximize something, and you should have learnt by now, that you need to try to apply binary search in this, binary search on answer. now path score is basically the
+So, yeah pretty good question for me, incredibly good. so first thing, is return the maximum score, so basically we are trying to maximize something, and you should have learnt by now, that you need to try to apply binary search in this, binary search on answer. now path score is basically the edge weight, you have to find the maximum edge in a path, that would take you from the 0th node to the nth node. and one additional constraint you have to take care of is, you 
 #### Notes
 
 
