@@ -1,5 +1,5 @@
 **Title** : **[Process String with Special Operations I](https://leetcode.com/problems/process-string-with-special-operations-i/)
-
+Tags** : #string, #simulation  
 
 #### Code
 ```cpp
