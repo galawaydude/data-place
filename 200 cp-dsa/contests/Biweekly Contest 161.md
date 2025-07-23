@@ -67,8 +67,21 @@ public:
 
 ```
 #### Logic
-Just precompute the sieve, a
+Just precompute the sieve, and then once you know whether an index is prime or not, take its sum accordingly, that is it
 #### Notes
+Nothing much, just put sieve in templates
+
+
+**Title :**
+**Tags** : 
+
+#### Code
+#### Logic
+#### Notes
+
+
+
+
 
 
 
