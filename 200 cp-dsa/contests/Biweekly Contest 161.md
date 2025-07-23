@@ -72,10 +72,13 @@ Just precompute the sieve, and then once you know whether an index is prime or n
 Nothing much, just put sieve in templates
 
 
-**Title :**
-**Tags** : 
+**Title :** [Count Islands With Total Value Divisible by K](https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/)
+**Tags** :  #array, #dfs, #bfs, #dsu, #matrix
 
 #### Code
+```
+
+```
 #### Logic
 #### Notes
 
