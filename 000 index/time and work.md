@@ -1,5 +1,6 @@
 The core principle for all Time & Work problems is:
 **Total Work = Rate of Work × Time Taken** *(this is mostly days)*
+total work is just considered as 1 unit.
 
 ---
 
