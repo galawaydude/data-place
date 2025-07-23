@@ -261,17 +261,12 @@ public:
         if (!isPossible(0)) return -1;
 
         long long lo = 0, hi = maxCost;
-
         while (lo < hi) {
-
             int mid = lo + (hi - lo + 1) / 2;
-
             if (isPossible(mid)) lo = mid;
-
             else hi = mid - 1;
 
         }
-
         return lo;
 
     }
@@ -279,7 +274,7 @@ public:
 };
 ```
 #### Logic
-So, yeah pretty good question, 
+So, yeah pretty good question for me, incredibly good
 #### Notes
 
 
