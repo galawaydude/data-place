@@ -274,7 +274,7 @@ public:
 };
 ```
 #### Logic
-So, yeah pretty good question for me, incredibly good. so first thing, is return the maximum scot
+So, yeah pretty good question for me, incredibly good. so first thing, is return the maximum score, so basically we are trying to maximize something, and you should have learnt by now, that you need to try to apply binary search in this, binary search on answer. now path score is basically the
 #### Notes
 
 
