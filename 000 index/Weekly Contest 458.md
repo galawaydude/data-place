@@ -1,5 +1,5 @@
 **Title** : **[Process String with Special Operations I](https://leetcode.com/problems/process-string-with-special-operations-i/)
-Tags : #string, #simulation 
+Tags: #array 
 
 #### Code
 ```cpp
@@ -49,7 +49,7 @@ Nothing Much
 
 
 **Title :** [Minimize Maximum Component Cost](https://leetcode.com/problems/minimize-maximum-component-cost/)
-**Tags** : #binary-search, #sort, #dsu, #graph 
+**Tags** : #binary-search, #sort, #dsu, #graph, #dsu 
 
 #### Code
 ```cpp
