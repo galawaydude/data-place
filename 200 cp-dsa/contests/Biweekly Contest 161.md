@@ -84,31 +84,18 @@ public:
     void dfs(vector<vector<int>>& grid, int i, int j, long long& sum){
 
         if(i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0) return;
-
-  
-
         sum += grid[i][j];
 
         grid[i][j] = 0;
-
-  
-
         dfs(grid, i + 1, j, sum);
-
         dfs(grid, i, j + 1, sum);
-
         dfs(grid, i - 1, j, sum);
-
         dfs(grid, i, j - 1, sum);
-
     }
 
     int countIslands(vector<vector<int>>& grid, int k) {
 
         int cnt = 0;
-
-  
-
         for(int i = 0; i < grid.size(); i++){
 
             for(int j = 0; j < grid[0].size(); j++){
@@ -278,7 +265,7 @@ So, yeah pretty good question for me, incredibly good. so first thing, is return
 you basically have to try to maximize your answer right. so pick a mid, and check if you are able to reach from the first node, to the last node, with this edge being your path score, this means that in the path you take, this weight should be the smallest, and if this is possible, you can try to increase it right, and if this is not possible, you have to decrease the weight that you picked. now how to know if its possible, in the check function what you do is, start from the first node, and using topo sort and dp, try to find the shortest path from the first node to the last node, such that, all the edges that you take, should be greater then or equal to the value you are checking in the check function. and at the end, if the cost to reach the last mode, is less then or equal to k, then return true, else return false;
 (in this question we are asked to maximize the value, we can also be asked the opposite, asked to minimize the values, then if true,we explore the left part, not the right part)'
 #### Notes
-learnt that in almost all DAG q
+learnt that in almost all DAG questions, and dp approach can be taken, and topo sort is the goat.
 
 
 
