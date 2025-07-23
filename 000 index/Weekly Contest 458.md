@@ -1,5 +1,5 @@
-**Title : **[Process String with Special Operations I](https://leetcode.com/problems/process-string-with-special-operations-i/)
-**Tags** : #string, #simulation 
+**Title** : **[Process String with Special Operations I](https://leetcode.com/problems/process-string-with-special-operations-i/)
+Tags : #string, #simulation 
 
 #### Code
 ```cpp
@@ -181,7 +181,7 @@ so in the binary search loop:
 this becomes my condition to adjust the binary search.
 at the end, the smallest `mid` that gives `<= k` components is my answer, because it’s the minimal max edge weight allowed across the components.
 #### Notes
-Crazy shit i learnt about spanning trees did not know i used this, when i did it in the contest, so yeah learn more about this, le
+Crazy shit i learnt about spanning trees did not know i used this, when i did it in the contest, so yeah learn more about this, learn how kruskal is actually implemented, and also, check out, what are forests.
 
 
 
