@@ -49,9 +49,119 @@ Nothing Much
 
 
 **Title :** [Minimize Maximum Component Cost](https://leetcode.com/problems/minimize-maximum-component-cost/)
-**Tags** : 
+**Tags** : #binary-search, #sort, #dsu, #graph 
 
 #### Code
+```cpp
+// obv dsu
+
+// i remember doing such a question, for each component also store the max edge weight
+
+// now you need to minimize this, so i guess once you get the above thing, start removing the max weight edge, and keep on doing this, until you have the number of componenets that you need.
+
+// i guess this should work
+
+// or i guess instead of breaking after i create the components, i make the compoenents, after taking the smallest one to begin with, this way i do not have to write a code, to remove elements from compoenents
+
+class DisjointSets {
+
+  private:
+
+    vector<int> parents;
+
+    vector<int> sizes;
+
+  
+
+  public:
+
+    DisjointSets(int size) : parents(size), sizes(size, 1) {
+
+        for (int i = 0; i < size; i++) { parents[i] = i; }
+
+    }
+
+  
+
+    int find(int x) { return parents[x] == x ? x : (parents[x] = find(parents[x])); }
+
+    bool unite(int x, int y) {
+
+        int x_root = find(x);
+
+        int y_root = find(y);
+
+        if (x_root == y_root) { return false; }
+
+  
+
+        if (sizes[x_root] < sizes[y_root]) { swap(x_root, y_root); }
+
+        sizes[x_root] += sizes[y_root];
+
+        parents[y_root] = x_root;
+
+        return true;
+
+    }
+
+  
+
+    bool connected(int x, int y) { return find(x) == find(y); }
+
+  
+
+    int size(int i) { return sizes[find(i)]; }
+
+};
+
+class Solution {
+
+public:
+
+    int minCost(int n, vector<vector<int>>& edges, int k) {
+
+        int cnt = 0;
+
+        sort(edges.begin(), edges.end(),[](auto& a, auto& b){
+
+            return a[2] < b[2];});
+
+  
+  
+
+        // for(auto& it: edges) cout << it[2] << " ";
+
+        // cout << endl;
+
+  
+
+        DisjointSets dsu(n);
+
+        for(auto& it: edges){
+
+            int u = it[0], v = it[1];
+
+  
+
+            if(dsu.unite(u, v)){
+
+                cnt++;
+
+                if(cnt == n - k) return it[2];
+
+            }
+
+        }
+
+  
+
+        return 0;
+
+    }
+
+};
+```
 #### Logic
 #### Notes
 
