@@ -136,7 +136,7 @@ public:
 };
 ```
 #### Logic
-Pretty easy question, this too, js
+Pretty easy question, this too, just find a cell, that has a value, and apply dfs from that cell, and then just get the sum of the complete region, and check the condition you have to.
 #### Notes
 
 
