@@ -163,7 +163,8 @@ public:
 };
 ```
 #### Logic
-so, first and foremost thing, this question can be solved using binary search also, try to do that first.
+so, first and foremost thing, this question can be solved using binary search also, try to do that first. 
+so, what i did was, since 
 #### Notes
 
 
