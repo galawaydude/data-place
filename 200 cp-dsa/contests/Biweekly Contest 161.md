@@ -76,10 +76,67 @@ Nothing much, just put sieve in templates
 **Tags** :  #array, #dfs, #bfs, #dsu, #matrix
 
 #### Code
-```
+```cpp
+class Solution {
 
+public:
+
+    void dfs(vector<vector<int>>& grid, int i, int j, long long& sum){
+
+        if(i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0) return;
+
+  
+
+        sum += grid[i][j];
+
+        grid[i][j] = 0;
+
+  
+
+        dfs(grid, i + 1, j, sum);
+
+        dfs(grid, i, j + 1, sum);
+
+        dfs(grid, i - 1, j, sum);
+
+        dfs(grid, i, j - 1, sum);
+
+    }
+
+    int countIslands(vector<vector<int>>& grid, int k) {
+
+        int cnt = 0;
+
+  
+
+        for(int i = 0; i < grid.size(); i++){
+
+            for(int j = 0; j < grid[0].size(); j++){
+
+                if(grid[i][j]){
+
+                    long long sum = 0;
+
+                    dfs(grid, i, j, sum);
+
+                    if(sum % k == 0) cnt++;
+
+                }
+
+            }
+
+        }
+
+  
+
+        return cnt;
+
+    }
+
+};
 ```
 #### Logic
+Pretty easy question, this too, js
 #### Notes
 
 
