@@ -16,9 +16,7 @@ public:
     bool checkDivisibility(int n) {
 
         int temp = n;
-
         int prod = 1, sum = 0;
-
         while(n > 0){
 
             sum += n % 10;
@@ -35,15 +33,9 @@ public:
             n /= 10;
 
         }
-
-  
-
         // cout << sum << " " << prod;
-
         return (temp % (sum + prod) == 0);
-
     }
-
 };
 ```
 #### Logic
