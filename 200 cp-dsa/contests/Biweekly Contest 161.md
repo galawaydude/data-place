@@ -274,7 +274,7 @@ public:
 };
 ```
 #### Logic
-So, yeah pretty good question for me, incredibly good
+So, yeah pretty good question for me, incredibly good. so first thing, is return the maximum scot
 #### Notes
 
 
