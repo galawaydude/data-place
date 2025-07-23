@@ -1,10 +1,3 @@
----
-sr-due: 2025-07-23
-sr-interval: 
-sr-ease:
----
-
-
 **Title :** [Check Divisibility by Digit Sum and Product](https://leetcode.com/problems/check-divisibility-by-digit-sum-and-product/)
 **Tags** : #implementation, #simulation
 #### Code
