@@ -142,9 +142,151 @@ Nothing much, just try to do this question using dsu, seems a good use case for 
 
 
 **Title :** [Network Recovery Pathways](https://leetcode.com/problems/network-recovery-pathways/)
-**Tags** : #array, #binary-search, #dynamic-
+**Tags** : #array, #binary-search, #dp, #graph, #topo-sort, #heap, #shortest-path
 
 #### Code
+```cpp
+class Solution {
+
+public:
+
+    long long const inf = 1e18;
+
+    vector<vector<pair<int, long long>>> adj;
+
+    vector<vector<int>> graph;
+
+    vector<int> topo;
+
+    vector<bool> online;
+
+    unsigned lonk;
+
+  
+
+    void kahn() {
+
+        int n = graph.size();
+
+        vector<int> indeg(n);
+
+  
+
+        for (auto& it : graph)
+
+            for (auto& it2 : it)
+
+                indeg[it2]++;
+
+  
+
+        queue<int> q;
+
+        for (int i = 0; i < n; i++)
+
+            if (indeg[i] == 0) q.push(i);
+
+  
+
+        while (!q.empty()) {
+
+            int node = q.front(); q.pop();
+
+            topo.push_back(node);
+
+            for (auto& it : graph[node]) {
+
+                indeg[it]--;
+
+                if (indeg[it] == 0) q.push(it);
+
+            }
+
+        }
+
+    }
+
+  
+
+    bool isPossible(int x) {
+
+        int n = adj.size();
+
+        vector<long long> dist(n, inf);
+
+        dist[0] = 0;
+
+  
+
+        for (int u : topo) {
+
+            if (dist[u] == inf) continue;
+
+            for (auto& [v, cost] : adj[u]) {
+
+                if (cost < x) continue;
+
+                if (!online[v] && v != n - 1) continue;
+
+                dist[v] = min(dist[v], dist[u] + cost);
+
+            }
+
+        }
+
+  
+
+        return dist[n - 1] <= k;
+
+    }
+
+  
+
+    int findMaxPathScore(vector<vector<int>>& edges, vector<bool>& _online, long long _k) {
+
+        k = _k;
+
+        online = _online;
+
+        int n = online.size();
+
+        adj.assign(n, {});
+
+        graph.assign(n, {});
+
+        int maxCost = 0;
+        for(auto& it : edges) {
+
+            int u = it[0], v = it[1], c = it[2];
+
+            adj[u].push_back({v, c});
+
+            graph[u].push_back(v);
+
+            maxCost = max(maxCost, c);
+
+        }
+        kahn();
+        if (!isPossible(0)) return -1;
+
+        long long lo = 0, hi = maxCost;
+
+        while (lo < hi) {
+
+            int mid = lo + (hi - lo + 1) / 2;
+
+            if (isPossible(mid)) lo = mid;
+
+            else hi = mid - 1;
+
+        }
+
+        return lo;
+
+    }
+
+};
+```
 #### Logic
 #### Notes
 
