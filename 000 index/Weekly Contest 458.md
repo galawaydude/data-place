@@ -166,26 +166,22 @@ public:
 so, first and foremost thing, this question can be solved using binary search also, try to do that first.  
 so, what i did was, since we wanted to minimize the edges, its better to take the smallest edges first right, so i sorted the edges first (the lambda expression took way too much time, properly learn how to make them alright).  
 once this was done, i making dsu. and joining nodes using their edges, since i want to minimize the edges, i want to take as little edges as possible right, cause then i would have the smallest biggest edge, now once i connect two things with my edge, i want to check how many components, so i basically need a relation between number of edges, which is stored in cnt, and the total nodes to get the number of components. see we are using Kruskal's, because this can be used to construct a **spanning forest**.
+
 > also, just to make it clear, a **spanning forest** is basically an extension of a **spanning tree**, but for graphs that might not be fully connected. so like, if your graph has multiple disconnected parts (or you intentionally break it into multiple components like in this question), then you can’t build one single spanning tree. instead, you build one **spanning tree per component**, and the collection of all those trees is called a **spanning forest**.  
-each tree covers all the nodes in its component and has no cycles, just like a normal spanning tree. so yeah, in this problem when we break the graph into `k` components, we’re actually building a spanning forest with `k` trees and exactly `n - k` edges.
+> each tree covers all the nodes in its component and has no cycles, just like a normal spanning tree. so yeah, in this problem when we break the graph into `k` components, we’re actually building a spanning forest with `k` trees and exactly `n - k` edges.
 
 once i have this cnt, which tells me how many edges i've added, i know that the number of components is just `n - cnt`. now the actual question says i can have **at most** `k` components. so if the number of components after building my forest (i.e., `n - cnt`) is `<= k`, that means i'm allowed to use this max edge weight i just added. but remember, we want to **minimize** the max cost among components, so that means i can binary search on the possible edge weights — for each guess (`mid`), i only allow edges with weight `<= mid` and try to build the forest. if the number of components i get is `<= k`, it’s a valid answer, so i move left in the binary search to try and minimize it even more. otherwise, if i can’t form enough components (i.e., i have too few), i go right.
 
 so in the binary search loop:
 
 - i pick `mid` (a weight guess),
-    
 - run kruskal using only edges with weight `<= mid`,
-    
 - count how many components are formed (`n - cnt`),
-    
 - check if it’s `<= k`.
-    
-
 this becomes my condition to adjust the binary search.
-
 at the end, the smallest `mid` that gives `<= k` components is my answer, because it’s the minimal max edge weight allowed across the components.
 #### Notes
+Crazy shit i learnt about spanning trees did not know i used this, when i did it in the contest, so yeah learn more about this, le
 
 
 
