@@ -275,7 +275,7 @@ public:
 ```
 #### Logic
 So, yeah pretty good question for me, incredibly good. so first thing, is return the maximum score, so basically we are trying to maximize something, and you should have learnt by now, that you need to try to apply binary search in this, binary search on answer. now path score is basically the edge weight, you have to find the maximum edge in a path, that would take you from the 0th node to the nth node. and one additional constraint you have to take care of is, you entire path cost should not exceed k, so we have to try to minimize this as much as possible, right, so pick the shortest path, with the lowest cost, this begs use to use Dijkstra, but since its a DAG, we can use topo sort, and process nodes in a particular order, and relax them accordingly, kinda doing a dp approach. so, yeah the basic step for doing bsoa would be to get the limits, the max and the min, and max would be the max edge in the graph, and the min would be 0.
-you basically have to try to maximize your answer right
+you basically have to try to maximize your answer right. so pick a mid, and check if you are able to reach from the first node, to the last node, with this edge being your highest 
 #### Notes
 
 
