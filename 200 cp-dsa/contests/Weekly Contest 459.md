@@ -26,9 +26,6 @@ public:
             n /= 10;
 
         }
-
-  
-
         n = temp;
 
         while(n > 0){
