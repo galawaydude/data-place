@@ -42,8 +42,22 @@ public:
 };
 ```
 #### Logic
-Nothing much, god knows why its 
+Nothing much, god knows why its medium, just basic simulation.
 #### Notes
+Nothing Much
+
+
+
+**Title :** [Minimize Maximum Component Cost](https://leetcode.com/problems/minimize-maximum-component-cost/)
+**Tags** : 
+
+#### Code
+#### Logic
+#### Notes
+
+
+
+
 
 
 
