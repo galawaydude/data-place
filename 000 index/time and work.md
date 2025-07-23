@@ -9,5 +9,5 @@ now if both of them combine, then in one day their combined work would be
 
 so basically assume they need n days to complete a work, that would mean after n days, 1 unit of work would be done right. so in one day, 1 / n units of work would be done. 
 
-so basically, if they do a/b amount of work in one day, then it would take b/a day to complete the work
+so basically, if they do a/b amount of work in one day, then it would take b/a day to complete the work.
 
