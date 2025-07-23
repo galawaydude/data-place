@@ -50,6 +50,6 @@ class DisjointSets {
 ```
 
 ### 3. Kahn's algorithm 
-```
+```cpp
 
 ```
