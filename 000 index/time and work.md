@@ -1,0 +1,1 @@
+If `A` does a work in `s`a
