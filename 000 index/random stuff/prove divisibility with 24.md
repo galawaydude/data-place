@@ -62,9 +62,7 @@ We’ve shown that:
 
 Since $\gcd(3, 8) = 1$, we conclude:
 
-$$
-(p - 1)(p + 1) \text{ is divisible by } 8 \times 3 = 24
-$$
+$$(p - 1)(p + 1) \text{ is divisible by } 8 \times 3 = 24 $$
 
 Conclusion
 
