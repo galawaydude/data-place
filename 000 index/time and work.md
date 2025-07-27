@@ -7,7 +7,6 @@ total work is just considered as 1 unit.
 ### **3 Core Methods to Solve Any Basic Problem**
 
 Choose the method you find fastest. **Method 3 (LCM Method) is often the easiest and avoids fractions.**
-
 #### **1. The Fraction Method**
 - **Concept:** Total Work = **1 unit**.
 - **Rate of Work:** If A takes `a` days, their rate is `1/a` of the work per day.
