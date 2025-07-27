@@ -7,9 +7,7 @@ Prove that for any prime number \( p \geq 5 \), the expression \( p^2 - 1 \) is 
 
 We are given that \( p \) is a prime number such that \( p \geq 5 \).  
 We want to show that:
-\[
-p^2 - 1 \text{ is divisible by } 24
-\]
+\[p^2 - 1 \text{ is divisible by } 24\]
 
 ---
 
