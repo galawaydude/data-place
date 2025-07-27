@@ -74,4 +74,4 @@ $$
 p^2 - 1 = (p - 1)(p + 1)
 $$
 
-is divisible by **24**. ∎
+is divisible by **24**.
