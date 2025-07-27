@@ -66,7 +66,7 @@ $$
 (p - 1)(p + 1) \text{ is divisible by } 8 \times 3 = 24
 $$
 
-## ✅ Conclusion
+Conclusion
 
 For any prime number $p \geq 5$:
 
