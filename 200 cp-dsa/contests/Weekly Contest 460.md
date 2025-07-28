@@ -40,7 +40,9 @@ Nothing much, pretty good question, for like fundamentals, i was thinking of som
 #### Logic
 So, yeah this is a pretty good question, you may think this is dp, but the constraints, do not fit unless you can think of a 1d dp, which seems impossible, at least for me.
 so now you have to put insert either l, c or t, such that the total occurrences of 'lct' is maximized.
-so, now obv, if you want to put l, you obv insert it in the first place right, then you get more 'lct's, and if you want to insert a 't' the most optimal place to insert a 't' would be at the last, 
+so, now obv, if you want to put l, you obv insert it in the first place right, then you get more 'lct's, and if you want to insert a 't' the most optimal place to insert a 't' would be at the last, this makes sense right.
+now to put a 'c' you have to make sure that, you put it in a place such that, there are a lot of 'l's before it and a lot of 't's after this. this you find using prefix and suffix arrays.
+now basically find the 
 #### Notes
 
 
