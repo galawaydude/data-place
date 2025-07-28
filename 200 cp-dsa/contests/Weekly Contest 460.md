@@ -23,11 +23,10 @@ public:
 ```
 #### Logic
 So, basically you can select any three elements you want right, and you want to maximize the median of the sums. so basically try to get the maximum medians.
-now, in three numbers the median would be the second biggest number. now i can think of two approach to this question, one would be to sort it, and once you do this, the last element would be the biggest right, and the second last element would be a candidate for you median right. 
+now, in three numbers the median would be the second biggest number. so what you do is first sort the arr
 > 1, 2, 3, 4, 5
 > take 4 first, then i-=2 you come to three, and then that is it, run the loop until you are able to select three elements only, and this is it, btw, you do this because, you remove the three elements once you do this, you cannot use them again, else this question would be even easier i question, then you would do -1 instead of 2
 
-the other approach is to use a heap, and do the same thing, pop 1, take the next, then pop it again, until you have 3 or greater then three elements in the heap.
 #### Notes
 
 
