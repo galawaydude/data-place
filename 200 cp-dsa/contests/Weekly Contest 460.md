@@ -1,5 +1,5 @@
 **Title :** [Maximum Median Sum of Subsequences of Size 3](https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/)
-**Tags** : #math, #implementation 
+**Tags** : #math, #implementation #greedy 
 
 #### Code
 ```cpp
@@ -33,8 +33,8 @@ Nothing much, pretty good question, for like fundamentals, i was thinking of som
 
 
 
-**Title :**
-**Tags** : 
+**Title :** [Maximum Number of Subsequences After One Inserting](https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/)
+**Tags** : #string #greedy, 
 
 #### Code
 #### Logic
