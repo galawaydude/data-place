@@ -8,7 +8,6 @@ We want to show that:
 $$
 p^2 - 1 \text{ is divisible by } 24
 $$
-
 ### 🔹 Step 1: Factor the expression
 
 $$
