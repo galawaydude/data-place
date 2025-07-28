@@ -22,7 +22,8 @@ public:
 };
 ```
 #### Logic
-So, basically you can select any three elements you want right, and you want to maximize the median of the sums.
+So, basically you can select any three elements you want right, and you want to maximize the median of the sums. so basically try to get the maximum medians.
+now, in three numbers the median would be the second biggest number, this is literally all you need, the first thing you c
 #### Notes
 
 
