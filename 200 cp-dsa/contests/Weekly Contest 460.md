@@ -15,8 +15,6 @@ public:
         sort(nums.begin(), nums.end());
         for(int i = n - 2; i >= n / 3; i-=2) sum += nums[i];
 
-  
-
         return sum;
 
     }
@@ -24,6 +22,7 @@ public:
 };
 ```
 #### Logic
+So, basically you can select any three elements you want right, and you want to maxi
 #### Notes
 
 
