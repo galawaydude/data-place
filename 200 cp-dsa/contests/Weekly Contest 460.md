@@ -42,7 +42,7 @@ So, yeah this is a pretty good question, you may think this is dp, but the const
 so now you have to put insert either l, c or t, such that the total occurrences of 'lct' is maximized.
 so, now obv, if you want to put l, you obv insert it in the first place right, then you get more 'lct's, and if you want to insert a 't' the most optimal place to insert a 't' would be at the last, this makes sense right.
 now to put a 'c' you have to make sure that, you put it in a place such that, there are a lot of 'l's before it and a lot of 't's after this. this you find using prefix and suffix arrays.
-now basically find the 
+now basically find in which case you get the most 'lct's, and return that.
 #### Notes
 
 
