@@ -40,7 +40,7 @@ Nothing much, pretty good question, for like fundamentals, i was thinking of som
 #### Logic
 So, yeah this is a pretty good question, you may think this is dp, but the constraints, do not fit unless you can think of a 1d dp, which seems impossible, at least for me.
 so now you have to put insert either l, c or t, such that the total occurrences of 'lct' is maximized.
-so, now obv, if you want to put l, you obv insert it in the first place right, then you get more 'lct's, and if y
+so, now obv, if you want to put l, you obv insert it in the first place right, then you get more 'lct's, and if you want to insert a t the most optimal place to insert a 't' would be 
 #### Notes
 
 
