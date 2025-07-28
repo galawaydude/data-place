@@ -22,7 +22,7 @@ public:
 };
 ```
 #### Logic
-So, basically you can select any three elements you want right, and you want to maxi
+So, basically you can select any three elements you want right, and you want to maximize the median of the sums.
 #### Notes
 
 
