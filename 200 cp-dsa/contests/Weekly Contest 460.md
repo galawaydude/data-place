@@ -1,7 +1,28 @@
 **Title :** [Maximum Median Sum of Subsequences of Size 3](https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/)
-**Tags** : 
+**Tags** : #math, #implementation 
 
 #### Code
+```cpp
+class Solution {
+
+public:
+
+    long long maximumMedianSum(vector<int>& nums) {
+
+        int n = nums.size();
+
+        long long sum = 0;
+        sort(nums.begin(), nums.end());
+        for(int i = n - 2; i >= n / 3; i-=2) sum += nums[i];
+
+  
+
+        return sum;
+
+    }
+
+};
+```
 #### Logic
 #### Notes
 
