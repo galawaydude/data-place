@@ -24,6 +24,8 @@ public:
 #### Logic
 So, basically you can select any three elements you want right, and you want to maximize the median of the sums. so basically try to get the maximum medians.
 now, in three numbers the median would be the second biggest number. now i can think of two approach to this question, one would be to sort it, and once you do this, the last element would be the biggest right, and the second last element would be a candidate for you median right. 
+> 1, 2, 3, 4, 5
+> take 4 first, then i-=2 you come to three, and then that is it, run the loop until you are able to select three elements only, 
 #### Notes
 
 
