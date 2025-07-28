@@ -27,7 +27,7 @@ now, in three numbers the median would be the second biggest number. now i can t
 > 1, 2, 3, 4, 5
 > take 4 first, then i-=2 you come to three, and then that is it, run the loop until you are able to select three elements only, and this is it, btw, you do this because, you remove the three elements once you do this, you cannot use them again, else this question would be even easier i question, then you would do -1 instead of 2
 
-the other approach is to use a heap, and do the same thing, pop 1, take the next, then pop it again, until you have 
+the other approach is to use a heap, and do the same thing, pop 1, take the next, then pop it again, until you have 3 or greater then three elements in the heap.
 #### Notes
 
 
