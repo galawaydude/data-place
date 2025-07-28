@@ -34,10 +34,11 @@ Nothing much, pretty good question, for like fundamentals, i was thinking of som
 
 
 **Title :** [Maximum Number of Subsequences After One Inserting](https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/)
-**Tags** : #string #greedy, 
+**Tags** : #string, #greedy, #implementation 
 
 #### Code
 #### Logic
+So, yeah this is a pretty good question, you may think this is dp, but the constraints, do not fit unless you can think of a 1d dp, which seems impossible
 #### Notes
 
 
