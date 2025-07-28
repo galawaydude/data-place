@@ -23,7 +23,7 @@ public:
 ```
 #### Logic
 So, basically you can select any three elements you want right, and you want to maximize the median of the sums. so basically try to get the maximum medians.
-now, in three numbers the median would be the second biggest number, this is literally all you need, the first thing you c
+now, in three numbers the median would be the second biggest number. now i can think of two approach to this question, one would be to sort it, and once you do this, the last element would be the biggest right, and the second last element would be a candidate for you median right. 
 #### Notes
 
 
