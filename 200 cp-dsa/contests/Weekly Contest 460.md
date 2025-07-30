@@ -37,6 +37,7 @@ Nothing much, pretty good question, for like fundamentals, i was thinking of som
 **Tags** : #string, #greedy, #implementation 
 
 #### Code
+
 #### Logic
 So, yeah this is a pretty good question, you may think this is dp, but the constraints, do not fit unless you can think of a 1d dp, which seems impossible, at least for me.
 so now you have to put insert either l, c or t, such that the total occurrences of 'lct' is maximized.
