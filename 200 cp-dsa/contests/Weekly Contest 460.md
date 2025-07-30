@@ -47,11 +47,15 @@ now basically find in which case you get the most 'lct's, and return that.
 #### Notes
 
 
-**Title :**
-**Tags** : 
+**Title : **[Minimum Jumps to Reach End via Prime Teleportation](https://leetcode.com/problems/minimum-jumps-to-reach-end-via-prime-teleportation/)
+**Tags** :  #bfs #number-theory #shortest-path 
 
-#### Code
+#### Code:
+```cpp
+
+```
 #### Logic
+so, the first hint that you have is you need to find the minimum number o s
 #### Notes
 
 
