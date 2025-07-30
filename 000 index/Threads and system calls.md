@@ -71,3 +71,7 @@ This category encompasses system calls that govern the creation, termination, an
 - Identification: The getpid() call in UNIX returns the unique process identifier (PID) of the calling process, a crucial piece of information for process management and signaling. Windows provides the GetCurrentProcessId() call for the same purpose.
 
 
+### File And Device Management
+
+
+
