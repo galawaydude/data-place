@@ -104,4 +104,8 @@ This broad category includes system calls for retrieving or setting system infor
     CreateFileMapping() and MapViewOfFile().7
 
 > write about the system calls in windows and linux
-> and also some important points about the fork system call, why its used and also its optimization, for you to understand this properly, you need to revise page table again, so please do that, i guess you can complete revising everything by today, have to do file system also, that is boring so pick some other day to do that, for now complete dea
+> and also some important points about the fork system call, why its used and also its optimization, for you to understand this properly, you need to revise page table again, so please do that, i guess you can complete revising everything by today, have to do file system also, that is boring so pick some other day to do that, for now complete dead locks
+> and also you have to revise threads, so do that too, do it later picl som
+
+
+
