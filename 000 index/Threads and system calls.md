@@ -11,4 +11,6 @@ A system call is initiated by  by the program, executing a specific instruction,
 > Device handling (I/O operations)
 > 
 > by default a program would be in user mode, and when it needs to perform a task that requires privileged access, it makes a system call. This switches the cpu from user mode to kernel mode.
-### Features of system calls
+
+### How does a System call work
+Sometimes user programs need to do some special things that can't be done without the permission of the OS like reading from a file, writing to a file, getting any information from the hardware or requesti
