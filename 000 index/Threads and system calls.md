@@ -13,11 +13,13 @@ A system call is initiated by  by the program, executing a specific instruction,
 > by default a program would be in user mode, and when it needs to perform a task that requires privileged access, it makes a system call. This switches the cpu from user mode to kernel mode.
 
 ### How does a System call work
+
 Sometimes user programs need to do some special things that can't be done without the permission of the OS like reading from a file, writing to a file, getting any information from the hardware or requesting a space in memory. There are special predefined instructions to make a request to the operating system. These instructions are system calls. The program uses these system calls in its code when its needed. 
 
 When the OS sees the system call, then it recognizes that the program needs help at this time so it temporarily stops the program execution and gives all the control to a special part of itself call the kernel, Now the kernel solves the need of the program. Now the operating system performs the operating that is requested by the program, after performing the operating the OS gives control back to the program for further execution.
 
 ### An example of the above thing
+
 Let’s say the program wants to read some text from a file called `notes.txt`. It uses code like this:
 
 ```c
@@ -51,3 +53,7 @@ This code looks simple, but behind the scenes, it contains system calls. Functio
 - Once done, the OS gives control back to the program so it can continue running.
 
 The same process happens when calling `fgets()` (to read data) and `fclose()` (to close the file).
+
+### Types of System Calls
+
+Services provided by the OS are typically related to any kind of operating that a user program can perform like creation, termination, forking, moving, communication, etc. 
