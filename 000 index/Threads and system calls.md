@@ -2,3 +2,4 @@
 
 A system call is a programmatic way in which a program requests a service from the kernel of the operating system on which it is executed. System call provided the services of the operating system to the user programs via a API. System calls are the only entry points into the kernel system, and are executed in kernel mode.![[introduction_to_system_call.webp]]
 
+A system call is initiated by  by the program, executing a specific instruction, w 
