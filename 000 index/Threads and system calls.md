@@ -60,6 +60,7 @@ Services provided by the OS are typically related to any kind of operating that 
 ![[Types-of-System-Calls-(3)-(2).png]]
 
 ### Process Control
+
 This category encompasses system calls that govern the creation, termination, and management of processes, the fundamental units of execution.
 
 - Creation and Execution: The most fundamental process control calls are those that create new processes and load new programs. In UNIX-like systems, this is famously a two-step operation: fork() creates a new child process that is an identical copy of the parent, and exec() (a family of calls like execlp, execv, etc.) replaces the current process's memory image with that of a new program.2 Windows, in contrast, combines these steps into a single, more complex API call,  
@@ -68,4 +69,5 @@ This category encompasses system calls that govern the creation, termination, an
     wait() family of calls provides a synchronization mechanism, allowing a parent process to pause its own execution until one of its child processes has terminated.1 The Windows equivalent for this synchronization is often  
     WaitForSingleObject().
 - Identification: The getpid() call in UNIX returns the unique process identifier (PID) of the calling process, a crucial piece of information for process management and signaling. Windows provides the GetCurrentProcessId() call for the same purpose.
+
 
