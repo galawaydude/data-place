@@ -16,3 +16,49 @@ A system call is initiated by  by the program, executing a specific instruction,
 Sometimes user programs need to do some special things that can't be done without the permission of the OS like reading from a file, writing to a file, getting any information from the hardware or requesting a space in memory. There are special predefined instructions to make a request to the operating system. These instructions are system calls. The program uses these system calls in its code when its needed. 
 
 When the OS sees the system call, then it recognizes that the program needs help at this time so it temporarily stops the program execution and gives all the control to a special part of itself call the kernel, Now the kernel solves the need of the program. Now the operating system performs the operating that is requested by the program, after performing the operating the OS gives control back to the program for further execution.
+
+### An example of the above thing
+
+To do that, the program uses a **system call**, which is a special, predefined instruction for requesting a service from the OS.
+
+### What the Program Does
+
+Let’s say the program wants to read some text from a file called `notes.txt`. It uses code like this:
+
+```c
+#include <stdio.h>
+
+int main() {
+    FILE *file = fopen("notes.txt", "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    char buffer[100];
+    fgets(buffer, 100, file);
+    printf("First line: %s\n", buffer);
+
+    fclose(file);
+    return 0;
+}
+```
+
+This code looks simple, but behind the scenes, it contains system calls. Functions like `fopen()`, `fgets()`, and `fclose()` are actually calling lower-level system calls like `open()`, `read()`, and `close()`.
+
+### What the OS Does
+
+- When the program reaches `fopen("notes.txt", "r")`, it knows it needs access to the disk, which it can't do directly.
+- So, it makes a system call.
+- The OS notices this and recognizes that the program needs help.
+- It temporarily **pauses** the program and transfers control to a special part of the OS called the **kernel**.
+- The kernel handles the file opening task.
+- Once done, the OS gives control back to the program so it can continue running.
+
+The same process happens when calling `fgets()` (to read data) and `fclose()` (to close the file).
+
+### Summary
+
+- System calls are special instructions that let a user program request services from the OS.
+- The OS takes over, performs the requested operation, and then returns control to the program.
+- This ensures that all critical resources like files, memory, and devices are accessed safely and in a controlled manner.
