@@ -89,4 +89,18 @@ This is arguably the most frequently used category of system calls, providing th
 
 ### Information Maintenance and Inter-Process Communication
 
+This broad category includes system calls for retrieving or setting system information and for facilitating communication between different processes (Inter-Process Communication, or IPC).
 
+- Information Maintenance: These calls allow a process to query or modify its environment or the system's state. Examples include getpid() for process information, alarm() or SetTimer() for scheduling a future event, and sleep() for pausing execution for a set duration.2
+    
+- Inter-Process Communication (IPC): Since processes have isolated address spaces, they require kernel-mediated mechanisms to communicate.
+    
+
+- pipe(): Creates a simple, unidirectional communication channel, typically used between a parent and child process.5
+    
+- socket(): Creates a network socket, which is a versatile endpoint for communication between processes on the same machine or across a network.2
+    
+- Shared Memory: For high-bandwidth communication, calls like shmget() (in System V IPC) or mmap() (in POSIX) allow multiple processes to map the same region of physical memory into their respective virtual address spaces, enabling direct memory sharing.5 Windows provides analogous functionality with  
+    CreateFileMapping() and MapViewOfFile().7
+
+> write about the system calls in windows and linux
