@@ -58,3 +58,4 @@ The same process happens when calling `fgets()` (to read data) and `fclose()` (t
 
 Services provided by the OS are typically related to any kind of operating that a user program can perform like creation, termination, forking, moving, communication, etc. Similar types of operating are grouped into one single system call category.
 ![[Types-of-System-Calls-(3)-(2).png]]
+
