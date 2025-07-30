@@ -73,5 +73,20 @@ This category encompasses system calls that govern the creation, termination, an
 
 ### File And Device Management
 
+This is arguably the most frequently used category of system calls, providing the interface for all Input/Output (I/O) operations. In UNIX-like systems, a powerful abstraction treats hardware devices as if they were files, allowing a small, consistent set of system calls to be used for interacting with a wide variety of resources.5
+
+- Core Operations: The canonical file management calls are open(), read(), write(), and close().
+- open(): Takes a file path and access flags, and upon success, returns a small, non-negative integer called a file descriptor. This descriptor is a handle used in all subsequent operations on that file.1
+- read(): Reads a specified number of bytes from an open file descriptor into a memory buffer provided by the application.2
+- write(): Writes a specified number of bytes from an application's memory buffer to an open file descriptor.2
+    
+- close(): Informs the kernel that the process is finished with a file descriptor, allowing the kernel to release associated resources.2
+    
+
+- Device Control: For operations that do not fit the simple byte-stream model of read/write, such as configuring a serial port or ejecting a CD-ROM, UNIX provides the ioctl() (I/O control) system call. This acts as a general-purpose, device-specific escape hatch.7 Windows uses a more structured set of API calls for device management, such as  
+    SetConsoleMode() for configuring the command-line console.5
+
+
+### Information Maintenance and Inter-Process Communication
 
 
