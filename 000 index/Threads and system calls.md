@@ -9,5 +9,6 @@ A system call is initiated by  by the program, executing a specific instruction,
 > Process control (fork, exec, exit)
 > Memory management (allocate, deallocate)
 > Device handling (I/O operations)
-> by defa
+> 
+> by default a program would be in user mode, and when it needs to perform a task that requires privileged access, it makes a system call. This switches the cpu from user mode to kernel mode.
 ### Features of system calls
