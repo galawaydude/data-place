@@ -14,3 +14,5 @@ A system call is initiated by  by the program, executing a specific instruction,
 
 ### How does a System call work
 Sometimes user programs need to do some special things that can't be done without the permission of the OS like reading from a file, writing to a file, getting any information from the hardware or requesting a space in memory. There are special predefined instructions to make a request to the operating system. These instructions are system calls. The program uses these system calls in its code when its needed. 
+
+When the OS sees the system call, then it recognizes that the program needs help at this time so it temporarily stops the program execution and gives all the control to a special part of itself call the k 
