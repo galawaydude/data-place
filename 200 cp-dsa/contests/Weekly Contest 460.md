@@ -55,7 +55,7 @@ now basically find in which case you get the most 'lct's, and return that.
 
 ```
 #### Logic
-so, the first hint that you have is you need to find the minimum number of steps to reach some destination. one approach could be to use dynamic programming, but apparently the transition and states do not make sense. and another thing you can use to find the minimum steps would be to use bfs, so basically that would be to do graph modelling. so now the nodes are given in the nums array, now you have to cone
+so, the first hint that you have is you need to find the minimum number of steps to reach some destination. one approach could be to use dynamic programming, but apparently the transition and states do not make sense. and another thing you can use to find the minimum steps would be to use bfs, so basically that would be to do graph modelling. so now the nodes are given in the nums array, now you have to connect edges, now connecting the edges of everything would be bad, cause there would be too many edges, which would lead to tle, could yeah, there could be too many edges
 #### Notes
 
 
