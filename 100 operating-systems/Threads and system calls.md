@@ -1,6 +1,7 @@
 ### System calls
 
-A system call is a programmatic way in which a program requests a service from the kernel of the operating system on which it is executed. System call provided the services of the operating system to the user programs via a API. System calls are the only entry points into the kernel system, and are executed in kernel mode.![[introduction_to_system_call.webp]]
+A system call is a programmatic way in which a program requests a service from the kernel of the operating system on which it is executed. System call provided the services of the operating system to the user programs via a API. System calls are the only entry points into the kernel system, and are executed in kernel mode.
+![[introduction_to_system_call.webp]]
 
 A system call is initiated by  by the program, executing a specific instruction, which triggers a switch to kernel mode, allowing the program to request a service from the OS. The OS then handles the request, performs the necessary operations and returns the result back to the program. System calls are essential for the proper functioning of an operating system, as they provide a standardized way for programs to access system resources. Without system calls, each program would need to implement its methods for accessing hardware and system services, leading to inconsistent and error-prone behavior.
 > the kernel is the core part of the OS that has complete control over everything in the system.
@@ -105,7 +106,7 @@ This broad category includes system calls for retrieving or setting system infor
 
 > write about the system calls in windows and linux
 > and also some important points about the fork system call, why its used and also its optimization, for you to understand this properly, you need to revise page table again, so please do that, i guess you can complete revising everything by today, have to do file system also, that is boring so pick some other day to do that, for now complete dead locks
-> and also you have to revise threads, so do that too, do it later picl som
+> and also you have to revise threads, so do that too, do it later pick some fine day to revise this shit
 
 
 
