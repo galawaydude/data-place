@@ -183,7 +183,8 @@ so, the first hint that you have is you need to find the minimum number of steps
 so now the crux of the question is that, from any index you can move to index i - 1, or 1 + 1, and if nums[i] is a prime number p, you have one additional point to jump to, basically any index j such that nums[j] % p == 0, so basically nums[j] should be a multiple of p. so now we have to find all the factors of a composite number, to easily be able to navigate as per the question, now comes the implementation, which is somewhat the harder part, have to get better at doing this.
 
 alright, so we use spf array to find the smallest prime factor of a number, cause using this we would be able to factorize any number in basically root n, i guess.
-so, now to check all the numbers we can jump to from number p we need to precompite
+so, now to check all the numbers we can jump to from number p we need to precompute all the indices we can jump to, now to find this we will use the spf array,
+so now go through the nums array, and then pick the numbers, if 
 #### Notes
 
 
