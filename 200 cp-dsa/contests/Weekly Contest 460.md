@@ -52,10 +52,134 @@ now basically find in which case you get the most 'lct's, and return that.
 
 #### Code:
 ```cpp
+int const MAXNUM = 1e6 + 5;
 
+int spf[MAXNUM + 1] = {0};
+
+void precompute()
+
+{ // spf[0] and spf[1] are undefined;
+
+    for (int i = 2; i <= MAXNUM; i++)
+
+    { // nlogn sieve;
+
+        if (!spf[i]) for (int j = i; j <= MAXNUM; j += i) spf[j] = i;
+
+    } // is spf[i] = 0, means its prime, make every j = i;
+
+}
+
+  
+
+class Solution {
+
+public:
+    int const MOD = 1e9 + 7;
+    int minJumps(vector<int>& nums)
+    {
+        if (!spf[2]) precompute();
+
+        int const n = nums.size();
+
+        unordered_map<int, vector<int>> idx; // idx[p] = indices divisible by prime p;
+
+        for (int i = 0; i <= n - 1; i++)
+
+        { // insert index in all prime factors;
+
+            int x = nums[i];
+
+            while (spf[x])
+
+            {
+
+                idx[spf[x]].push_back(i);
+
+                x /= spf[x];
+
+            }
+
+        }
+
+  
+
+        int di[2] = {-1, 1};
+
+        vector<int> dist(n, MOD);
+
+        dist[0] = 0;
+
+  
+
+        queue<int> to_visit;
+
+        to_visit.push(0);
+
+  
+
+        while (to_visit.size())
+
+        {
+
+            int i = to_visit.front();
+
+            to_visit.pop();
+
+  
+
+            for (int d = 0; d <= 1; d++)
+
+            {
+
+                int ni = i + di[d];
+
+                if (ni >= 0 && ni <= n - 1 && dist[i] + 1 < dist[ni])
+
+                {
+
+                    dist[ni] = 1 + dist[i];
+
+                    to_visit.push(ni);
+
+                }
+
+            }
+
+            if (spf[nums[i]] != nums[i]) continue;
+
+            while (idx[nums[i]].size())
+
+            {
+
+                int ni = idx[nums[i]].back();
+
+                if (dist[i] + 1 < dist[ni])
+
+                {
+
+                    dist[ni] = 1 + dist[i];
+
+                    to_visit.push(ni);
+
+                }
+
+                idx[nums[i]].pop_back();
+
+            }
+
+        }
+
+  
+
+        return dist[n - 1];
+
+    }
+
+};
 ```
 #### Logic
-so, the first hint that you have is you need to find the minimum number of steps to reach some destination. one approach could be to use dynamic programming, but apparently the transition and states do not make sense. and another thing you can use to find the minimum steps would be to use bfs, so basically that would be to do graph modelling. so now the nodes are given in the nums array, now you have to connect edges, now connecting the edges of everything would be bad, cause there would be too many edges, which would lead to tle, could yeah, there could be too many edges
+so, the first hint that you have is you need to find the minimum number of steps to reach some destination. one approach could be to use dynamic programming, but apparently the transition and states do not make sense. and another thing you can use to find the minimum steps would be to use bfs, so basically that would be to do graph modelling. so now the nodes are given in the nums array, now you have to connect edges, now connecting the edges of everything would be bad, cause there would be too many edges, which would lead to tle, cou
 #### Notes
 
 
