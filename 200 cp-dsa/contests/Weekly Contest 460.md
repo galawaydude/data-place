@@ -180,7 +180,7 @@ public:
 ```
 #### Logic
 so, the first hint that you have is you need to find the minimum number of steps to reach some destination. one approach could be to use dynamic programming, but apparently the transition and states do not make sense. and another thing you can use to find the minimum steps would be to use bfs, so basically that would be to do graph modelling. so now the nodes are given in the nums array, now you have to connect edges, now connecting the edges of everything would be bad, cause there would be too many edges, which would lead to tle. so instead of connecting the edges, we would just add the edges into the q while doing the bfs, simulation that there is an edge between the nodes.
-so now the crux of the question is that, from any index you can move to index i - 1, or 1 + 1, and if nums[i] is a prime number, you have one additional point to jump to, basically any index j such that nums[j] % p == 0, so basicall
+so now the crux of the question is that, from any index you can move to index i - 1, or 1 + 1, and if nums[i] is a prime number p, you have one additional point to jump to, basically any index j such that nums[j] % p == 0, so basically nums[j] should be a multiple of p. so now we have to find all the factors of a composite number, to easily be able to navigate as per the ques
 #### Notes
 
 
