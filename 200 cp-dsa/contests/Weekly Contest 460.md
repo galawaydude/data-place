@@ -184,7 +184,7 @@ so now the crux of the question is that, from any index you can move to index i 
 
 alright, so we use spf array to find the smallest prime factor of a number, cause using this we would be able to factorize any number in basically root n, i guess.
 so, now to check all the numbers we can jump to from number p we need to precompute all the indices we can jump to, now to find this we will use the spf array,
-so now go through the nums array, and then pick the numbers, if 
+so now go through the nums array, and then pick the numbers, if its a prime, 
 #### Notes
 
 
