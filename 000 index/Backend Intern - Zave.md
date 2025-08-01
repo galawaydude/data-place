@@ -1,2 +1,2 @@
 Hi, 
-I am pavan, I came across your LinkedIn post for a Backend intern. I am a cs student, that's the most generic 
+I am pavan, I came across your LinkedIn post for a Backend intern. I am a cs student, that's the most generic thing about me. something not so generic is the way I approach something. There is a lot of stuff I do not know, but  
