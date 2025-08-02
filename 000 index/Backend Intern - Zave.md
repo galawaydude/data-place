@@ -1,1 +1,2 @@
 I’m Pavan, a CS student, which is pretty standard these days. What’s less common is how I tackle things. There’s a lot I don’t know yet, and that is something that excites me even more, any technology, i find interesting, i explore. I like backend dev, cause it literally enables me to build stuff, i want to use, a lot of my projects were built because of something i needed them for. I’m not afraid to admit my gaps; in fact the less i know the better, cause it makes me learn more stuff.
+https://elikamerow.medium.com/cold-emailing-for-startup-interviews-11a8f6c1012c
