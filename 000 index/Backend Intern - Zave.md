@@ -1,2 +1,1 @@
-Hi, 
-I am pavan, I came across your LinkedIn post for a Backend intern. I am a cs student, that's the most generic thing about me. something not so generic is the way I approach something. There is a lot of stuff I do not know, but  
+I’m Pavan, a CS student, which is pretty standard, I know. What’s less common is how I tackle things. There’s a ton I don’t know yet, but that’s what drives me—I dive headfirst into challenges, learning as I go. I’m passionate about backend development, messing around with Python, Node.js, and databases like MongoDB to build stuff that actually works. I’m not afraid to admit my gaps; instead, I see them as chances to grow. I’d love to bring this mindset to your backend intern role, contributing fresh ideas and a relentless drive to learn.
